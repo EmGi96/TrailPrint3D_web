@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Examples — TrailPrint3D</title>
+    <title>Examples — TrailPrint3D Blender Add-on</title>
+    <meta name="description" content="Browse 3D printed trail map examples made with TrailPrint3D — a free Blender add-on for turning GPX hiking and cycling tracks into printable terrain maps.">
+    <meta property="og:title" content="Examples — TrailPrint3D Blender Add-on">
+    <meta property="og:description" content="Browse 3D printed trail map examples made with TrailPrint3D — a free Blender add-on for turning GPX hiking and cycling tracks into printable terrain maps.">
+    <meta property="og:image" content="https://www.trailprint3d.com/images/mainImage.webp">
+    <meta property="og:url" content="https://www.trailprint3d.com/examples.html">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://www.trailprint3d.com/examples.html">
     <link rel="stylesheet" href="styles.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMJ4P3S5R6"></script>
@@ -310,54 +317,51 @@
     <div class="gallery-wrap">
         <div class="gallery-grid" id="gallery">
 
-            <div class="gallery-card" data-tier="free" onclick="openLightbox('images/example-1.png', 'Alpine Summit Trail', 'A classic alpine route generated from a GPX track. Single-color mode, circular shape, 20cm diameter.')">
+            <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'By NeoPanthera', 'Added the routes to the medal wall')">
                 <div class="gallery-img">
-                    <span class="gallery-img-placeholder">📷 images/example-1.png</span>
-                    <img src="images/example-1.png" alt="Alpine Summit Trail">
+                    <img src="images/NeoPanthera_30.07.2025.jpg" alt="Medal Wall">
                 </div>
                 <div class="gallery-info">
                     <div class="gallery-tags">
                         <span class="gallery-tag free">Free</span>
-                        <span class="gallery-tag type">Alpine</span>
+                        <span class="gallery-tag type">Athlete</span>
                     </div>
-                    <h3>Alpine Summit Trail</h3>
-                    <p>Single-color, circular shape, 20cm diameter.</p>
+                    <h3>By NeoPanthera</h3>
+                    <p>Added the routes to the medal wall</p>
+                    
                 </div>
             </div>
 
-            <div class="gallery-card" data-tier="free" onclick="openLightbox('images/example-2.png', 'City Center Map', 'Urban district map with buildings and roads. Square frame, multi-color print.')">
+            <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'by Os_Trigonum', 'Buildings & roads, and the Trail in a great choice of colors.')">
                 <div class="gallery-img">
-                    <span class="gallery-img-placeholder">📷 images/example-2.png</span>
-                    <img src="images/example-2.png" alt="City Center Map">
+                    <img src="images/Os_Trigonum_08.03.2026.png" alt="City Center Map">
                 </div>
                 <div class="gallery-info">
                     <div class="gallery-tags">
                         <span class="gallery-tag free">Free</span>
                         <span class="gallery-tag type">Urban</span>
                     </div>
-                    <h3>City Center Map</h3>
-                    <p>Buildings & roads, square frame, multi-color.</p>
+                    <h3>by Os_Trigonum</h3>
+                    <p>Buildings & roads, and the Trail in a great choice of colors.</p>
                 </div>
             </div>
 
-            <div class="gallery-card" data-tier="premium" onclick="openLightbox('images/example-3.png', 'Mountain Range', 'Large mountain range printed across 4 tiles. Premium multi-tile map.')">
+            <div class="gallery-card" data-tier="premium" onclick="openLightbox(this, 'by Crashlander', 'Trail Stretching across multiple tiles with custom made Wood Frame')">
                 <div class="gallery-img">
-                    <span class="gallery-img-placeholder">📷 images/example-3.png</span>
-                    <img src="images/example-3.png" alt="Mountain Range">
+                    <img src="images/Crashlander_21.12.2025.jpg" alt="Mountain Range">
                 </div>
                 <div class="gallery-info">
                     <div class="gallery-tags">
                         <span class="gallery-tag premium">Premium</span>
                         <span class="gallery-tag type">Multi-tile</span>
                     </div>
-                    <h3>Mountain Range</h3>
-                    <p>4-tile multi-tile map, wall display format.</p>
+                    <h3>by Crashlander</h3>
+                    <p>Trail Stretching across multiple tiles with custom made Wood Frame</p>
                 </div>
             </div>
 
-            <div class="gallery-card" data-tier="free" onclick="openLightbox('images/example-4.png', 'Coastal Route', 'Scenic coastal hiking trail with automatic water coloring.')">
+            <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'Coastal Route', 'Scenic coastal hiking trail with automatic water coloring.')">
                 <div class="gallery-img">
-                    <span class="gallery-img-placeholder">📷 images/example-4.png</span>
                     <img src="images/example-4.png" alt="Coastal Route">
                 </div>
                 <div class="gallery-info">
@@ -370,9 +374,8 @@
                 </div>
             </div>
 
-            <div class="gallery-card" data-tier="premium" onclick="openLightbox('images/example-5.png', 'Special Shape — Heart', 'Heart-shaped map of a special hiking location. Premium exclusive shape.')">
+            <div class="gallery-card" data-tier="premium" onclick="openLightbox(this, 'Special Shape — Heart', 'Heart-shaped map of a special hiking location. Premium exclusive shape.')">
                 <div class="gallery-img">
-                    <span class="gallery-img-placeholder">📷 images/example-5.png</span>
                     <img src="images/example-5.png" alt="Heart Shape Map">
                 </div>
                 <div class="gallery-info">
@@ -385,9 +388,8 @@
                 </div>
             </div>
 
-            <div class="gallery-card" data-tier="free" onclick="openLightbox('images/example-6.png', 'Forest Trail Loop', 'Forested loop trail with automatic green coloring for tree cover.')">
+            <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'Forest Trail Loop', 'Forested loop trail with automatic green coloring for tree cover.')">
                 <div class="gallery-img">
-                    <span class="gallery-img-placeholder">📷 images/example-6.png</span>
                     <img src="images/example-6.png" alt="Forest Trail Loop">
                 </div>
                 <div class="gallery-info">
@@ -400,9 +402,8 @@
                 </div>
             </div>
 
-            <div class="gallery-card" data-tier="premium" onclick="openLightbox('images/example-7.png', 'MultiGeneration Batch', 'Three variants of the same route generated at once — different scales and styles.')">
+            <div class="gallery-card" data-tier="premium" onclick="openLightbox(this, 'MultiGeneration Batch', 'Three variants of the same route generated at once — different scales and styles.')">
                 <div class="gallery-img">
-                    <span class="gallery-img-placeholder">📷 images/example-7.png</span>
                     <img src="images/example-7.png" alt="MultiGeneration Batch">
                 </div>
                 <div class="gallery-info">
@@ -415,9 +416,8 @@
                 </div>
             </div>
 
-            <div class="gallery-card" data-tier="free" onclick="openLightbox('images/example-8.png', 'River Valley', 'River valley map highlighting waterways with automatic blue coloring.')">
+            <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'River Valley', 'River valley map highlighting waterways with automatic blue coloring.')">
                 <div class="gallery-img">
-                    <span class="gallery-img-placeholder">📷 images/example-8.png</span>
                     <img src="images/example-8.png" alt="River Valley">
                 </div>
                 <div class="gallery-info">
@@ -430,9 +430,8 @@
                 </div>
             </div>
 
-            <div class="gallery-card" data-tier="premium" onclick="openLightbox('images/example-9.png', 'Island Map — Multi-tile', 'Full island printed across 6 tiles for a large format wall display.')">
+            <div class="gallery-card" data-tier="premium" onclick="openLightbox(this, 'Island Map — Multi-tile', 'Full island printed across 6 tiles for a large format wall display.')">
                 <div class="gallery-img">
-                    <span class="gallery-img-placeholder">📷 images/example-9.png</span>
                     <img src="images/example-9.png" alt="Island Map">
                 </div>
                 <div class="gallery-info">
@@ -493,7 +492,8 @@
             });
         }
 
-        function openLightbox(src, title, desc) {
+        function openLightbox(card, title, desc) {
+            const src = card.querySelector('.gallery-img img').src;
             document.getElementById('lightbox-image').src = src;
             document.getElementById('lightbox-title').textContent = title;
             document.getElementById('lightbox-desc').textContent = desc;
