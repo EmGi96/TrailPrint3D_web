@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples — TrailPrint3D</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── Page header ─────────────────────────── */
+        .page-hero {
+            padding: 140px 40px 64px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2em, 4vw, 3em);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 14px;
+        }
+
+        .page-hero p {
+            color: var(--text-dim);
+            font-size: 1.05em;
+            max-width: 420px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        /* ── Filters ─────────────────────────────── */
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 0 40px 56px;
+        }
+
+        .filter-btn {
+            padding: 7px 18px;
+            border-radius: 100px;
+            font-size: 0.82em;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-dim);
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+        .filter-btn:hover {
+            background: rgba(255,255,255,0.06);
+            color: var(--text);
+        }
+        .filter-btn.active {
+            background: var(--green-soft);
+            border-color: rgba(34,197,94,0.3);
+            color: var(--green);
+        }
+
+        /* ── Gallery ─────────────────────────────── */
+        .gallery-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px 96px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+            cursor: pointer;
+        }
+        .gallery-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-accent);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.32), 0 0 0 1px rgba(34,197,94,0.08);
+        }
+        .gallery-card.hidden { display: none; }
+
+        .gallery-img {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            background: var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .gallery-img img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-img-placeholder {
+            font-size: 0.75em;
+            color: var(--text-muted);
+            text-align: center;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .gallery-info {
+            padding: 18px 20px;
+        }
+
+        .gallery-tags {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .gallery-tag {
+            padding: 2px 9px;
+            border-radius: 100px;
+            font-size: 0.68em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .gallery-tag.free {
+            background: rgba(34,197,94,0.1);
+            border: 1px solid rgba(34,197,94,0.22);
+            color: var(--green);
+        }
+        .gallery-tag.premium {
+            background: rgba(234,179,8,0.1);
+            border: 1px solid rgba(234,179,8,0.22);
+            color: #eab308;
+        }
+        .gallery-tag.type {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .gallery-info h3 {
+            font-size: 0.95em;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .gallery-info p {
+            font-size: 0.82em;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* ── Lightbox ────────────────────────────── */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            backdrop-filter: blur(8px);
+        }
+        .lightbox.open { display: flex; }
+
+        .lightbox-inner {
+            position: relative;
+            max-width: 860px;
+            width: 100%;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .lightbox-img {
+            width: 100%;
+            height: 480px;
+            background: var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.85em;
+        }
+        .lightbox-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .lightbox-body {
+            padding: 24px 28px;
+        }
+
+        .lightbox-body h2 {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .lightbox-body p {
+            font-size: 0.875em;
+            color: var(--text-dim);
+            line-height: 1.7;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 32px;
+            height: 32px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text);
+            font-size: 1em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .lightbox-close:hover { background: rgba(255,255,255,0.1); }
+
+        /* ── Responsive ──────────────────────────── */
+        @media (max-width: 960px) {
+            .page-hero { padding: 110px 24px 48px; }
+            .filter-bar { padding: 0 24px 40px; }
+            .gallery-wrap { padding: 0 24px 64px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 560px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .lightbox { padding: 16px; }
+            .lightbox-img { height: 260px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── Nav ─────────────────────────────────────────── -->
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-mark">🏔</div>
+            TrailPrint3D
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#how-it-works">How It Works</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="examples.html" style="color:var(--text);">Examples</a></li>
+            <li><a href="filaments.html">Filaments</a></li>
+            <li><a href="https://discord.gg/tqQy4Yh9Sz" target="_blank">Discord</a></li>
+            <li class="dropdown-wrapper">
+                <button class="nav-cta-free" onclick="toggleDropdown('dd-nav')">Free Download ▾</button>
+                <div class="dropdown-menu" id="dd-nav">
+                    <a href="https://makerworld.com/de/models/1264871-hiking-and-cycling-map-generator-trailprint3d#profileId-1291737" target="_blank">
+                        <img src="images/logo-makerworld.png" alt="MakerWorld" width="18" height="18" style="border-radius:2px;">
+                        MakerWorld
+                    </a>
+                    <a href="https://www.printables.com/model/1242540-trail-map-generator-trailprint3d-blender-addon" target="_blank">
+                        <img src="images/logo-printables.png" alt="Printables" width="18" height="18" style="border-radius:2px;">
+                        Printables
+                    </a>
+                </div>
+            </li>
+            <li><a href="https://www.patreon.com/cw/EmGi3D" target="_blank" class="nav-cta">Get Premium</a></li>
+        </ul>
+    </nav>
+
+    <!-- ── Page Hero ────────────────────────────────────── -->
+    <div class="page-hero">
+        <p class="section-eyebrow">Gallery</p>
+        <h1>Made with TrailPrint3D</h1>
+        <p>Real maps generated and printed by the community. Filter by tier or type to find inspiration.</p>
+    </div>
+
+    <!-- ── Filters ──────────────────────────────────────── -->
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="filter('all', this)">All</button>
+        <button class="filter-btn" onclick="filter('free', this)">Free</button>
+        <button class="filter-btn" onclick="filter('premium', this)">Premium</button>
+    </div>
+
+    <!-- ── Gallery ──────────────────────────────────────── -->
+    <div class="gallery-wrap">
+        <div class="gallery-grid" id="gallery">
+
+            <div class="gallery-card" data-tier="free" onclick="openLightbox('images/example-1.png', 'Alpine Summit Trail', 'A classic alpine route generated from a GPX track. Single-color mode, circular shape, 20cm diameter.')">
+                <div class="gallery-img">
+                    <span class="gallery-img-placeholder">📷 images/example-1.png</span>
+                    <img src="images/example-1.png" alt="Alpine Summit Trail">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag free">Free</span>
+                        <span class="gallery-tag type">Alpine</span>
+                    </div>
+                    <h3>Alpine Summit Trail</h3>
+                    <p>Single-color, circular shape, 20cm diameter.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-tier="free" onclick="openLightbox('images/example-2.png', 'City Center Map', 'Urban district map with buildings and roads. Square frame, multi-color print.')">
+                <div class="gallery-img">
+                    <span class="gallery-img-placeholder">📷 images/example-2.png</span>
+                    <img src="images/example-2.png" alt="City Center Map">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag free">Free</span>
+                        <span class="gallery-tag type">Urban</span>
+                    </div>
+                    <h3>City Center Map</h3>
+                    <p>Buildings & roads, square frame, multi-color.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-tier="premium" onclick="openLightbox('images/example-3.png', 'Mountain Range', 'Large mountain range printed across 4 tiles. Premium multi-tile map.')">
+                <div class="gallery-img">
+                    <span class="gallery-img-placeholder">📷 images/example-3.png</span>
+                    <img src="images/example-3.png" alt="Mountain Range">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag premium">Premium</span>
+                        <span class="gallery-tag type">Multi-tile</span>
+                    </div>
+                    <h3>Mountain Range</h3>
+                    <p>4-tile multi-tile map, wall display format.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-tier="free" onclick="openLightbox('images/example-4.png', 'Coastal Route', 'Scenic coastal hiking trail with automatic water coloring.')">
+                <div class="gallery-img">
+                    <span class="gallery-img-placeholder">📷 images/example-4.png</span>
+                    <img src="images/example-4.png" alt="Coastal Route">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag free">Free</span>
+                        <span class="gallery-tag type">Coastal</span>
+                    </div>
+                    <h3>Coastal Route</h3>
+                    <p>Automatic water coloring, hexagonal shape.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-tier="premium" onclick="openLightbox('images/example-5.png', 'Special Shape — Heart', 'Heart-shaped map of a special hiking location. Premium exclusive shape.')">
+                <div class="gallery-img">
+                    <span class="gallery-img-placeholder">📷 images/example-5.png</span>
+                    <img src="images/example-5.png" alt="Heart Shape Map">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag premium">Premium</span>
+                        <span class="gallery-tag type">Special Shape</span>
+                    </div>
+                    <h3>Special Shape — Heart</h3>
+                    <p>Exclusive heart shape, perfect as a gift.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-tier="free" onclick="openLightbox('images/example-6.png', 'Forest Trail Loop', 'Forested loop trail with automatic green coloring for tree cover.')">
+                <div class="gallery-img">
+                    <span class="gallery-img-placeholder">📷 images/example-6.png</span>
+                    <img src="images/example-6.png" alt="Forest Trail Loop">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag free">Free</span>
+                        <span class="gallery-tag type">Forest</span>
+                    </div>
+                    <h3>Forest Trail Loop</h3>
+                    <p>Auto forest coloring, square frame, 15cm.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-tier="premium" onclick="openLightbox('images/example-7.png', 'MultiGeneration Batch', 'Three variants of the same route generated at once — different scales and styles.')">
+                <div class="gallery-img">
+                    <span class="gallery-img-placeholder">📷 images/example-7.png</span>
+                    <img src="images/example-7.png" alt="MultiGeneration Batch">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag premium">Premium</span>
+                        <span class="gallery-tag type">MultiGen</span>
+                    </div>
+                    <h3>MultiGeneration Batch</h3>
+                    <p>3 variants generated in one go, different scales.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-tier="free" onclick="openLightbox('images/example-8.png', 'River Valley', 'River valley map highlighting waterways with automatic blue coloring.')">
+                <div class="gallery-img">
+                    <span class="gallery-img-placeholder">📷 images/example-8.png</span>
+                    <img src="images/example-8.png" alt="River Valley">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag free">Free</span>
+                        <span class="gallery-tag type">River</span>
+                    </div>
+                    <h3>River Valley</h3>
+                    <p>Auto river & lake coloring, circular, 18cm.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-tier="premium" onclick="openLightbox('images/example-9.png', 'Island Map — Multi-tile', 'Full island printed across 6 tiles for a large format wall display.')">
+                <div class="gallery-img">
+                    <span class="gallery-img-placeholder">📷 images/example-9.png</span>
+                    <img src="images/example-9.png" alt="Island Map">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag premium">Premium</span>
+                        <span class="gallery-tag type">Multi-tile</span>
+                    </div>
+                    <h3>Island Map — Multi-tile</h3>
+                    <p>6-tile island map, full wall display format.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ── Lightbox ─────────────────────────────────────── -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-inner">
+            <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+            <div class="lightbox-img" id="lightbox-img">
+                <img id="lightbox-image" src="" alt="">
+            </div>
+            <div class="lightbox-body">
+                <h2 id="lightbox-title"></h2>
+                <p id="lightbox-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Footer ───────────────────────────────────────── -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">🏔 TrailPrint3D</div>
+            <p class="footer-copy">&copy; 2026 TrailPrint3D. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleDropdown(id) {
+            const target = document.getElementById(id);
+            const isOpen = target.classList.contains('active');
+            document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('active'));
+            if (!isOpen) target.classList.add('active');
+        }
+
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.dropdown-wrapper')) {
+                document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('active'));
+            }
+        });
+
+        function filter(tier, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.gallery-card').forEach(card => {
+                const show = tier === 'all' || card.dataset.tier === tier;
+                card.classList.toggle('hidden', !show);
+            });
+        }
+
+        function openLightbox(src, title, desc) {
+            document.getElementById('lightbox-image').src = src;
+            document.getElementById('lightbox-title').textContent = title;
+            document.getElementById('lightbox-desc').textContent = desc;
+            document.getElementById('lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(e) {
+            if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+            document.getElementById('lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                document.getElementById('lightbox').classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>
