@@ -1,154 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrailPrint3D — Convert GPX Files to 3D Printable Terrain Maps</title>
-    <meta name="description" content="Turn your GPX hiking and cycling tracks into 3D printable terrain maps. TrailPrint3D is a free Blender add-on — available on MakerWorld and Printables.">
-    <meta property="og:title" content="TrailPrint3D — Convert GPX Files to 3D Printable Terrain Maps">
-    <meta property="og:description" content="Turn your GPX hiking and cycling tracks into 3D printable terrain maps. TrailPrint3D is a free Blender add-on — available on MakerWorld and Printables.">
-    <meta property="og:image" content="https://www.trailprint3d.com/images/mainImage.webp">
-    <meta property="og:url" content="https://www.trailprint3d.com/">
-    <meta property="og:type" content="website">
-    <link rel="canonical" href="https://www.trailprint3d.com/">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "TrailPrint3D",
-      "applicationCategory": "DesignApplication",
-      "operatingSystem": "Windows, macOS, Linux",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "description": "Turn your GPX hiking and cycling tracks into 3D printable terrain maps. A free Blender add-on available on MakerWorld and Printables.",
-      "url": "https://www.trailprint3d.com/",
-      "image": "https://www.trailprint3d.com/images/mainImage.webp"
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How do i start turning my GPX tracks in 3D?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Install blender from Blender.org for free, next download the TrailPrint3D Addon from Either Makerworld or Printables and install it in Blender. Then you can start generating 3D models from your GPX tracks"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are there any Tutorials?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! In the Description of the Makerworld or Printables Page is a Video Tutorial Explaining everything from the Installation to the Generation Process. You can also join the TrailPrint3D Discord Community for more help and tips."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do i need to know anything about blender?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. TrailPrint3D is designed to be beginner-friendly and works with just a few clicks. You don't need any prior Blender experience to create your first 3D printed map but it helps if you want to further customize"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Where do i get a GPX file from?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "You can use Apps on your Phone like Strava or Komoot to record your trips. or you can use sites like GPX.studio to create custom GPX tours"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What file format does it export for 3D printing?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "TrailPrint3D exports STL, OBJ, or 3mf files, which are compatible with all major slicers like PrusaSlicer, Bambu Studio, and Cura."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is TrailPrint3D free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes — the core add-on is completely free to download on MakerWorld and Printables. A Premium version unlocks advanced features like multi-GPX maps, special shapes, and multi-tile printing and supports the further Development of the Tool"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Where do i get the Premium version from",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "After Subscribing to my Patreon Account you have access to all posts. In the Collections tab are posts about new Version releases. From there you can download and install it like the Free version"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does it work on Windows and Mac?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "TrailPrint3D runs inside Blender, which is available on Windows, macOS, and Linux — so yes, it works on all platforms."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I sell the 3D prints I make?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. TrailPrint3D includes commercial use rights, so you can sell prints, use them for gifts, or include them in products."
-          }
-        }
-      ]
-    }
-    </script>
-    <link rel="icon" type="image/png" href="images/TP3D_logo.png">
-    <link rel="stylesheet" href="styles.css">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMJ4P3S5R6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-YMJ4P3S5R6');
-    </script>
-</head>
-<body>
-
-    <!-- ── Nav ─────────────────────────────────────────── -->
-    <nav>
-        <a href="#" class="nav-logo">
-            <img src="images/TP3D_logo.png" alt="TrailPrint3D logo" class="nav-logo-mark">
-            TrailPrint3D
-        </a>
-        <ul class="nav-links">
-            <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="examples.html">Examples</a></li>
-            <li><a href="filaments.html">Filaments</a></li>
-            <li><a href="https://discord.gg/tqQy4Yh9Sz" target="_blank">Discord</a></li>
-            <li class="dropdown-wrapper">
-                <button class="nav-cta-free" onclick="toggleDropdown('dd-nav')">Free Download ▾</button>
-                <div class="dropdown-menu" id="dd-nav">
-                    <a href="https://makerworld.com/de/models/1264871-hiking-and-cycling-map-generator-trailprint3d#profileId-1291737" target="_blank">
-                        <img src="images/logo-makerworld.png" alt="MakerWorld" width="18" height="18" style="border-radius:2px;">
-                        MakerWorld
-                    </a>
-                    <a href="https://www.printables.com/model/1242540-trail-map-generator-trailprint3d-blender-addon" target="_blank">
-                        <img src="images/logo-printables.webp" alt="Printables" width="18" height="18" style="border-radius:2px;">
-                        Printables
-                    </a>
-                </div>
-            </li>
-            <li><a href="https://www.patreon.com/cw/EmGi3D" target="_blank" class="nav-cta">Get Premium</a></li>
-        </ul>
-    </nav>
+---
+layout: default
+title: "TrailPrint3D — Convert GPX Files to 3D Printable Terrain Maps"
+description: "Turn your GPX hiking and cycling tracks into 3D printable terrain maps. TrailPrint3D is a free Blender add-on — available on MakerWorld and Printables."
+og_title: "TrailPrint3D — Convert GPX Files to 3D Printable Terrain Maps"
+og_description: "Turn your GPX hiking and cycling tracks into 3D printable terrain maps. TrailPrint3D is a free Blender add-on — available on MakerWorld and Printables."
+og_image: "https://www.trailprint3d.com/images/mainImage.webp"
+og_url: "https://www.trailprint3d.com/"
+canonical: "https://www.trailprint3d.com/"
+schema_home: true
+nav_home: true
+---
 
     <!-- ── Hero ────────────────────────────────────────── -->
     <section class="hero">
@@ -420,29 +281,3 @@
             </details>
         </div>
     </section>
-
-    <!-- ── Footer ───────────────────────────────────────── -->
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-logo">🏔 TrailPrint3D</div>
-            <p class="footer-copy">&copy; 2026 TrailPrint3D. All rights reserved. &mdash; <a href="impressum.html" class="footer-legal">Impressum</a> &mdash; <a href="privacy-policy.html" class="footer-legal">Privacy Policy</a></p>
-        </div>
-    </footer>
-
-    <script>
-        function toggleDropdown(id) {
-            const target = document.getElementById(id);
-            const isOpen = target.classList.contains('active');
-            document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('active'));
-            if (!isOpen) target.classList.add('active');
-        }
-
-
-        document.addEventListener('click', e => {
-            if (!e.target.closest('.dropdown-wrapper')) {
-                document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('active'));
-            }
-        });
-    </script>
-</body>
-</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    {% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
+    {% if page.og_title %}<meta property="og:title" content="{{ page.og_title }}">{% endif %}
+    {% if page.og_description %}<meta property="og:description" content="{{ page.og_description }}">{% endif %}
+    {% if page.og_image %}<meta property="og:image" content="{{ page.og_image }}">{% endif %}
+    {% if page.og_url %}<meta property="og:url" content="{{ page.og_url }}">{% endif %}
+    <meta property="og:type" content="website">
+    {% if page.canonical %}<link rel="canonical" href="{{ page.canonical }}">{% endif %}
+    {% if page.schema_home %}{% include schema-home.html %}{% endif %}
+    {% if page.page_styles == 'filaments' %}{% include styles-filaments.html %}{% endif %}
+    {% if page.page_styles == 'examples' %}{% include styles-examples.html %}{% endif %}
+    {% if page.page_styles == 'legal' %}{% include styles-legal.html %}{% endif %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/TP3D_logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMJ4P3S5R6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YMJ4P3S5R6');
+    </script>
+</head>
+<body>
+
+    <!-- ── Nav ─────────────────────────────────────────── -->
+    <nav>
+        <a href="{% if page.nav_home %}#{% else %}index.html{% endif %}" class="nav-logo">
+            <img src="images/TP3D_logo.png" alt="TrailPrint3D logo" class="nav-logo-mark">
+            TrailPrint3D
+        </a>
+        {% unless page.minimal_nav %}
+        <ul class="nav-links">
+            <li><a href="{% if page.nav_home %}#how-it-works{% else %}index.html#how-it-works{% endif %}">How It Works</a></li>
+            <li><a href="{% if page.nav_home %}#features{% else %}index.html#features{% endif %}">Features</a></li>
+            <li><a href="examples.html"{% if page.nav_active == 'examples' %} class="nav-active"{% endif %}>Examples</a></li>
+            <li><a href="filaments.html"{% if page.nav_active == 'filaments' %} class="nav-active"{% endif %}>Filaments</a></li>
+            <li><a href="https://discord.gg/tqQy4Yh9Sz" target="_blank">Discord</a></li>
+            <li class="dropdown-wrapper">
+                <button class="nav-cta-free" onclick="toggleDropdown('dd-nav')">Free Download ▾</button>
+                <div class="dropdown-menu" id="dd-nav">
+                    <a href="https://makerworld.com/de/models/1264871-hiking-and-cycling-map-generator-trailprint3d#profileId-1291737" target="_blank">
+                        <img src="images/logo-makerworld.png" alt="MakerWorld" width="18" height="18" style="border-radius:2px;">
+                        MakerWorld
+                    </a>
+                    <a href="https://www.printables.com/model/1242540-trail-map-generator-trailprint3d-blender-addon" target="_blank">
+                        <img src="images/logo-printables.webp" alt="Printables" width="18" height="18" style="border-radius:2px;">
+                        Printables
+                    </a>
+                </div>
+            </li>
+            <li><a href="https://www.patreon.com/cw/EmGi3D" target="_blank" class="nav-cta">Get Premium</a></li>
+        </ul>
+        {% endunless %}
+    </nav>
+
+    {{ content }}
+
+    <!-- ── Footer ───────────────────────────────────────── -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">🏔 TrailPrint3D</div>
+            <p class="footer-copy">&copy; 2026 TrailPrint3D. All rights reserved. &mdash; <a href="impressum.html" class="footer-legal">Impressum</a> &mdash; <a href="privacy-policy.html" class="footer-legal">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleDropdown(id) {
+            const target = document.getElementById(id);
+            const isOpen = target.classList.contains('active');
+            document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('active'));
+            if (!isOpen) target.classList.add('active');
+        }
+
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.dropdown-wrapper')) {
+                document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('active'));
+            }
+        });
+    </script>
+</body>
+</html>
