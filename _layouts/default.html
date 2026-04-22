@@ -44,6 +44,7 @@
             <li><a href="{% if page.nav_home %}#how-it-works{% else %}index.html#how-it-works{% endif %}">How It Works</a></li>
             <li><a href="{% if page.nav_home %}#features{% else %}index.html#features{% endif %}">Features</a></li>
 <li><a href="https://discord.gg/tqQy4Yh9Sz" target="_blank">Discord</a></li>
+            <li><a href="/changelog.html" {% if page.nav_active == 'changelog' %}class="nav-active"{% endif %}>Changelog</a></li>
             <li class="dropdown-wrapper">
                 <button class="nav-cta-free" onclick="toggleDropdown('dd-nav')">Free Download ▾</button>
                 <div class="dropdown-menu" id="dd-nav">
