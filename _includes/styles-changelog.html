@@ -79,10 +79,8 @@
         margin: 16px 0 0;
     }
     .cl-body li {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 7px 0;
+        position: relative;
+        padding: 7px 0 7px 15px;
         color: var(--text-dim);
         font-size: 0.9em;
         line-height: 1.55;
@@ -91,12 +89,13 @@
     .cl-body li:last-child { border-bottom: none; }
     .cl-body li::before {
         content: '';
+        position: absolute;
+        left: 0;
+        top: 14px;
         width: 5px;
         height: 5px;
         border-radius: 50%;
         background: var(--green);
-        flex-shrink: 0;
-        margin-top: 7px;
     }
 
     @media (max-width: 560px) {
