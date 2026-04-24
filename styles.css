@@ -306,8 +306,19 @@ nav {
     font-size: 1.05em;
     color: var(--text-dim);
     line-height: 1.75;
-    margin-bottom: 38px;
+    margin-bottom: 16px;
     max-width: 440px;
+}
+
+.hero-perks {
+    font-size: 0.82em;
+    color: var(--text-muted);
+    margin-bottom: 38px;
+}
+
+.hero-perks strong {
+    color: var(--green);
+    font-weight: 700;
 }
 
 .hero-actions {
