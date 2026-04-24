@@ -16,6 +16,7 @@
     {% if page.page_styles == 'filaments' %}{% include styles-filaments.html %}{% endif %}
     {% if page.page_styles == 'examples' %}{% include styles-examples.html %}{% endif %}
     {% if page.page_styles == 'legal' %}{% include styles-legal.html %}{% endif %}
+    {% if page.page_styles == 'changelog' %}{% include styles-changelog.html %}{% endif %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -43,6 +44,7 @@
             <li><a href="{% if page.nav_home %}#how-it-works{% else %}index.html#how-it-works{% endif %}">How It Works</a></li>
             <li><a href="{% if page.nav_home %}#features{% else %}index.html#features{% endif %}">Features</a></li>
 <li><a href="https://discord.gg/tqQy4Yh9Sz" target="_blank">Discord</a></li>
+            <li><a href="/changelog.html" {% if page.nav_active == 'changelog' %}class="nav-active"{% endif %}>Changelog</a></li>
             <li><a href="https://github.com/EmGi96/TrailPrint3D/archive/refs/heads/main.zip" class="nav-cta-free" onclick="gtag('event', 'file_download', {event_category: 'engagement', event_label: 'TrailPrint3D_main.zip'})">Free Download</a></li>
             <li><a href="https://www.patreon.com/cw/EmGi3D" target="_blank" class="nav-cta">Get Premium</a></li>
         </ul>

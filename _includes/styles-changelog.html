@@ -1,0 +1,106 @@
+<style>
+    .changelog-wrap {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 120px 40px 80px;
+    }
+    .changelog-wrap h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 48px;
+    }
+
+    .cl-block {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        margin-bottom: 12px;
+        overflow: hidden;
+        transition: border-color 0.2s;
+    }
+    .cl-block:hover { border-color: rgba(255,255,255,0.14); }
+
+    .cl-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 24px;
+        cursor: pointer;
+        user-select: none;
+        background: var(--card);
+        gap: 16px;
+    }
+    .cl-header:hover { background: var(--card-hover); }
+
+    .cl-title {
+        font-size: 0.95em;
+        font-weight: 600;
+        color: var(--text);
+    }
+    .cl-date {
+        font-size: 0.82em;
+        color: var(--text-muted);
+        white-space: nowrap;
+    }
+    .cl-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+    .cl-version-badge {
+        background: var(--green-soft);
+        border: 1px solid var(--border-accent);
+        color: var(--green);
+        font-size: 0.75em;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 100px;
+        white-space: nowrap;
+    }
+    .cl-chevron {
+        color: var(--text-muted);
+        font-size: 0.8em;
+        transition: transform 0.22s ease;
+        flex-shrink: 0;
+    }
+    .cl-block.open .cl-chevron { transform: rotate(180deg); }
+
+    .cl-body {
+        display: none;
+        padding: 0 24px 24px;
+        background: var(--card);
+        border-top: 1px solid var(--border);
+    }
+    .cl-block.open .cl-body { display: block; }
+
+    .cl-body ul {
+        list-style: none;
+        padding: 0;
+        margin: 16px 0 0;
+    }
+    .cl-body li {
+        position: relative;
+        padding: 7px 0 7px 15px;
+        color: var(--text-dim);
+        font-size: 0.9em;
+        line-height: 1.55;
+        border-bottom: 1px solid var(--border);
+    }
+    .cl-body li:last-child { border-bottom: none; }
+    .cl-body li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 14px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--green);
+    }
+
+    @media (max-width: 560px) {
+        .changelog-wrap { padding: 100px 20px 60px; }
+        .cl-header { padding: 16px 18px; }
+        .cl-body { padding: 0 18px 20px; }
+    }
+</style>

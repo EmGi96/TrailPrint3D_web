@@ -1,0 +1,265 @@
+---
+layout: default
+title: "How To — TrailPrint3D"
+description: "Step-by-step guides and tutorials for the TrailPrint3D Blender add-on."
+canonical: "https://www.trailprint3d.com/howto.html"
+nav_active: howto
+page_styles: changelog
+---
+
+    <div class="changelog-wrap">
+        <h1>How To</h1>
+
+        <div class="cl-block" id="ht-install">
+            <div class="cl-header" onclick="toggleBlock('ht-install')">
+                <div class="cl-left">
+                    <span class="cl-title">Installation</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Download Blender from <a href="https://www.blender.org/download/" target="_blank" rel="noopener">blender.org</a> (Version 5.1 or higher)</li>
+                    <li>Download the Latest version of the Addon</li>
+                    <li>Open Blender and go to Edit → Preferences → Add-ons</li>
+                    <li class="howto-img-item"><img src="images/howto/installation/editPreferences.png" alt="Edit Preferences in Blender" style="width:100%;border-radius:8px;margin-top:6px;"></li>
+                    <li>Popup opens. Go to Add-ons, click on the arrow on the top right, "Install from disk" and select the Addon you downloaded</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-gpx">
+            <div class="cl-header" onclick="toggleBlock('ht-gpx')">
+                <div class="cl-left">
+                    <span class="cl-title">Getting your GPX File</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Open the activity tracking app where your route is saved (e.g. Strava, Komoot, Garmin Connect, AllTrails)</li>
+                    <li>Navigate to the activity or route you want to turn into a 3D map</li>
+                    <li>Look for an Export or Download option. usually in the activity's settings or three-dot menu</li>
+                    <li>Select <strong>Export GPX</strong> and save the <code>.gpx</code> file to your computer</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-generate">
+            <div class="cl-header" onclick="toggleBlock('ht-generate')">
+                <div class="cl-left">
+                    <span class="cl-title">Basic Map Generation</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Inside blender, the TrailPrint3D panel is located in the <strong>3D Viewport sidebar</strong></li>
+                    <li>Press <strong>N</strong> to toggle the sidebar open, then click the <strong>TrailPrint3D</strong> tab</li>
+                    <li>Click the folder icon next to <strong>File Path</strong> and select your <code>.gpx</code> file</li>
+                    <li>Set an <strong>Export Path</strong>. this is the folder where your files will be saved after generation</li>
+                    <li>Adjust the settings to your liking (see the sections below for details on each setting)</li>
+                    <li>Click <strong>Generate</strong> and wait for the process to complete. generation time depends on resolution and map complexity</li>
+                    <li>Once done, your files will appear in the export folder, ready to open in your slicer</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-shape">
+            <div class="cl-header" onclick="toggleBlock('ht-shape')">
+                <div class="cl-left">
+                    <span class="cl-title">Map Shape &amp; Size</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Use the <strong>Shape</strong> dropdown to choose the outline of your map. options include hexagon, square, circle, and more</li>
+                    <li>Set the <strong>Object Size</strong> in millimeters. this is the physical size of the final printed map (e.g. 100 = 100 mm)</li>
+                    <li>The map is automatically scaled and centered around your route regardless of the shape chosen</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-resolution">
+            <div class="cl-header" onclick="toggleBlock('ht-resolution')">
+                <div class="cl-left">
+                    <span class="cl-title">Resolution &amp; Quality</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>The <strong>Resolution</strong> setting controls the detail level of the terrain mesh. higher values produce more precise elevation detail</li>
+                    <li>Recommended range: <strong>6–8</strong> for a good balance between quality and generation time</li>
+                    <li>Lower values (4–5) are useful for quick previews before committing to a final render</li>
+                    <li>A resolution of 7 can take longer to generate so be patient and do not close Blender while it runs</li>
+                    <li>For most prints, a value of <strong>7</strong> is sufficient and generates in a reasonable time</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-elevation">
+            <div class="cl-header" onclick="toggleBlock('ht-elevation')">
+                <div class="cl-left">
+                    <span class="cl-title">Elevation Scale &amp; Path Settings</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li><strong>Elevation Scale</strong> is a multiplier applied to the real-world elevation data:</li>
+                    <li>Increase it for flat routes (e.g. coastal or city rides) to make the terrain more visually interesting</li>
+                    <li>Decrease it for very steep or alpine routes to prevent extreme height differences that are hard to print</li>
+                    <li>A value of <strong>1.0</strong> represents true-to-life proportions</li>
+                    <li><strong>Path Thickness</strong> controls the thickness of the route line on the map surface</li>
+                    <li><strong>Path Scale</strong> sets the scale of the path relative to the object size.)/li>
+                    <li>e.g. 1 = Trail is as big as the map. 0.5 = Trail is about half the size of the map and shows more of the terrain around it</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-elements">
+            <div class="cl-header" onclick="toggleBlock('ht-elements')">
+                <div class="cl-left">
+                    <span class="cl-title">Map Elements (Water, Forests, Cities)</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>TrailPrint3D automatically fetches map data from <strong>OpenStreetMap</strong> to generate environmental elements around your route</li>
+                    <li><strong>Water</strong>: lakes, rivers, and other bodies of water are generated as raised or recessed areas on the map</li>
+                    <li><strong>Forests</strong>: wooded areas are included as a distinct surface layer</li>
+                    <li><strong>Cities &amp; Settlements</strong>: urban areas are represented on the map</li>
+                    <li>Element generation works best in well-mapped regions.remote or rural areas may have less OSM data available</li>
+                    <li>You can select from 3 ways to handle the Elements:</li>
+                    <li><strong>PaintOnMap</strong>: Paints the elements directly onto the map surface. Quality is depending on the Map resolution</li>
+                    <li><strong>SeparateObjects</strong>: Exports each element as a separate file</li>
+                    <li><strong>SingleColorMode</strong>: Generates each element as a separate file with cutouts in the map so you can print each object separately and assemble them afterwards</li>
+                    <li><strong>INFO!</strong>: If the map gets too big some elements may no longer work. for a map that covers 100km its too much for the API and for blender to fetch every single forest structure</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-singlecolor">
+            <div class="cl-header" onclick="toggleBlock('ht-singlecolor')">
+                <div class="cl-left">
+                    <span class="cl-title">Single Color Mode</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>There are 2 diffrent options for the SingleColorMode. one for the Trail and one for the Elements</li>
+                    <li>You can enable the SingleColorMode for the Trail and still choose to paint the elements onto the map</li>
+                    <li>You can set the Tolerance for the SingleColorMode in the advanced options -> Map. (Default for Trail: 0.2, Default for Elements: 0.4)</li>
+                    <lif><strong>INFO!</strong>: Buildings and Roads are not compatible with SingleColorMode currenlty</lif>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-contour">
+            <div class="cl-header" onclick="toggleBlock('ht-contour')">
+                <div class="cl-left">
+                    <span class="cl-title">Contour Lines</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Contour lines trace elevation bands across the terrain, similar to a traditional topographic map</li>
+                    <li>Enable them in the Advanced Options -> Post-processing</li>
+                    <li><strong>Thickness</strong>:controls how thick each contour line ridge is on the surface</li>
+                    <li><strong>Distance</strong>:sets the elevation interval between lines (e.g. every 2 mm)</li>
+                    <li><strong>Offset</strong>:starting height of the Contour Lines</li>
+                    <li>Select your map and then click on "Add Contour Lines". After that manually export the Contour line object</li>>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-export">
+            <div class="cl-header" onclick="toggleBlock('ht-export')">
+                <div class="cl-left">
+                    <span class="cl-title">Exporting files</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>After Generating a Map, Files are exported automatically to your Export folder</li>
+                    <li><strong>INFO</strong>: in the Addon preferences you can set a Default export path so you don't have to specify it each time</li>
+                    <li>If you do any mannual changes or post-processing features you have to export it manually in the Advanced -> Export tab</li>
+                    <li>There are 3 Diffrent File export options available</li>
+                    <li><code>STL</code>: Exports each object as a STL file. You have to color them manually in your slicer as STL files dont contain Color information</li>
+                    <li><code>.OBJ</code>: Exports each object as a .OBJ file. This format contains color information and is needed if you painted the elements onto the map</li>
+                    <li>It also comes with a .MTL file. dont separate these two files. the .MTL file holds the color data</li>
+                    <li><code>.3mf</code> Exports all objects as a single .3mf file. It contains color data, relative position and it automatically grouped</li>
+                    <li>It requires the <a href="https://github.com/Clonephaze/3MF-Blender-Add-on---Maintained" target="_blank" rel="noopener">3mf Addon by Clonephaze</a>. you can install it directly from the Export tab and once installed its the Default export option</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-slicer">
+            <div class="cl-header" onclick="toggleBlock('ht-slicer')">
+                <div class="cl-left">
+                    <span class="cl-title">Import to Slicer</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Import the exported file(s) from your export folder</li>
+                    <li><strong>STL</strong>: Select all <code>STL</code> files together. The slicer will ask you if you want to view those files as a single object. Hit yes. otherwise they wont have the correct position to each other</li>
+                    <li><strong>.OBJ</strong>: Same as <code>STL</code>. additionally, a window will popup allowing you to assing filaments to the colors</li>
+                    <li><strong>.3mf</strong>: Import the single <code>.3mf</code> file — colors and grouping are all preserved automatically. The groups are overlapping so rearrange them</li>
+                    <li><strong>Info</strong>: Set the Wall-generator in your slicer to <strong>Arachne</strong> for better results when printing in multiple colors (less gaps between them)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-multi">
+            <div class="cl-header" onclick="toggleBlock('ht-multi')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">PREMIUM</span>
+                    <span class="cl-title">Multi-Generation</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Multi-Generation allows you to load <strong>multiple GPX files</strong> and combine them into a single map</li>
+                    <li>Click the folder icon and then select a Folder that contains all the .GPX files you want to put onto the map</li>
+                    <li>Perfect for multi-day hikes, a season of rides, or any collection of routes in the same area</li>
+                    <li>Compatible with the SingleColorMode</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-advanced">
+            <div class="cl-header" onclick="toggleBlock('ht-advanced')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">PREMIUM</span>
+                    <span class="cl-title">Map Puzzles</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>These features are found in the Advanced -> Special tab.</li>
+                    <li>Select one of the Special shapes, and Hit generate to generate it with your Current Trail and settings</li>
+                    <li><strong>Jigsaw Puzzle</strong>:converts your map into interlocking puzzle pieces with a single click; compatible with Multi-Generation maps</li>
+                    <li><strong>Sliding Puzzle</strong>:generates a sliding tile puzzle version of your map, Print-in-place!</li>
+                    <li>All advanced objects are generated at the correct scale and require no manual resizing</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        function toggleBlock(id) {
+            document.getElementById(id).classList.toggle('open');
+        }
+    </script>

@@ -1,0 +1,241 @@
+---
+layout: default
+title: "Changelog — TrailPrint3D"
+description: "Version history and release notes for the TrailPrint3D Blender add-on."
+canonical: "https://www.trailprint3d.com/changelog.html"
+nav_active: changelog
+page_styles: changelog
+---
+
+    <div class="changelog-wrap">
+        <h1>Changelog</h1>
+
+        <div class="cl-block" id="v3-0">
+            <div class="cl-header" onclick="toggleBlock('v3-0')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">Version 3.0</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+                    <span class="cl-date">29.03.2026</span>
+                    <span class="cl-chevron">▼</span>
+                </div>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Added: Printable icons to text-based shapes</li>
+                    <li>Added: SVG Import</li>
+                    <li>Added: Custom Text Import</li>
+                    <li>Added: Roads</li>
+                    <li>Added: Variable aspect ratio for the Ellipse shape</li>
+                    <li>Added: Variable Width/Height for the Rectangle shape (previously only squares)</li>
+                    <li>Added: Progress Bar replacing the console window</li>
+                    <li>Added: New export format: .3mf (requires the 3mf addon by Clonephaze)</li>
+                    <li>Added: Default export folder setting in the addon preferences</li>
+                    <li>Added: Oceans (Experimental)</li>
+                    <li>Added: Rock elements (mainly for mountain tips)</li>
+                    <li>Added: Farmland elements</li>
+                    <li>Added: Bevel setting to plate shapes</li>
+                    <li>Added: Opentopography as an optional API for elevation data</li>
+                    <li>Added: GPX files from more sources are now compatible</li>
+                    <li>Added: Option to disable auto .3mf exports or automated exports</li>
+                    <li>Added: Chinese and German translation</li>
+                    <li>Changed: Completely restructured the addon code</li>
+                    <li>Changed: Optimized mountain coloring for fewer color switches — outside walls now correctly colored at threshold instead of staying green</li>
+                    <li>Changed: Sliding/Jigsaw puzzles, holders and connectors are now part of the addon (Special category in the Advanced Tab)</li>
+                    <li>Changed: Sliding/Jigsaw puzzles generated with just one click</li>
+                    <li>Changed: Sliding/Jigsaw puzzles are now compatible with Multi-generation</li>
+                    <li>Changed: More flexibility for text-based shapes</li>
+                    <li>Changed: Completely reworked the "Merge with Map" function — now 4 different options: Paint on Map, Project but keep as separate object, Single Color mode, Negative</li>
+                    <li>Changed: Elements won't generate if the map area is too big to prevent crashes (individual limit per element)</li>
+                    <li>Changed: Restructured the UI</li>
+                    <li>Fixed: Objects are now properly cleared when using X and Y Terrain Offset</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="v2-6">
+            <div class="cl-header" onclick="toggleBlock('v2-6')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">Version 2.6</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+                    <span class="cl-date">12.01.2026</span>
+                    <span class="cl-chevron">▼</span>
+                </div>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Added: Buildings — enable them in the Elements tab of the Advanced Settings</li>
+                    <li>Added:  support for another GPX file format (rte)</li>
+                    <li>Added: Option to set how many retries each API request should have before timing out</li>
+                    <li>Fixed: Trails merging with maps</li>
+                    <li>Fixed: Single Color mode on flat maps (minThickness 2mm)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="v2-5">
+            <div class="cl-header" onclick="toggleBlock('v2-5')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">Version 2.5</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+                    <span class="cl-date">25.11.2025</span>
+                    <span class="cl-chevron">▼</span>
+                </div>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Added: New icons for buttons</li>
+                    <li>Added: You can now create, load and delete Presets</li>
+                    <li>Fixed: xTerrain/yTerrain Offset not working correctly with text-based shapes</li>
+                    <li>Fixed: Shape Rotation not working correctly with text-based shapes</li>
+                    <li>Fixed: Magnet Holes/Dovetails not working correctly with text-based shapes</li>
+                    <li>Fixed: Magnet Holes/Dovetails not working correctly with rotated shapes</li>
+                    <li>Fixed: Merge-With-Map had some minor issues</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="v2-4">
+            <div class="cl-header" onclick="toggleBlock('v2-4')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">Version 2.4</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+                    <span class="cl-date">06.11.2025</span>
+                    <span class="cl-chevron">▼</span>
+                </div>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Added: Bottom Mark Cutout — option to create the bottom mark as a cutout instead of a separate object</li>
+                    <li>Added: Feature to just add the Trail to existing Maps</li>
+                    <li>Added: Feature to Merge Trails into Maps so they can be printed separately (Single Color mode)</li>
+                    <li>Change: Export files as STL if all objects have only 1 Material</li>
+                    <li>Change: Changed Manual Export so you can now choose what export format you want to use</li>
+                    <li>Change: Independent Tile Option — tiles lowest Z-point no longer relies on the initial tile</li>
+                    <li>Fixed: Fixed bug with Overwrite Path Elevation on some specific cases</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="v2-3">
+            <div class="cl-header" onclick="toggleBlock('v2-3')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">Version 2.3</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+                    <span class="cl-date">01.10.2025</span>
+                    <span class="cl-chevron">▼</span>
+                </div>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Added the option to color in Glaciers</li>
+                    <li>Fixed: Wrong scale calculation when having Scale Mode set to "Coordinates"</li>
+                    <li>Fixed: Weird results when having "Plate Insert" value for text shapes too high</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="v2-2">
+            <div class="cl-header" onclick="toggleBlock('v2-2')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">Version 2.2</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+                    <span class="cl-date">12.09.2025</span>
+                    <span class="cl-chevron">▼</span>
+                </div>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>You can now generate elements as separate objects</li>
+                    <li>Option to Add contour lines as separate objects</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="v2-1">
+            <div class="cl-header" onclick="toggleBlock('v2-1')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">Version 2.1</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+                    <span class="cl-date">30.08.2025</span>
+                    <span class="cl-chevron">▼</span>
+                </div>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Big Improvement on Reliability of Water Generation</li>
+                    <li>Added option to include Forest/City boundaries</li>
+                    <li>Made Terrain Tiles the Default API</li>
+                    <li>Added Feature to Add Magnet Holes</li>
+                    <li>Added Feature to Add Dovetail Cutouts</li>
+                    <li>Added Feature to Extrude a Map after Generation</li>
+                    <li>Added Feature to Automatically color mountains</li>
+                    <li>Objects that contain Materials will now be exported as .obj instead of STL to keep the Color</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="v2-0">
+            <div class="cl-header" onclick="toggleBlock('v2-0')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">Version 2.0</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+                    <span class="cl-date">19.07.2025</span>
+                    <span class="cl-chevron">▼</span>
+                </div>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Increased Default Cache Limit</li>
+                    <li>Made Cache Size Variable</li>
+                    <li>Added MapZen Terrain Tiles as API</li>
+                    <li>Added nzdem8m and eudem25m Datasets to Opentopodata</li>
+                    <li>Added Option to use your own Opentopo host</li>
+                    <li>Added Option to import Water (Lakes, ponds) as a Separate STL file</li>
+                    <li>Added Feature to place Pins based on City names</li>
+                    <li>Added option to "Merge" objects into the Map</li>
+                    <li>Added Octagon Shape with Text</li>
+                    <li>Added Hexagon Shape with Text on the Sides</li>
+                    <li>Overwrite Path Elevation will be ignored in Single Color mode</li>
+                    <li>Option to calculate the scale based on 2 coordinates</li>
+                    <li>Option to Generate Map based on a Point and a Radius</li>
+                    <li>Option to Generate Map based on 2 points</li>
+                    <li>Delete Non-Manifold Objects of Water</li>
+                    <li>Debug Popup window to see used Settings for a Map</li>
+                    <li>Option to Insert Map into a Plate for some Shapes</li>
+                    <li>Option to place Pins based on Coordinates or City Names</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="v1-0">
+            <div class="cl-header" onclick="toggleBlock('v1-0')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">Version 1.0</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+                    <span class="cl-date">30.03.2025</span>
+                    <span class="cl-chevron">▼</span>
+                </div>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Initial Release</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleBlock(id) {
+            document.getElementById(id).classList.toggle('open');
+        }
+    </script>
