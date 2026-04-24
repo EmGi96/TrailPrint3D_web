@@ -43,19 +43,7 @@
             <li><a href="{% if page.nav_home %}#how-it-works{% else %}index.html#how-it-works{% endif %}">How It Works</a></li>
             <li><a href="{% if page.nav_home %}#features{% else %}index.html#features{% endif %}">Features</a></li>
 <li><a href="https://discord.gg/tqQy4Yh9Sz" target="_blank">Discord</a></li>
-            <li class="dropdown-wrapper">
-                <button class="nav-cta-free" onclick="toggleDropdown('dd-nav')">Free Download ▾</button>
-                <div class="dropdown-menu" id="dd-nav">
-                    <a href="https://makerworld.com/de/models/1264871-hiking-and-cycling-map-generator-trailprint3d#profileId-1291737" target="_blank">
-                        <img src="/images/logo-makerworld.png" alt="MakerWorld" width="18" height="18" style="border-radius:2px;">
-                        MakerWorld
-                    </a>
-                    <a href="https://www.printables.com/model/1242540-trail-map-generator-trailprint3d-blender-addon" target="_blank">
-                        <img src="/images/logo-printables.webp" alt="Printables" width="18" height="18" style="border-radius:2px;">
-                        Printables
-                    </a>
-                </div>
-            </li>
+            <li><a href="https://github.com/EmGi96/TrailPrint3D/archive/refs/heads/main.zip" class="nav-cta-free" onclick="gtag('event', 'file_download', {event_category: 'engagement', event_label: 'TrailPrint3D_main.zip'})">Free Download</a></li>
             <li><a href="https://www.patreon.com/cw/EmGi3D" target="_blank" class="nav-cta">Get Premium</a></li>
         </ul>
         {% endunless %}
