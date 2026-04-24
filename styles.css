@@ -734,6 +734,19 @@ nav {
 }
 .footer-legal:hover { color: var(--green); }
 
+.footer-socials {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.footer-social-link {
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+.footer-social-link:hover { color: var(--green); }
+
 /* ── Responsive ─────────────────────────────── */
 @media (max-width: 960px) {
     nav { padding: 0 20px; }
