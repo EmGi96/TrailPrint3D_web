@@ -13,12 +13,12 @@ page_styles: download
 
         <!-- ── Buttons ─────────────────────────────── -->
         <div class="dl-buttons">
-            <a href="https://github.com/EmGi96/TrailPrint3D/releases/latest" target="_blank" rel="noopener" class="dl-btn dl-btn-free">
+            <a href="https://github.com/EmGi96/TrailPrint3D/releases/latest" target="_blank" rel="noopener" class="dl-btn dl-btn-free" onclick="openInstall()">
                 <span class="dl-btn-icon">⬇</span>
                 <span class="dl-btn-label">Free Download</span>
                 <span class="dl-btn-sub">Latest release on GitHub</span>
             </a>
-            <a href="https://www.patreon.com/cw/EmGi3D" target="_blank" rel="noopener" class="dl-btn dl-btn-premium">
+            <a href="https://www.patreon.com/cw/EmGi3D" target="_blank" rel="noopener" class="dl-btn dl-btn-premium" onclick="openInstall()">
                 <span class="dl-btn-icon">✦</span>
                 <span class="dl-btn-label">Get Premium</span>
                 <span class="dl-btn-sub">Access on Patreon</span>
@@ -118,12 +118,27 @@ page_styles: download
                             <td class="yes">✓</td>
                         </tr>
                         <tr>
+                            <td>Custom Maps</td>
+                            <td class="no">✗</td>
+                            <td class="yes">✓</td>
+                        </tr>
+                        <tr>
                             <td>Jigsaw &amp; Sliding Puzzle Shapes</td>
                             <td class="no">✗</td>
                             <td class="yes">✓</td>
                         </tr>
                         <tr>
                             <td>Multi-tile Maps</td>
+                            <td class="no">✗</td>
+                            <td class="yes">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Text Shape icons</td>
+                            <td class="no">✗</td>
+                            <td class="yes">✓</td>
+                        </tr>
+                        <tr>
+                            <td>2D Heightmap on Bottom</td>
                             <td class="no">✗</td>
                             <td class="yes">✓</td>
                         </tr>
@@ -136,5 +151,8 @@ page_styles: download
     <script>
         function toggleBlock(id) {
             document.getElementById(id).classList.toggle('open');
+        }
+        function openInstall() {
+            document.getElementById('dl-install').classList.add('open');
         }
     </script>
