@@ -11,12 +11,12 @@ page_styles: download
 
         <!-- ── Buttons ─────────────────────────────── -->
         <div class="dl-buttons">
-            <a href="https://github.com/EmGi96/TrailPrint3D/releases/latest" target="_blank" rel="noopener" class="dl-btn dl-btn-free" onclick="openInstall()">
+            <a href="https://github.com/EmGi96/TrailPrint3D/archive/refs/heads/main.zip" class="dl-btn dl-btn-free" onclick="gtag('event', 'file_download', {event_category: 'engagement', event_label: 'TrailPrint3D_main.zip'}); openInstall()">
                 <span class="dl-btn-icon">⬇</span>
                 <span class="dl-btn-label">Free Download</span>
                 <span class="dl-btn-sub">Latest release on GitHub</span>
             </a>
-            <a href="https://www.patreon.com/cw/EmGi3D" target="_blank" rel="noopener" class="dl-btn dl-btn-premium" onclick="openInstall()">
+            <a href="https://www.patreon.com/cw/EmGi3D" target="_blank" rel="noopener" class="dl-btn dl-btn-premium" onclick="gtag('event', 'get_premium_click', {event_category: 'engagement', event_label: 'download_page'}); openInstall()">
                 <span class="dl-btn-icon">✦</span>
                 <span class="dl-btn-label">Get Premium</span>
                 <span class="dl-btn-sub">Access on Patreon</span>
