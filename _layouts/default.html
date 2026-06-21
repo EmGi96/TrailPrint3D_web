@@ -8,7 +8,7 @@
     {% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
     {% if page.og_title %}<meta property="og:title" content="{{ page.og_title }}">{% endif %}
     {% if page.og_description %}<meta property="og:description" content="{{ page.og_description }}">{% endif %}
-    {% if page.og_image %}<meta property="og:image" content="{{ page.og_image }}">{% endif %}
+    <meta property="og:image" content="{% if page.og_image %}{{ page.og_image }}{% else %}https://www.trailprint3d.com/images/mainImage.webp{% endif %}">
     {% if page.og_url %}<meta property="og:url" content="{{ page.og_url }}">{% endif %}
     <meta property="og:type" content="website">
     {% if page.canonical %}<link rel="canonical" href="{{ page.canonical }}">{% endif %}
@@ -26,13 +26,17 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="/styles.css">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMJ4P3S5R6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-YMJ4P3S5R6');
+      gtag('consent', 'default', { analytics_storage: 'denied' });
+      if (localStorage.getItem('cookie_consent') === 'accepted') {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-YMJ4P3S5R6';
+        document.head.appendChild(s);
+        s.onload = function() { gtag('js', new Date()); gtag('config', 'G-YMJ4P3S5R6'); };
+      }
     </script>
 </head>
 <body>
@@ -46,8 +50,10 @@
         {% unless page.minimal_nav %}
         <ul class="nav-links">
             <li><a href="howto.html"{% if page.nav_active == 'howto' %} class="nav-active"{% endif %}>How To</a></li>
-            <li><a href="https://discord.gg/tqQy4Yh9Sz" target="_blank">Discord</a></li>
+            <li><a href="/filaments.html"{% if page.nav_active == 'filaments' %} class="nav-active"{% endif %}>Filaments</a></li>
             <li><a href="/changelog.html" {% if page.nav_active == 'changelog' %}class="nav-active"{% endif %}>Changelog</a></li>
+            <li><a href="https://discord.gg/tqQy4Yh9Sz" target="_blank" rel="noopener noreferrer" class="nav-external">Discord<svg class="nav-ext-icon" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H4M8.5 1.5V6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            <li><a href="https://github.com/EmGi96/TrailPrint3D" target="_blank" rel="noopener noreferrer" class="nav-external">GitHub<svg class="nav-ext-icon" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 8.5L8.5 1.5M8.5 1.5H4M8.5 1.5V6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
             <li><a href="/download.html" {% if page.nav_active == 'download' %}class="nav-cta nav-active"{% else %}class="nav-cta"{% endif %}>Download</a></li>
         </ul>
         {% endunless %}
@@ -67,7 +73,7 @@
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.203.013-3.585.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 3.84c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.76 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zM12 16c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
                 <a href="https://www.printables.com/@EmGi" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Printables">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M5.138 0A5.136 5.136 0 0 0 0 5.138v13.724A5.136 5.136 0 0 0 5.138 24H18.86A5.136 5.136 0 0 0 24 18.862V5.138A5.136 5.136 0 0 0 18.862 0zm6.863 4.62c.993 0 1.897.198 2.71.595.813.397 1.453.954 1.918 1.668.465.713.698 1.538.698 2.473 0 .853-.178 1.61-.535 2.27a3.956 3.956 0 0 1-1.423 1.548c-.592.376-1.25.6-1.978.67v.062c.374.08.716.266 1.027.558.31.291.564.66.762 1.106l1.534 3.808H14.08l-1.302-3.432c-.15-.39-.344-.658-.584-.803-.239-.145-.557-.218-.956-.218h-.588v4.453H8.211V4.62zm-1.35 2.268v3.78h.855c.7 0 1.254-.186 1.661-.558.408-.372.611-.878.611-1.517 0-.607-.185-1.076-.554-1.41-.37-.332-.905-.498-1.609-.498h-.964z"/></svg>
+                    <img src="/images/logo-printables.webp" alt="Printables" width="20" height="20" style="object-fit:contain;">
                 </a>
                 <a href="https://makerworld.com/de/@EmGi" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="MakerWorld">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
@@ -76,6 +82,29 @@
             <p class="footer-copy">&copy; 2026 TrailPrint3D. All rights reserved. &mdash; <a href="impressum.html" class="footer-legal">Impressum</a> &mdash; <a href="privacy-policy.html" class="footer-legal">Privacy Policy</a></p>
         </div>
     </footer>
+
+    <!-- ── Cookie Banner ───────────────────────── -->
+    <div id="cookie-banner" style="display:none;">
+        <div class="cookie-text">
+            <strong>We use cookies</strong> to analyze site traffic via Google Analytics. You can accept or decline.
+            <a href="/privacy-policy.html">Privacy Policy</a>
+        </div>
+        <div class="cookie-actions">
+            <button class="cookie-btn cookie-decline" onclick="cookieChoice('declined')">Decline</button>
+            <button class="cookie-btn cookie-accept" onclick="cookieChoice('accepted')">Accept</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var obs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(e) {
+                    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+        });
+    </script>
 
     <script>
         function toggleDropdown(id) {
@@ -90,6 +119,28 @@
                 document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('active'));
             }
         });
+
+        (function() {
+            if (!localStorage.getItem('cookie_consent')) {
+                document.getElementById('cookie-banner').style.display = 'flex';
+            }
+        })();
+
+        function cookieChoice(choice) {
+            localStorage.setItem('cookie_consent', choice);
+            document.getElementById('cookie-banner').style.display = 'none';
+            if (choice === 'accepted') {
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-YMJ4P3S5R6';
+                document.head.appendChild(s);
+                s.onload = function() {
+                    gtag('consent', 'update', { analytics_storage: 'granted' });
+                    gtag('js', new Date());
+                    gtag('config', 'G-YMJ4P3S5R6');
+                };
+            }
+        }
     </script>
 </body>
 </html>
