@@ -10,6 +10,37 @@ page_styles: changelog
     <div class="changelog-wrap">
         <h1>Changelog</h1>
 
+        <div class="cl-block" id="v3-1">
+            <div class="cl-header" onclick="toggleBlock('v3-1')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">Version 3.1</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+                    <span class="cl-date">21.06.2026</span>
+                    <span class="cl-chevron">▼</span>
+                </div>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Added: Puzzle Configurator — browser-based interface to create custom puzzle maps</li>
+                    <li>Added: Custom input for Road height</li>
+                    <li>Added: Generated-maps counter tracked in Advanced -&gt; Additional Info</li>
+                    <li>Added: File Picker now filters and shows only valid files</li>
+                    <li>Added: Automatic Addon version updater</li>
+                    <li>Added: Russian translation</li>
+                    <li>Changed: Replaced custom geometry processing with a Shapely-based pipeline for all Elements — far more robust and faster than booleans, with fewer vertices and no downsides</li>
+                    <li>Changed: OSM fetching is now parallelized and pre-fetched during the Elevation download — way fewer requests, saving a lot of time for element-heavy maps</li>
+                    <li>Changed: Improved Progress Bar status updates</li>
+                    <li>Changed: Hexagon Outer shape now has 6 text input fields instead of 4</li>
+                    <li>Changed: Minimum required Blender version is now 5.1 instead of 4.5 due to the bundled python wheels</li>
+                    <li>Fixed: GPX import dropping path segments at overlapping points</li>
+                    <li>Fixed: Stray single vertices requiring manual smoothing</li>
+                    <li>Fixed: Elevation cache not being deleted properly</li>
+                    <li>Fixed: Crash when a trail object is empty after a boolean operation</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="cl-block" id="v3-0">
             <div class="cl-header" onclick="toggleBlock('v3-0')">
                 <div class="cl-left">
