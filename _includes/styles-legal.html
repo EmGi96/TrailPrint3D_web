@@ -67,4 +67,71 @@
         text-decoration: none;
     }
     .legal-wrap a:hover { text-decoration: underline; }
+
+    .attr-wrap {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 120px 40px 80px;
+    }
+    .attr-wrap h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 8px;
+    }
+    .attr-wrap .attr-intro {
+        font-size: 0.9em;
+        color: var(--text-muted);
+        margin-bottom: 48px;
+        line-height: 1.7;
+    }
+    .attr-wrap h2 {
+        font-size: 0.78em;
+        font-weight: 700;
+        color: var(--green);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin: 40px 0 12px;
+    }
+    .attr-card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 18px 20px;
+        margin-bottom: 10px;
+        background: var(--card);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 4px 16px;
+        align-items: start;
+    }
+    .attr-card-name {
+        font-size: 0.9em;
+        font-weight: 600;
+        color: var(--text);
+    }
+    .attr-card-link {
+        font-size: 0.8em;
+        color: var(--green);
+        text-decoration: none;
+        grid-row: 1 / 3;
+        align-self: center;
+        white-space: nowrap;
+    }
+    .attr-card-link:hover { text-decoration: underline; }
+    .attr-card-desc {
+        font-size: 0.83em;
+        color: var(--text-dim);
+        line-height: 1.55;
+    }
+    .attr-card-license {
+        font-size: 0.75em;
+        color: var(--text-muted);
+        grid-column: 1;
+    }
+
+    @media (max-width: 560px) {
+        .attr-wrap { padding: 100px 20px 60px; }
+        .attr-card { grid-template-columns: 1fr; }
+        .attr-card-link { grid-row: auto; margin-top: 6px; }
+    }
 </style>
