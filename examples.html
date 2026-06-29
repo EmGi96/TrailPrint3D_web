@@ -23,6 +23,7 @@ page_styles: examples
         <button class="filter-btn active" onclick="filter('all', this)">All</button>
         <button class="filter-btn" onclick="filter('free', this)">Free</button>
         <button class="filter-btn" onclick="filter('premium', this)">Premium</button>
+        <button class="filter-btn" onclick="filter('downloadable', this)">Downloadable</button>
     </div>
 
     <!-- ── Gallery ──────────────────────────────────────── -->
@@ -68,7 +69,7 @@ page_styles: examples
                 </div>
             </div>
 
-            <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'Canyon Puzzle', '', [{url:'https://makerworld.com/de/models/2610757-grand-canyon-3d-jigzaw-puzzle#profileId-2881051',text:'Downloadable'}])">
+            <div class="gallery-card" data-tier="free" data-downloadable="true" onclick="openLightbox(this, 'Canyon Puzzle', '', [{url:'https://makerworld.com/de/models/2610757-grand-canyon-3d-jigzaw-puzzle#profileId-2881051',text:'Downloadable'}])">
                 <div class="gallery-img">
                     <img src="images/Canyon Puzzle.jpg" alt="Canyon Puzzle">
                 </div>
@@ -97,13 +98,14 @@ page_styles: examples
                 </div>
             </div>
 
-            <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'Germany Map', '')">
+            <div class="gallery-card" data-tier="free" data-downloadable="true" onclick="openLightbox(this, 'Germany Map', '', [{url:'https://makerworld.com/de/models/1896874-hex-germany-progress-map-92cm#profileId-2032381',text:'Downloadable'}])">
                 <div class="gallery-img">
                     <img src="images/GermanyMap.jpg" alt="Germany Map">
                 </div>
                 <div class="gallery-info">
                     <div class="gallery-tags">
                         <span class="gallery-tag premium">Premium</span>
+                        <span class="gallery-tag makerworld">Downloadable</span>
                     </div>
                     <h3>Germany Map</h3>
                     <p></p>
@@ -159,7 +161,10 @@ page_styles: examples
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             document.querySelectorAll('.gallery-card').forEach(card => {
-                const show = tier === 'all' || card.dataset.tier === tier;
+                let show;
+                if (tier === 'all') show = true;
+                else if (tier === 'downloadable') show = card.dataset.downloadable === 'true';
+                else show = card.dataset.tier === tier;
                 card.classList.toggle('hidden', !show);
             });
         }
@@ -175,10 +180,10 @@ page_styles: examples
                 links.forEach(function(l) {
                     const a = document.createElement('a');
                     a.href = l.url;
-                    a.textContent = l.text;
                     a.className = 'lightbox-link';
                     a.target = '_blank';
                     a.rel = 'noopener noreferrer';
+                    a.innerHTML = l.text + '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
                     linksEl.appendChild(a);
                 });
             }
