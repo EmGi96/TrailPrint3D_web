@@ -142,6 +142,11 @@
         border: 1px solid var(--border);
         color: var(--text-muted);
     }
+    .gallery-tag.makerworld {
+        background: rgba(99,102,241,0.12);
+        border: 1px solid rgba(99,102,241,0.28);
+        color: #a5b4fc;
+    }
 
     .gallery-info h3 {
         font-size: 0.95em;
@@ -210,6 +215,34 @@
         font-size: 0.875em;
         color: var(--text-dim);
         line-height: 1.7;
+    }
+
+    .lightbox-links {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+    }
+
+    .lightbox-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 14px;
+        border-radius: 100px;
+        font-size: 0.78em;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        background: rgba(99,102,241,0.12);
+        border: 1px solid rgba(99,102,241,0.28);
+        color: #a5b4fc;
+        text-decoration: none;
+        transition: background 0.2s, border-color 0.2s;
+    }
+    .lightbox-link:hover {
+        background: rgba(99,102,241,0.22);
+        border-color: rgba(99,102,241,0.5);
     }
 
     .lightbox-close {

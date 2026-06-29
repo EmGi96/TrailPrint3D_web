@@ -68,7 +68,7 @@ page_styles: examples
                 </div>
             </div>
 
-            <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'Canyon Puzzle', '')">
+            <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'Canyon Puzzle', '', [{url:'https://makerworld.com/de/models/2610757-grand-canyon-3d-jigzaw-puzzle#profileId-2881051',text:'Makerworld'}])">
                 <div class="gallery-img">
                     <img src="images/Canyon Puzzle.jpg" alt="Canyon Puzzle">
                 </div>
@@ -76,6 +76,7 @@ page_styles: examples
                     <div class="gallery-tags">
                         <span class="gallery-tag free">Free</span>
                         <span class="gallery-tag type">Puzzle</span>
+                        <span class="gallery-tag makerworld">Makerworld</span>
                     </div>
                     <h3>Canyon Puzzle</h3>
                     <p></p>
@@ -148,6 +149,7 @@ page_styles: examples
             <div class="lightbox-body">
                 <h2 id="lightbox-title"></h2>
                 <p id="lightbox-desc"></p>
+                <div class="lightbox-links" id="lightbox-links"></div>
             </div>
         </div>
     </div>
@@ -162,11 +164,24 @@ page_styles: examples
             });
         }
 
-        function openLightbox(card, title, desc) {
+        function openLightbox(card, title, desc, links) {
             const src = card.querySelector('.gallery-img img').src;
             document.getElementById('lightbox-image').src = src;
             document.getElementById('lightbox-title').textContent = title;
             document.getElementById('lightbox-desc').textContent = desc;
+            const linksEl = document.getElementById('lightbox-links');
+            linksEl.innerHTML = '';
+            if (links && links.length) {
+                links.forEach(function(l) {
+                    const a = document.createElement('a');
+                    a.href = l.url;
+                    a.textContent = l.text;
+                    a.className = 'lightbox-link';
+                    a.target = '_blank';
+                    a.rel = 'noopener noreferrer';
+                    linksEl.appendChild(a);
+                });
+            }
             document.getElementById('lightbox').classList.add('open');
             document.body.style.overflow = 'hidden';
         }
