@@ -23,15 +23,43 @@ page_styles: examples
         <button class="filter-btn active" onclick="filter('all', this)">All</button>
         <button class="filter-btn" onclick="filter('free', this)">Free</button>
         <button class="filter-btn" onclick="filter('premium', this)">Premium</button>
+        <button class="filter-btn" onclick="filter('downloadable', this)">Downloadable</button>
     </div>
 
     <!-- ── Gallery ──────────────────────────────────────── -->
     <div class="gallery-wrap">
         <div class="gallery-grid" id="gallery">
 
+            <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'New Example', '')">
+                <div class="gallery-img">
+                    <img src="images/examples/example_001.png" alt="New Example">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag free">Free</span>
+                    </div>
+                    <h3>New Example</h3>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'by LarsRheinsteg', '')">
+                <div class="gallery-img">
+                    <img src="images/examples/LarsRheinsteg.jpg" alt="by LarsRheinsteg">
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-tags">
+                        <span class="gallery-tag free">Free</span>
+                        <span class="gallery-tag type">Custom</span>
+                    </div>
+                    <h3>by LarsRheinsteg</h3>
+                    <p></p>
+                </div>
+            </div>
+
             <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'By NeoPanthera', 'Added the routes to the medal wall')">
                 <div class="gallery-img">
-                    <img src="images/NeoPanthera_30.07.2025.jpg" alt="Medal Wall">
+                    <img src="images/examples/NeoPanthera_30.07.2025.jpg" alt="Medal Wall">
                 </div>
                 <div class="gallery-info">
                     <div class="gallery-tags">
@@ -44,7 +72,7 @@ page_styles: examples
 
             <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'by Os_Trigonum', 'Buildings &amp; roads, and the Trail in a great choice of colors.')">
                 <div class="gallery-img">
-                    <img src="images/Os_Trigonum_08.03.2026.png" alt="City Center Map">
+                    <img src="images/examples/Os_Trigonum_08.03.2026.png" alt="City Center Map">
                 </div>
                 <div class="gallery-info">
                     <div class="gallery-tags">
@@ -57,7 +85,7 @@ page_styles: examples
 
             <div class="gallery-card" data-tier="premium" onclick="openLightbox(this, 'by Crashlander', 'Trail Stretching across multiple tiles with custom made Wood Frame')">
                 <div class="gallery-img">
-                    <img src="images/Crashlander_21.12.2025.jpg" alt="Mountain Range">
+                    <img src="images/examples/Crashlander_21.12.2025.jpg" alt="Mountain Range">
                 </div>
                 <div class="gallery-info">
                     <div class="gallery-tags">
@@ -68,14 +96,15 @@ page_styles: examples
                 </div>
             </div>
 
-            <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'Canyon Puzzle', '')">
+            <div class="gallery-card" data-tier="free" data-downloadable="true" onclick="openLightbox(this, 'Canyon Puzzle', '', [{url:'https://makerworld.com/de/models/2610757-grand-canyon-3d-jigzaw-puzzle#profileId-2881051',text:'Makerworld'}])">
                 <div class="gallery-img">
-                    <img src="images/Canyon Puzzle.jpg" alt="Canyon Puzzle">
+                    <img src="images/examples/Canyon Puzzle.jpg" alt="Canyon Puzzle">
                 </div>
                 <div class="gallery-info">
                     <div class="gallery-tags">
                         <span class="gallery-tag free">Free</span>
                         <span class="gallery-tag type">Puzzle</span>
+                        <span class="gallery-tag makerworld">Downloadable</span>
                     </div>
                     <h3>Canyon Puzzle</h3>
                     <p></p>
@@ -84,7 +113,7 @@ page_styles: examples
 
             <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'Coastline Puzzle', '')">
                 <div class="gallery-img">
-                    <img src="images/CoastlinePuzzle.JPG" alt="Coastline Puzzle">
+                    <img src="images/examples/CoastlinePuzzle.JPG" alt="Coastline Puzzle">
                 </div>
                 <div class="gallery-info">
                     <div class="gallery-tags">
@@ -96,13 +125,15 @@ page_styles: examples
                 </div>
             </div>
 
-            <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'Germany Map', '')">
+            <div class="gallery-card" data-tier="premium" data-downloadable="true" onclick="openLightbox(this, 'Germany Map', '', [{url:'https://makerworld.com/de/models/1896874-hex-germany-progress-map-92cm#profileId-2032381',text:'Makerworld'}])">
                 <div class="gallery-img">
-                    <img src="images/GermanyMap.jpg" alt="Germany Map">
+                    <img src="images/examples/GermanyMap.jpg" alt="Germany Map">
                 </div>
                 <div class="gallery-info">
                     <div class="gallery-tags">
                         <span class="gallery-tag premium">Premium</span>
+                        <span class="gallery-tag type">Multi-tile</span>
+                        <span class="gallery-tag makerworld">Downloadable</span>
                     </div>
                     <h3>Germany Map</h3>
                     <p></p>
@@ -111,7 +142,7 @@ page_styles: examples
 
             <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'Sliding Puzzle 100km', '')">
                 <div class="gallery-img">
-                    <img src="images/SlidingPuzzle100Km.JPG" alt="Sliding Puzzle 100km">
+                    <img src="images/examples/SlidingPuzzle100Km.JPG" alt="Sliding Puzzle 100km">
                 </div>
                 <div class="gallery-info">
                     <div class="gallery-tags">
@@ -124,7 +155,7 @@ page_styles: examples
 
             <div class="gallery-card" data-tier="free" onclick="openLightbox(this, 'Zugspitze Small &amp; Big', '')">
                 <div class="gallery-img">
-                    <img src="images/ZugspitzeSmallBig.jpg" alt="Zugspitze Small and Big">
+                    <img src="images/examples/ZugspitzeSmallBig.jpg" alt="Zugspitze Small and Big">
                 </div>
                 <div class="gallery-info">
                     <div class="gallery-tags">
@@ -148,6 +179,7 @@ page_styles: examples
             <div class="lightbox-body">
                 <h2 id="lightbox-title"></h2>
                 <p id="lightbox-desc"></p>
+                <div class="lightbox-links" id="lightbox-links"></div>
             </div>
         </div>
     </div>
@@ -157,16 +189,32 @@ page_styles: examples
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             document.querySelectorAll('.gallery-card').forEach(card => {
-                const show = tier === 'all' || card.dataset.tier === tier;
+                let show;
+                if (tier === 'all') show = true;
+                else if (tier === 'downloadable') show = card.dataset.downloadable === 'true';
+                else show = card.dataset.tier === tier;
                 card.classList.toggle('hidden', !show);
             });
         }
 
-        function openLightbox(card, title, desc) {
+        function openLightbox(card, title, desc, links) {
             const src = card.querySelector('.gallery-img img').src;
             document.getElementById('lightbox-image').src = src;
             document.getElementById('lightbox-title').textContent = title;
             document.getElementById('lightbox-desc').textContent = desc;
+            const linksEl = document.getElementById('lightbox-links');
+            linksEl.innerHTML = '';
+            if (links && links.length) {
+                links.forEach(function(l) {
+                    const a = document.createElement('a');
+                    a.href = l.url;
+                    a.className = 'lightbox-link';
+                    a.target = '_blank';
+                    a.rel = 'noopener noreferrer';
+                    a.innerHTML = l.text + '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+                    linksEl.appendChild(a);
+                });
+            }
             document.getElementById('lightbox').classList.add('open');
             document.body.style.overflow = 'hidden';
         }
