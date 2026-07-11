@@ -340,13 +340,14 @@ nav {
     gap: 4px;
     padding: 1px 7px;
     border-radius: 100px;
-    background: rgba(0,0,0,0.08);
+    background: rgba(255,255,255,0.1);
     font-size: 0.95em;
     font-weight: 700;
     text-transform: none;
     letter-spacing: normal;
 }
 .hero-badge-count:empty { display: none; }
+.hero-badge-blender .hero-badge-count { background: rgba(0,0,0,0.08); }
 .hero-badge-count-icon {
     width: 9px;
     height: 9px;
