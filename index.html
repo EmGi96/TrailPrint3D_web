@@ -43,6 +43,7 @@ nav_home: true
                     How To
                 </a>
             </div>
+            <p class="hero-dl-count" id="hero-dl-count"></p>
         </div>
 
         <div class="hero-visual">
@@ -267,14 +268,20 @@ nav_home: true
     <script>
         (function() {
             var el = document.getElementById('gh-dl-count');
-            if (!el) return;
+            var captionEl = document.getElementById('hero-dl-count');
+            if (!el && !captionEl) return;
 
             var CACHE_KEY = 'tp3d_gh_downloads';
             var CACHE_TTL = 60 * 60 * 1000; // 1 hour
 
             function render(count) {
-                el.innerHTML = '<svg class="hero-badge-count-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 20h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>' + count.toLocaleString();
-                el.title = count.toLocaleString() + ' total downloads';
+                if (el) {
+                    el.innerHTML = '<svg class="hero-badge-count-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 20h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>' + count.toLocaleString();
+                    el.title = count.toLocaleString() + ' total downloads';
+                }
+                if (captionEl) {
+                    captionEl.textContent = '⬇ ' + count.toLocaleString() + ' downloads on GitHub';
+                }
             }
 
             var cached = null;

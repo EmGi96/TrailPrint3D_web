@@ -204,6 +204,14 @@ nav {
     box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
+.hero-dl-count {
+    margin-top: 14px;
+    font-size: 0.8em;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+.hero-dl-count:empty { display: none; }
+
 .btn-outline {
     display: inline-flex;
     align-items: center;
