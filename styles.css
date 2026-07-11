@@ -337,6 +337,7 @@ nav {
 .hero-badge-count {
     display: inline-flex;
     align-items: center;
+    gap: 4px;
     padding: 1px 7px;
     border-radius: 100px;
     background: rgba(0,0,0,0.08);
@@ -346,6 +347,11 @@ nav {
     letter-spacing: normal;
 }
 .hero-badge-count:empty { display: none; }
+.hero-badge-count-icon {
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+}
 
 .badge-dot {
     width: 6px;

@@ -270,13 +270,8 @@ nav_home: true
             var CACHE_KEY = 'tp3d_gh_downloads';
             var CACHE_TTL = 60 * 60 * 1000; // 1 hour
 
-            function formatCount(n) {
-                if (n >= 10000) return Math.round(n / 1000) + 'k';
-                if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
-                return String(n);
-            }
             function render(count) {
-                el.textContent = formatCount(count);
+                el.innerHTML = '<svg class="hero-badge-count-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 20h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>' + count.toLocaleString();
                 el.title = count.toLocaleString() + ' total downloads';
             }
 
