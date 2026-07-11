@@ -18,6 +18,7 @@ nav_home: true
                 <a href="https://github.com/EmGi96/TrailPrint3D" target="_blank" class="hero-badge hero-badge-platform hero-badge-blender">
                     <img src="images/logo-github.png" alt="GitHub" width="13" height="13" style="border-radius:2px;">
                     GitHub
+                    <span class="hero-badge-count" id="gh-dl-count"></span>
                 </a>
                 <a href="https://makerworld.com/de/models/1264871-hiking-and-cycling-map-generator-trailprint3d#profileId-1291737" target="_blank" class="hero-badge hero-badge-platform">
                     <img src="images/logo-makerworld.png" alt="MakerWorld" width="13" height="13" style="border-radius:2px;">
@@ -259,3 +260,47 @@ nav_home: true
             </details>
         </div>
     </section>
+
+    <!-- ── GitHub download count ─────────────────── -->
+    <script>
+        (function() {
+            var el = document.getElementById('gh-dl-count');
+            if (!el) return;
+
+            var CACHE_KEY = 'tp3d_gh_downloads';
+            var CACHE_TTL = 60 * 60 * 1000; // 1 hour
+
+            function formatCount(n) {
+                if (n >= 10000) return Math.round(n / 1000) + 'k';
+                if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+                return String(n);
+            }
+            function render(count) {
+                el.textContent = formatCount(count);
+                el.title = count.toLocaleString() + ' total downloads';
+            }
+
+            var cached = null;
+            try { cached = JSON.parse(localStorage.getItem(CACHE_KEY)); } catch (e) {}
+            if (cached && (Date.now() - cached.time) < CACHE_TTL) {
+                render(cached.count);
+                return;
+            }
+
+            fetch('https://api.github.com/repos/EmGi96/TrailPrint3D/releases?per_page=100')
+                .then(function(res) { if (!res.ok) throw new Error('bad response'); return res.json(); })
+                .then(function(releases) {
+                    var total = 0;
+                    releases.forEach(function(release) {
+                        (release.assets || []).forEach(function(asset) {
+                            total += asset.download_count || 0;
+                        });
+                    });
+                    render(total);
+                    try { localStorage.setItem(CACHE_KEY, JSON.stringify({ count: total, time: Date.now() })); } catch (e) {}
+                })
+                .catch(function() {
+                    if (cached) render(cached.count);
+                });
+        })();
+    </script>

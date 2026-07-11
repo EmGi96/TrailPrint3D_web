@@ -334,6 +334,19 @@ nav {
     color: #FA6831;
 }
 
+.hero-badge-count {
+    display: inline-flex;
+    align-items: center;
+    padding: 1px 7px;
+    border-radius: 100px;
+    background: rgba(0,0,0,0.08);
+    font-size: 0.95em;
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: normal;
+}
+.hero-badge-count:empty { display: none; }
+
 .badge-dot {
     width: 6px;
     height: 6px;
