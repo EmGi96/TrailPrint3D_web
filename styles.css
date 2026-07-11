@@ -142,6 +142,19 @@ nav {
     transform: translate(1px, -1px);
 }
 
+.gh-dl-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    color: var(--text-muted);
+    font-size: 0.75em;
+    font-weight: 600;
+    line-height: 1.5;
+}
+.gh-dl-badge:empty { display: none; }
+
 .nav-cta:hover {
     background: #16a34a !important;
     color: #000 !important;
