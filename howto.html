@@ -24,6 +24,7 @@ page_styles: changelog
                     <li>Download the Latest version of the Addon</li>
                     <li>Open Blender and go to Edit → Preferences → Add-ons</li>
                     <li>Popup opens. Go to Add-ons, click on the arrow on the top right, "Install from disk" and select the Addon you downloaded</li>
+                    <li>TrailPrint3D can update itself — open <strong>Edit → Preferences → Add-ons → TrailPrint3D</strong> and click <strong>Check for Updates</strong> whenever a new version comes out, no need to redownload manually</li>
                     <li style="list-style: none; padding: 10px 0;">
                         <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
                             <iframe src="https://www.youtube.com/embed/qfpxZbYOvvk" title="TrailPrint3D Installation Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px;"></iframe>
@@ -92,6 +93,25 @@ page_styles: changelog
             </div>
         </div>
 
+        <div class="cl-block" id="ht-textshapes">
+            <div class="cl-header" onclick="toggleBlock('ht-textshapes')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">PREMIUM</span>
+                    <span class="cl-title">Text-Based Shapes &amp; Customization</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Some shapes double as backplates for engraved text: <strong>Hexagon</strong> (inner, outer, or front text) and <strong>Octagon</strong> (outer text)</li>
+                    <li>Add a title plus up to 5 icon + text rows. handy for a route name, distance, elevation gain, or date</li>
+                    <li>Choose a <strong>Font</strong> and set the title and body <strong>Text Size</strong> independently</li>
+                    <li>Fine-tune the plate with <strong>Thickness</strong>, <strong>Outer Border Size</strong>, <strong>Insert Value</strong>, <strong>Bevel</strong>, and a <strong>Text Angle</strong> preset</li>
+                    <li>Found in the <strong>Additional Shape Settings</strong> panel, only shown when a text-based shape is selected</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="cl-block" id="ht-resolution">
             <div class="cl-header" onclick="toggleBlock('ht-resolution')">
                 <div class="cl-left">
@@ -130,6 +150,24 @@ page_styles: changelog
             </div>
         </div>
 
+        <div class="cl-block" id="ht-api">
+            <div class="cl-header" onclick="toggleBlock('ht-api')">
+                <div class="cl-left">
+                    <span class="cl-title">Elevation Data Sources &amp; API Key</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>TrailPrint3D can pull elevation data from several sources, switchable in <strong>Advanced → API</strong>: <strong>Terrain-Tiles</strong> (default, fastest, no setup), <strong>Mapterhorn</strong>, <strong>OpenTopoData</strong>, <strong>Open-Elevation</strong>, and <strong>OpenTopography</strong></li>
+                    <li><strong>OpenTopography</strong> requires a free API key from <a href="https://portal.opentopography.org" target="_blank" rel="noopener">portal.opentopography.org</a> — without it, most datasets will fail to fetch. Set the key once in <strong>Edit → Preferences → Add-ons → TrailPrint3D → OpenTopography API Key</strong></li>
+                    <li>If using <strong>OpenTopoData</strong>, pick the <strong>Dataset</strong> that best matches your region for more accurate elevation</li>
+                    <li>Elevation and map data both require an internet connection — if generation fails, check your connection or try a different data source</li>
+                    <li>If you see random holes in your terrain mesh, try enabling <strong>disableCache</strong> or clearing the cache with <strong>Clear Cache</strong></li>
+                </ul>
+            </div>
+        </div>
+
         <div class="cl-block" id="ht-elements">
             <div class="cl-header" onclick="toggleBlock('ht-elements')">
                 <div class="cl-left">
@@ -143,6 +181,9 @@ page_styles: changelog
                     <li><strong>Water</strong>: lakes, rivers, and other bodies of water are generated as raised or recessed areas on the map</li>
                     <li><strong>Forests</strong>: wooded areas are included as a distinct surface layer</li>
                     <li><strong>Cities &amp; Settlements</strong>: urban areas are represented on the map</li>
+                    <li><strong>Scree, Glaciers, Farmland &amp; Greenspaces</strong>: also generated automatically, each toggleable individually with its own area/size setting</li>
+                    <li><strong>Buildings</strong> <em>(3D, Experimental)</em>: extrudes building footprints to a configurable height</li>
+                    <li><strong>Roads</strong>: choose which tiers to include (major, medium, small streets) and control their width and height</li>
                     <li>Element generation works best in well-mapped regions.remote or rural areas may have less OSM data available</li>
                     <li>You can select from 3 ways to handle the Elements:</li>
                     <li><strong>PaintOnMap</strong>: Paints the elements directly onto the map surface. Quality is depending on the Map resolution</li>
@@ -189,6 +230,74 @@ page_styles: changelog
             </div>
         </div>
 
+        <div class="cl-block" id="ht-postprocess">
+            <div class="cl-header" onclick="toggleBlock('ht-postprocess')">
+                <div class="cl-left">
+                    <span class="cl-title">More Post-Processing Tools</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>All of these are found in <strong>Advanced → Post-processing</strong> and must be exported manually afterward. they're not part of the automatic export</li>
+                    <li><strong>Color Mountains</strong>: automatically colors the terrain by elevation threshold, useful before exporting for multi-color prints</li>
+                    <li><strong>Magnet Holes</strong>: drills holes sized for your own magnets (set <strong>Height</strong> and <strong>Diameter</strong>), handy for multi-tile maps or removable pieces</li>
+                    <li><strong>Dovetail Cutouts</strong>: adds interlocking dovetail joints along tile edges, useful when printing a map across multiple tiles</li>
+                    <li><strong>Bottom Mark</strong>: engraves a small mark into the bottom face of the map, useful for labeling tiles</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-pin">
+            <div class="cl-header" onclick="toggleBlock('ht-pin')">
+                <div class="cl-left">
+                    <span class="cl-title">Pin Placement</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li><strong>Place Pin</strong> adds a small pin marker at a specific GPS coordinate on your map</li>
+                    <li>Found in <strong>Advanced → Pin</strong></li>
+                    <li><strong>Premium</strong>: <strong>Pin on City</strong> lets you drop a pin by typing a city name instead of coordinates</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-svg">
+            <div class="cl-header" onclick="toggleBlock('ht-svg')">
+                <div class="cl-left">
+                    <span class="cl-title">SVG &amp; Text Import</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Import a custom <strong>SVG</strong> outline (e.g. a logo or icon) directly onto your map as a 3D object</li>
+                    <li>Place custom <strong>3D Text</strong> anywhere on the map. for example a title, date, or distance</li>
+                    <li>Found in <strong>Advanced → Post-processing → SVG / Text Import</strong></li>
+                    <li>Click the <strong>?</strong> icon next to the section for a short video walkthrough</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-heightmap">
+            <div class="cl-header" onclick="toggleBlock('ht-heightmap')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">PREMIUM</span>
+                    <span class="cl-title">2D Heightmap Import</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Import a 2D grayscale image and use it directly as a heightmap for the terrain</li>
+                    <li>Useful for custom or fictional terrain that isn't tied to real-world GPS data</li>
+                    <li>Found in <strong>Advanced → Post-processing → Import 2D Heightmap</strong></li>
+                </ul>
+            </div>
+        </div>
+
         <div class="cl-block" id="ht-export">
             <div class="cl-header" onclick="toggleBlock('ht-export')">
                 <div class="cl-left">
@@ -229,6 +338,22 @@ page_styles: changelog
             </div>
         </div>
 
+        <div class="cl-block" id="ht-presets">
+            <div class="cl-header" onclick="toggleBlock('ht-presets')">
+                <div class="cl-left">
+                    <span class="cl-title">Presets</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Save your current settings as a named preset so you can reuse them for future maps</li>
+                    <li>Found in <strong>Advanced → Presets</strong></li>
+                    <li>Load, save, or delete presets from the dropdown</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="cl-block" id="ht-multi">
             <div class="cl-header" onclick="toggleBlock('ht-multi')">
                 <div class="cl-left">
@@ -243,6 +368,26 @@ page_styles: changelog
                     <li>Click the folder icon and then select a Folder that contains all the .GPX files you want to put onto the map</li>
                     <li>Perfect for multi-day hikes, a season of rides, or any collection of routes in the same area</li>
                     <li>Compatible with the SingleColorMode</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cl-block" id="ht-terrain">
+            <div class="cl-header" onclick="toggleBlock('ht-terrain')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">PREMIUM</span>
+                    <span class="cl-title">Terrain Mode &amp; Custom Maps</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li><strong>Terrain</strong> mode generates a map that isn't tied to a GPX trail. useful for custom regional maps</li>
+                    <li>Switch to it with the mode toggle at the top of the <strong>Create</strong> panel</li>
+                    <li>Three ways to define the area: <strong>Center + Radius</strong> (pick a coordinate and radius), <strong>2 Corner Points</strong> (two lat/lon corners), or <strong>From Blank</strong> (create an empty tile, then <strong>Extend Selected Tile</strong> to grow it)</li>
+                    <li>Use the <strong>Multi Tile Configurator</strong> to lay out and generate several tiles at once</li>
+                    <li>Use <strong>Merge with Map</strong> to combine a GPX trail into an existing custom map, or <strong>Generate Just Trail</strong> to add only the path</li>
+                    <li>Great for building city, region, or country-scale maps piece by piece</li>
                 </ul>
             </div>
         </div>
