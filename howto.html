@@ -270,6 +270,35 @@ page_styles: changelog
 
     <script>
         function toggleBlock(id) {
-            document.getElementById(id).classList.toggle('open');
+            var block = document.getElementById(id);
+            var wasOpen = block.classList.contains('open');
+            document.querySelectorAll('.cl-block').forEach(function(b) {
+                b.classList.remove('open');
+            });
+            if (wasOpen) {
+                history.replaceState(null, '', location.pathname + location.search);
+            } else {
+                block.classList.add('open');
+                history.replaceState(null, '', '#' + id);
+            }
         }
+
+        function openFromHash(scroll) {
+            var id = location.hash.slice(1);
+            var block = id && document.getElementById(id);
+            if (!block || !block.classList.contains('cl-block')) return;
+            document.querySelectorAll('.cl-block').forEach(function(b) {
+                b.classList.remove('open');
+            });
+            block.classList.add('open');
+            if (scroll) {
+                requestAnimationFrame(function() {
+                    var top = block.getBoundingClientRect().top + window.pageYOffset - 84;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                });
+            }
+        }
+
+        openFromHash(true);
+        window.addEventListener('hashchange', function() { openFromHash(true); });
     </script>
