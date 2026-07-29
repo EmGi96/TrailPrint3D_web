@@ -36,7 +36,9 @@ following the existing house style rather than pasting the raw text verbatim:
 - Use an em dash (`—`) instead of a period or `->` to attach an elaboration
   to a bullet.
 - Drop contributor credits like `(by X)`, `(requested by @X)`,
-  `(thanks to @X)` — not used on this site.
+  `(thanks to @X)` by default — not generally used on this site. Only keep
+  one if the user explicitly asks to credit someone for a specific entry
+  (e.g. `— by Louisefeige` on the GeoJSON boundary import bullet).
 - An unreleased version at the top of the raw file is usually dated
   `Upcoming` — use that literal string as the `.cl-date` text instead of a
   date.
@@ -70,8 +72,10 @@ gold/amber (`rgba(234,179,8,...)`), consistently used in `styles.css` via
 `.feat-tier-badge.premium` and `.feat-card-premium`. Follow the pattern
 already used on the page you're editing rather than inventing a new one:
 
-- **`changelog.html`**: append `(Premium)` to the bullet, e.g.
-  `Added: Shell geometry for text-based shapes (Premium)`.
+- **`changelog.html`**: append a `<span class="cl-premium-tag">Premium</span>`
+  badge (gold pill, styled in `_includes/styles-changelog.html`) to the
+  bullet, e.g.
+  `Added: Shell geometry for text-based shapes <span class="cl-premium-tag">Premium</span>`.
 - **`howto.html`**: prefix the list item with `<strong>Premium</strong>: `,
   e.g. `<li><strong>Premium</strong>: Pin on City lets you drop a pin by
   typing a city name instead of coordinates</li>`.

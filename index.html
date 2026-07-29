@@ -44,15 +44,6 @@ nav_home: true
                 </a>
             </div>
             <p class="hero-dl-count" id="hero-dl-count"></p>
-
-            <div class="hero-new-pill" id="hero-new-pill" data-version="3.2">
-                <a href="/changelog.html#v3-2">
-                    <span class="hero-new-pill-tag">New in 3.2</span>
-                    GeoJSON boundary import
-                    <span class="hero-new-pill-arrow">→</span>
-                </a>
-                <button type="button" class="hero-new-pill-close" aria-label="Dismiss">×</button>
-            </div>
         </div>
 
         <div class="hero-visual">
@@ -107,7 +98,7 @@ nav_home: true
         <div class="features-group reveal reveal-d1">
             <div class="features-group-header">
                 <span class="feat-tier-badge free">Free</span>
-                <h3 class="features-group-title">Free Features</h3>
+                <h3 class="features-group-title">Features</h3>
             </div>
             <div class="features-grid">
                 <div class="feat-card">
@@ -125,6 +116,14 @@ nav_home: true
                     </div>
                     <h3>Automatic Coloring</h3>
                     <p>Real-world data colors your map automatically. lakes, rivers, forests, and cities all included.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-img">
+                        <span class="feat-img-placeholder">📷 images/feature-contour-lines.png</span>
+                    </div>
+
+                    <h3>Contour Lines</h3>
+                    <p>Add real-world-scaled elevation contour lines to your map, precise down to every meter of elevation gain.</p>
                 </div>
                 <div class="feat-card">
                     <div class="feat-img">
@@ -146,6 +145,14 @@ nav_home: true
                 </div>
                 <div class="feat-card">
                     <div class="feat-img">
+                        <span class="feat-img-placeholder">📷 images/feature-customization.png</span>
+                    </div>
+
+                    <h3>Customization</h3>
+                    <p>Fine-tune scale, elevation exaggeration, base thickness, and dozens of other parameters to get exactly the map you want.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-img">
                         <span class="feat-img-placeholder">📷 images/diffrentShapes.webp</span>
                         <img src="images/customShapes.jpg" alt="Different Shapes">
                     </div>
@@ -156,11 +163,11 @@ nav_home: true
                 <div class="feat-card">
                     <div class="feat-img">
                         <span class="feat-img-placeholder">📷 images/feature-special-shapes.png</span>
-                        <img src="images/specialShapes.jpg" alt="Special Shapes">
+                        <img src="images/specialShapes.jpg" alt="Jigsaw Puzzles">
                     </div>
 
-                    <h3>Special Shapes</h3>
-                    <p>Generate Jigsaw or Sliding Puzzles of any location</p>
+                    <h3>Jigsaw Puzzles</h3>
+                    <p>Turn any location into a jigsaw puzzle you can piece together and display.</p>
                 </div>
                 <div class="feat-card">
                     <div class="feat-img">
@@ -218,6 +225,46 @@ nav_home: true
 
                     <h3>Multi-tile Maps</h3>
                     <p>Split large areas across multiple print tiles that connect seamlessly for wall-scale terrain maps.</p>
+                </div>
+                <div class="feat-card feat-card-premium">
+                    <div class="feat-img">
+                        <span class="feat-img-placeholder">📷 images/feature-hex-circle-puzzles.png</span>
+                    </div>
+
+                    <h3>Hexagonal and Circle Puzzles</h3>
+                    <p>Piece shapes beyond the classic grid — hexagonal and concentric-ring puzzle pieces for a completely different look.</p>
+                </div>
+                <div class="feat-card feat-card-premium">
+                    <div class="feat-img">
+                        <span class="feat-img-placeholder">📷 images/feature-geojson-shapes.png</span>
+                    </div>
+
+                    <h3>GeoJSON Shapes</h3>
+                    <p>Import GeoJSON boundaries as your map shape — including multi-polygon islands and exclaves, or merge multiple boundary files into one.</p>
+                </div>
+                <div class="feat-card feat-card-premium">
+                    <div class="feat-img">
+                        <span class="feat-img-placeholder">📷 images/feature-text-icons.png</span>
+                    </div>
+
+                    <h3>Text Icons</h3>
+                    <p>Add text-based icons and lettering to your map for personalized medals, plaques, and displays.</p>
+                </div>
+                <div class="feat-card feat-card-premium">
+                    <div class="feat-img">
+                        <span class="feat-img-placeholder">📷 images/feature-browser-multitile.png</span>
+                    </div>
+
+                    <h3>Browser based Multi-tile Configurator</h3>
+                    <p>Lay out multi-tile maps right in your browser — no Blender required — with live map layers and material preview.</p>
+                </div>
+                <div class="feat-card feat-card-premium">
+                    <div class="feat-img">
+                        <span class="feat-img-placeholder">📷 images/feature-shell-extra.png</span>
+                    </div>
+
+                    <h3>Exclusive Shape Extra: Shell</h3>
+                    <p>A shell-style base geometry, exclusive to Premium, for a distinctive finishing touch on text-based shapes.</p>
                 </div>
             </div>
         </div>
@@ -315,27 +362,5 @@ nav_home: true
                 .catch(function() {
                     if (cached) render(cached.count);
                 });
-        })();
-    </script>
-
-    <!-- ── "New in X.X" hero pill dismiss ────────── -->
-    <script>
-        (function() {
-            var pill = document.getElementById('hero-new-pill');
-            if (!pill) return;
-
-            var STORAGE_KEY = 'tp3d_dismissed_pill_version';
-            var version = pill.getAttribute('data-version');
-
-            if (localStorage.getItem(STORAGE_KEY) === version) {
-                pill.style.display = 'none';
-                return;
-            }
-
-            var closeBtn = pill.querySelector('.hero-new-pill-close');
-            closeBtn.addEventListener('click', function() {
-                pill.style.display = 'none';
-                try { localStorage.setItem(STORAGE_KEY, version); } catch (e) {}
-            });
         })();
     </script>
