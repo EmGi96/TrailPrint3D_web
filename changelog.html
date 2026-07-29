@@ -10,6 +10,52 @@ page_styles: changelog
     <div class="changelog-wrap">
         <h1>Changelog</h1>
 
+        <div class="cl-block" id="v3-2">
+            <div class="cl-header" onclick="toggleBlock('v3-2')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">Version 3.2</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+                    <span class="cl-date">Upcoming</span>
+                    <span class="cl-chevron">▼</span>
+                </div>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Added: GeoJSON boundary import as a new Terrain map mode, including MultiPolygon (islands/exclaves) support and merging multiple boundary files into one shape</li>
+                    <li>Added: Coordinate search with city lookup and lat/lon input, plus new map layers for browser-based features (Puzzle/Multitile Configurator)</li>
+                    <li>Added: Circle Outer text shape</li>
+                    <li>Added: Medal handle support for text-based shapes</li>
+                    <li>Added: Shell geometry for text-based shapes (Premium)</li>
+                    <li>Added: Material preview mode in the Puzzle Configurator</li>
+                    <li>Added: Hexagonal and Concentric-Ring puzzle piece shapes in the Puzzle Configurator (Premium)</li>
+                    <li>Added: Shapely/Earcut status indicators and clearer error messages when Shapely fails to load</li>
+                    <li>Added: ARM64 and macOS 10.13 x86_64 wheels for Shapely and Mapbox Earcut</li>
+                    <li>Changed: Default terrain source is now Mapterhorn</li>
+                    <li>Changed: Smoother raw OSM element boundaries before extrusion — fetched OSM polygons are now clipped to the query bbox</li>
+                    <li>Changed: Faster full-ocean tile mesh generation</li>
+                    <li>Changed: Updated projection logic for ocean creation</li>
+                    <li>Changed: Restructured shape selection UI</li>
+                    <li>Changed: Improved update checker reliability</li>
+                    <li>Changed: Updated export format handling for terrain-element colors in Paint mode</li>
+                    <li>Changed: Reworked Contour Lines — now subtracts its bands from the map instead of only intersecting, supports real-world-meter distance/offset (elevation-scale aware, enabled by default) alongside mm, generates at the map's own origin instead of the 3D cursor, and warns instead of failing when distance is smaller than thickness</li>
+                    <li>Fixed: Shapely now installs correctly and no longer throws errors</li>
+                    <li>Fixed: Ocean creation now supports merging with the map again</li>
+                    <li>Fixed: Steep (60°) walls incorrectly detected as vertical walls during raycast</li>
+                    <li>Fixed: Trail points bouncing in one direction during multi-generation</li>
+                    <li>Fixed: Buggy BMesh shapes causing issues with rivers and unreliable element painting</li>
+                    <li>Fixed: Trails clipping through hills</li>
+                    <li>Fixed: Progress bar/browser window not opening properly in app mode when no Chromium browser is found</li>
+                    <li>Fixed: Spike artifacts on complex GeoJSON boundaries</li>
+                    <li>Fixed: Crash in Separate/Single Color element mode with exactly one surviving part</li>
+                    <li>Fixed: GPX chain import not working due to a broken condition check</li>
+                    <li>Fixed: Malformed GPX files crashing the addon instead of showing a clear error</li>
+                    <li>Fixed: Incorrect vertex selection/lowest point calculation for oceans</li>
+                    <li>Fixed: Elevation Range (m) map metadata was inflated by an uncompensated per-vertex Mercator latitude factor baked into terrain height generation, causing incorrect real-world elevation figures away from the equator</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="cl-block" id="v3-1-1">
             <div class="cl-header" onclick="toggleBlock('v3-1-1')">
                 <div class="cl-left">
