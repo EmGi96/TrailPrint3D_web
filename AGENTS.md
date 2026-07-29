@@ -101,7 +101,7 @@ page_styles: <optional — see below>
 `_layouts/default.html` is the single shared layout (nav, footer, cookie
 banner, analytics consent gating). Per-page CSS lives in
 `_includes/styles-<name>.html` and is pulled in via an
-`{% if page.page_styles == '<name>' %}` conditional in
+`{% raw %}{% if page.page_styles == '<name>' %}{% endraw %}` conditional in
 `_layouts/default.html`'s `<head>`. If you add a new page that needs its own
 styles, you must add both the include file *and* the conditional line —
 there's no automatic wiring.
