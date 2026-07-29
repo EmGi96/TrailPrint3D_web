@@ -72,10 +72,10 @@ gold/amber (`rgba(234,179,8,...)`), consistently used in `styles.css` via
 `.feat-tier-badge.premium` and `.feat-card-premium`. Follow the pattern
 already used on the page you're editing rather than inventing a new one:
 
-- **`changelog.html`**: append a `<span class="cl-premium-tag">Premium</span>`
+- **`changelog.html`**: prepend a `<span class="cl-premium-tag">Premium</span>`
   badge (gold pill, styled in `_includes/styles-changelog.html`) to the
-  bullet, e.g.
-  `Added: Shell geometry for text-based shapes <span class="cl-premium-tag">Premium</span>`.
+  bullet, before the `Added:`/`Changed:`/`Fixed:` prefix, e.g.
+  `<span class="cl-premium-tag">Premium</span> Added: Shell geometry for text-based shapes`.
   Within each category (`Added:`/`Changed:`/`Fixed:`), sort Premium-tagged
   bullets to the end of that category — non-Premium entries first (in their
   existing relative order), Premium entries grouped together last.
