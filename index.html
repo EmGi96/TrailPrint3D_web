@@ -44,6 +44,15 @@ nav_home: true
                 </a>
             </div>
             <p class="hero-dl-count" id="hero-dl-count"></p>
+
+            <div class="hero-new-pill" id="hero-new-pill" data-version="3.2">
+                <a href="/changelog.html#v3-2">
+                    <span class="hero-new-pill-tag">New in 3.2</span>
+                    GeoJSON boundary import
+                    <span class="hero-new-pill-arrow">→</span>
+                </a>
+                <button type="button" class="hero-new-pill-close" aria-label="Dismiss">×</button>
+            </div>
         </div>
 
         <div class="hero-visual">
@@ -306,5 +315,27 @@ nav_home: true
                 .catch(function() {
                     if (cached) render(cached.count);
                 });
+        })();
+    </script>
+
+    <!-- ── "New in X.X" hero pill dismiss ────────── -->
+    <script>
+        (function() {
+            var pill = document.getElementById('hero-new-pill');
+            if (!pill) return;
+
+            var STORAGE_KEY = 'tp3d_dismissed_pill_version';
+            var version = pill.getAttribute('data-version');
+
+            if (localStorage.getItem(STORAGE_KEY) === version) {
+                pill.style.display = 'none';
+                return;
+            }
+
+            var closeBtn = pill.querySelector('.hero-new-pill-close');
+            closeBtn.addEventListener('click', function() {
+                pill.style.display = 'none';
+                try { localStorage.setItem(STORAGE_KEY, version); } catch (e) {}
+            });
         })();
     </script>
