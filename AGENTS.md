@@ -76,6 +76,9 @@ already used on the page you're editing rather than inventing a new one:
   badge (gold pill, styled in `_includes/styles-changelog.html`) to the
   bullet, e.g.
   `Added: Shell geometry for text-based shapes <span class="cl-premium-tag">Premium</span>`.
+  Within each category (`Added:`/`Changed:`/`Fixed:`), sort Premium-tagged
+  bullets to the end of that category — non-Premium entries first (in their
+  existing relative order), Premium entries grouped together last.
 - **`howto.html`**: prefix the list item with `<strong>Premium</strong>: `,
   e.g. `<li><strong>Premium</strong>: Pin on City lets you drop a pin by
   typing a city name instead of coordinates</li>`.
