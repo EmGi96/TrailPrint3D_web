@@ -2,32 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.trailprint3d.com/</loc>
+    <lastmod>2026-07-29</lastmod>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://www.trailprint3d.com/download.html</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://www.trailprint3d.com/howto.html</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.trailprint3d.com/changelog.html</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://www.trailprint3d.com/examples.html</loc>
+    <lastmod>2026-07-30</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.trailprint3d.com/filaments.html</loc>
+    <lastmod>2026-07-12</lastmod>
     <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.trailprint3d.com/attribution.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <priority>0.4</priority>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>

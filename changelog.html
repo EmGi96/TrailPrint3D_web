@@ -2,6 +2,10 @@
 layout: default
 title: "Changelog — TrailPrint3D"
 description: "Version history and release notes for the TrailPrint3D Blender add-on."
+og_title: "Changelog — TrailPrint3D"
+og_description: "Version history and release notes for the TrailPrint3D Blender add-on."
+og_image: "https://www.trailprint3d.com/images/mainImage.webp"
+og_url: "https://www.trailprint3d.com/changelog.html"
 canonical: "https://www.trailprint3d.com/changelog.html"
 nav_active: changelog
 page_styles: changelog
@@ -25,6 +29,9 @@ page_styles: changelog
                     <li>Added: Coordinate search with city lookup and lat/lon input, plus new map layers for browser-based features (Puzzle/Multitile Configurator)</li>
                     <li>Added: Circle Outer text shape</li>
                     <li>Added: Shapely/Earcut status indicators and clearer error messages when Shapely fails to load</li>
+                    <li>Added: 'Bay' natural features are now fetched and classified as water in OSM data</li>
+                    <li>Added: Puzzle/Multitile Configurator now remembers the selected base map layer across sessions</li>
+                    <li>Added: Puzzle Configurator seed input for reproducible puzzle generation</li>
                     <li><span class="cl-premium-tag">Premium</span> Added: GeoJSON boundary import as a new Terrain map mode, including MultiPolygon (islands/exclaves) support and merging multiple boundary files into one shape — by Louisefeige</li>
                     <li><span class="cl-premium-tag">Premium</span> Added: Shell geometry for text-based shapes</li>
                     <li><span class="cl-premium-tag">Premium</span> Added: Hexagonal and Concentric-Ring puzzle piece shapes in the Puzzle Configurator</li>
@@ -50,6 +57,9 @@ page_styles: changelog
                     <li>Fixed: Malformed GPX files crashing the addon instead of showing a clear error</li>
                     <li>Fixed: Incorrect vertex selection/lowest point calculation for oceans</li>
                     <li>Fixed: Elevation Range (m) map metadata was inflated by an uncompensated per-vertex Mercator latitude factor baked into terrain height generation, causing incorrect real-world elevation figures away from the equator</li>
+                    <li>Fixed: Duplicate warning messages repeating once per tile when generating a multitile batch</li>
+                    <li>Fixed: Various scaling and logic bugs in the Multitile Configurator</li>
+                    <li>Fixed: Map picker window could occasionally freeze Blender's input focus on close</li>
                 </ul>
             </div>
         </div>

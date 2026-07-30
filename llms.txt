@@ -1,0 +1,27 @@
+# TrailPrint3D
+
+> TrailPrint3D is a free Blender add-on that converts GPX hiking and cycling tracks into 3D printable terrain maps, using real-world elevation, water, forest, building, and road data.
+
+TrailPrint3D runs inside Blender (version 5.1+) on Windows, macOS, and Linux. It generates real-world terrain meshes from GPX tracks and exports STL, OBJ, or 3MF files compatible with all major slicers (PrusaSlicer, Bambu Studio, Cura). No account, sign-up, or internet-based service is required beyond fetching map/elevation data — nothing personal is collected.
+
+The core add-on is free and includes: GPX import, real-world terrain generation, water/forest/city/building/road elements, contour lines, single-color mode, multiple print shapes (square, circle, hexagon, jigsaw puzzles), customizable frames, and commercial use rights.
+
+A Premium tier (via Patreon subscription) adds: multi-GPX "MultiGeneration" maps, multi-tile maps for wall-scale prints (with a browser-based configurator), custom text icons and lettering, hexagonal and concentric-ring puzzle pieces, a shell base geometry, and GeoJSON boundary import for custom map shapes (countries, regions, islands).
+
+## Docs
+
+- [Homepage](https://www.trailprint3d.com/): overview, feature list, and FAQ
+- [Download](https://www.trailprint3d.com/download.html): free download link, Premium/Patreon link, installation steps, full Free vs Premium feature comparison table
+- [How To](https://www.trailprint3d.com/howto.html): step-by-step installation and usage guide covering every setting
+- [Examples](https://www.trailprint3d.com/examples.html): gallery of maps made with TrailPrint3D
+- [Filaments](https://www.trailprint3d.com/filaments.html): recommended filaments for printing terrain maps
+- [Changelog](https://www.trailprint3d.com/changelog.html): full version history
+- [Attribution](https://www.trailprint3d.com/attribution.html): third-party data sources and licensing terms (OpenStreetMap, elevation providers, etc.)
+
+## Optional
+
+- [GitHub (source & free releases)](https://github.com/EmGi96/TrailPrint3D)
+- [Patreon (Premium version)](https://www.patreon.com/c/EmGi3D)
+- [MakerWorld listing](https://makerworld.com/de/@EmGi)
+- [Printables listing](https://www.printables.com/@EmGi)
+- [Discord community](https://discord.gg/tqQy4Yh9Sz)

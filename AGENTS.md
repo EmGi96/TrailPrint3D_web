@@ -99,11 +99,23 @@ Pages are `.html` files with Jekyll front matter at the top:
 layout: default
 title: "Page Title — TrailPrint3D"
 description: "..."
+og_title: "Page Title — TrailPrint3D"
+og_description: "..."
+og_image: "https://www.trailprint3d.com/images/mainImage.webp"
+og_url: "https://www.trailprint3d.com/page.html"
 canonical: "https://www.trailprint3d.com/page.html"
 nav_active: <matches a nav link in _layouts/default.html, e.g. changelog>
 page_styles: <optional — see below>
 ---
 ```
+
+Every indexable page (i.e. not `noindex: true`) should set `og_title`,
+`og_description`, and `og_url` alongside `title`/`description` — they're all
+conditional in `_layouts/default.html` and silently omitted if missing, which
+means a page without them shares with no title/description on Discord,
+Twitter, etc. `og_description` can reuse `description` verbatim unless a
+shorter/punchier variant reads better for a social card. `og_image` can be
+omitted to fall back to `mainImage.webp`.
 
 `_layouts/default.html` is the single shared layout (nav, footer, cookie
 banner, analytics consent gating). Per-page CSS lives in
@@ -112,6 +124,12 @@ banner, analytics consent gating). Per-page CSS lives in
 `_layouts/default.html`'s `<head>`. If you add a new page that needs its own
 styles, you must add both the include file *and* the conditional line —
 there's no automatic wiring.
+
+New indexable pages also need an entry in `sitemap.xml` (`loc`, `lastmod`,
+`priority`, `changefreq`) — it's hand-maintained, not auto-generated, so
+adding a page elsewhere doesn't put it there automatically. Pages marked
+`noindex: true` (e.g. `impressum.html`, `privacy-policy.html`) should be left
+out of it.
 
 ## Conventions
 
