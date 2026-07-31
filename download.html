@@ -17,7 +17,7 @@ page_styles: download
 
         <!-- ── Buttons ─────────────────────────────── -->
         <div class="dl-buttons">
-            <a href="https://github.com/EmGi96/TrailPrint3D/releases/latest/download/TrailPrint3D.zip" class="dl-btn dl-btn-free" onclick="gtag('event', 'file_download', {event_category: 'engagement', event_label: 'TrailPrint3D_main.zip'}); openInstall()">
+            <a id="dl-free-btn" href="https://github.com/EmGi96/TrailPrint3D/releases/latest/download/TrailPrint3D.zip" class="dl-btn dl-btn-free" onclick="gtag('event', 'file_download', {event_category: 'engagement', event_label: 'TrailPrint3D_main.zip'}); openInstall()">
                 <span class="dl-btn-icon-row">
                     <span class="dl-btn-icon">⬇</span><span class="dl-btn-count" id="dl-btn-count"></span>
                 </span>
@@ -188,6 +188,42 @@ page_styles: download
         function openInstall() {
             document.getElementById('dl-install').classList.add('open');
         }
+    </script>
+
+    <!-- ── Resolve latest release asset (name isn't required to be exact) ── -->
+    <script>
+        (function() {
+            var btn = document.getElementById('dl-free-btn');
+            if (!btn) return;
+
+            var CACHE_KEY = 'tp3d_gh_asset_url';
+            var CACHE_TTL = 30 * 60 * 1000; // 30 minutes
+
+            function applyUrl(url) {
+                if (url) btn.href = url;
+            }
+
+            var cached = null;
+            try { cached = JSON.parse(localStorage.getItem(CACHE_KEY)); } catch (e) {}
+            if (cached && (Date.now() - cached.time) < CACHE_TTL) {
+                applyUrl(cached.url);
+                return;
+            }
+
+            fetch('https://api.github.com/repos/EmGi96/TrailPrint3D/releases/latest')
+                .then(function(res) { if (!res.ok) throw new Error('bad response'); return res.json(); })
+                .then(function(release) {
+                    var asset = (release.assets || []).find(function(a) {
+                        return /^TrailPrint3D.*\.zip$/i.test(a.name);
+                    });
+                    if (!asset) return;
+                    applyUrl(asset.browser_download_url);
+                    try { localStorage.setItem(CACHE_KEY, JSON.stringify({ url: asset.browser_download_url, time: Date.now() })); } catch (e) {}
+                })
+                .catch(function() {
+                    if (cached) applyUrl(cached.url);
+                });
+        })();
     </script>
 
     <!-- ── GitHub download count ─────────────────── -->
