@@ -460,13 +460,22 @@ nav {
     user-select: none;
 }
 
-.hero-img img {
+.hero-img img,
+.hero-carousel-slide {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.hero-carousel-slide {
+    opacity: 0;
+    transition: opacity 0.9s ease;
+}
+.hero-carousel-slide.is-active {
+    opacity: 1;
 }
 
 /* ── Divider ────────────────────────────────── */
@@ -507,109 +516,6 @@ nav {
     max-width: 440px;
     margin: 0 auto 64px;
     line-height: 1.75;
-}
-
-/* ── Showcase Carousel ──────────────────────── */
-.showcase-carousel {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 56px 40px 0;
-}
-
-.carousel-viewport {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: var(--surface);
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s cubic-bezier(0.65,0,0.35,1);
-}
-
-.carousel-slide {
-    flex: 0 0 100%;
-    position: relative;
-    height: 440px;
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.carousel-caption {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 30px 34px 22px;
-    background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%);
-    color: #fff;
-    font-weight: 700;
-    font-size: 1.1em;
-    letter-spacing: -0.01em;
-}
-
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.45);
-    border: 1px solid rgba(255,255,255,0.18);
-    color: #fff;
-    font-size: 1.3em;
-    line-height: 1;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, border-color 0.2s;
-    z-index: 2;
-    backdrop-filter: blur(4px);
-}
-.carousel-arrow:hover { background: rgba(34,197,94,0.6); border-color: rgba(34,197,94,0.6); }
-.carousel-prev { left: 16px; }
-.carousel-next { right: 16px; }
-
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 20px;
-}
-
-.carousel-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--border-accent);
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-}
-.carousel-dot.active {
-    background: var(--green);
-    transform: scale(1.35);
-}
-
-@media (max-width: 960px) {
-    .showcase-carousel { padding: 40px 24px 0; }
-    .carousel-slide { height: 320px; }
-    .carousel-caption { padding: 22px 24px 18px; font-size: 1em; }
-}
-
-@media (max-width: 560px) {
-    .carousel-slide { height: 220px; }
-    .carousel-arrow { width: 34px; height: 34px; font-size: 1.1em; }
 }
 
 /* ── How It Works ───────────────────────────── */
