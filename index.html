@@ -53,6 +53,41 @@ nav_home: true
         </div>
     </section>
 
+    <!-- ── Showcase Carousel ─────────────────────────────── -->
+    <section class="showcase-carousel reveal">
+        <div class="carousel-viewport">
+            <div class="carousel-track" id="carousel-track">
+                <div class="carousel-slide">
+                    <img src="images/examples/Hex-Puzzle Map.jpg" alt="Hex Puzzle Map printed with TrailPrint3D">
+                    <div class="carousel-caption">Hex Puzzle Map</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/examples/MapShell.jpg" alt="Map Shell printed with TrailPrint3D">
+                    <div class="carousel-caption">Map Shell</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/examples/example_003.jpg" alt="Single-color mode map printed with TrailPrint3D">
+                    <div class="carousel-caption">Single-Color Mode</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/examples/GermanyMap.jpg" alt="Germany multi-tile map printed with TrailPrint3D">
+                    <div class="carousel-caption">Germany Map</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/examples/example_005.jpg" alt="Three Peaks of Lavaredo map printed with TrailPrint3D">
+                    <div class="carousel-caption">Three Peaks of Lavaredo</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/examples/Citymap_02.jpg" alt="City map printed with TrailPrint3D">
+                    <div class="carousel-caption">City Map</div>
+                </div>
+            </div>
+            <button class="carousel-arrow carousel-prev" id="carousel-prev" aria-label="Previous example">‹</button>
+            <button class="carousel-arrow carousel-next" id="carousel-next" aria-label="Next example">›</button>
+        </div>
+        <div class="carousel-dots" id="carousel-dots"></div>
+    </section>
+
     <div class="divider"></div>
 
     <!-- ── How It Works ─────────────────────────────────── -->
@@ -325,6 +360,56 @@ nav_home: true
             </details>
         </div>
     </section>
+
+    <!-- ── Showcase Carousel ──────────────────────── -->
+    <script>
+        (function() {
+            var track = document.getElementById('carousel-track');
+            var dotsWrap = document.getElementById('carousel-dots');
+            var prevBtn = document.getElementById('carousel-prev');
+            var nextBtn = document.getElementById('carousel-next');
+            if (!track) return;
+
+            var slides = track.children.length;
+            var index = 0;
+            var timer = null;
+
+            for (var i = 0; i < slides; i++) {
+                var dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                dot.addEventListener('click', (function(i) { return function() { goTo(i); }; })(i));
+                dotsWrap.appendChild(dot);
+            }
+            var dots = dotsWrap.children;
+
+            function goTo(i) {
+                index = (i + slides) % slides;
+                track.style.transform = 'translateX(-' + (index * 100) + '%)';
+                for (var j = 0; j < dots.length; j++) {
+                    dots[j].classList.toggle('active', j === index);
+                }
+            }
+
+            function next() { goTo(index + 1); }
+            function prev() { goTo(index - 1); }
+
+            function startAutoplay() {
+                stopAutoplay();
+                timer = setInterval(next, 5000);
+            }
+            function stopAutoplay() {
+                if (timer) clearInterval(timer);
+            }
+
+            prevBtn.addEventListener('click', function() { prev(); startAutoplay(); });
+            nextBtn.addEventListener('click', function() { next(); startAutoplay(); });
+            track.parentElement.addEventListener('mouseenter', stopAutoplay);
+            track.parentElement.addEventListener('mouseleave', startAutoplay);
+
+            startAutoplay();
+        })();
+    </script>
 
     <!-- ── GitHub download count ─────────────────── -->
     <script>
