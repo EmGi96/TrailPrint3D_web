@@ -56,6 +56,7 @@ nav_home: true
                 <img class="hero-carousel-slide" src="images/examples/example_005.jpg" alt="Three Peaks of Lavaredo map printed with TrailPrint3D">
                 <img class="hero-carousel-slide" src="images/examples/Citymap_02.jpg" alt="City map printed with TrailPrint3D">
             </div>
+            <div class="hero-carousel-nav" id="hero-carousel-nav"></div>
         </div>
     </section>
 
@@ -336,16 +337,42 @@ nav_home: true
     <script>
         (function() {
             var wrap = document.getElementById('hero-carousel');
-            if (!wrap) return;
+            var nav = document.getElementById('hero-carousel-nav');
+            if (!wrap || !nav) return;
             var slides = wrap.querySelectorAll('.hero-carousel-slide');
             if (slides.length < 2) return;
 
             var index = 0;
-            setInterval(function() {
+            var timer = null;
+
+            slides.forEach(function(_, i) {
+                var seg = document.createElement('button');
+                seg.className = 'hero-carousel-seg' + (i === 0 ? ' is-active' : '');
+                seg.setAttribute('aria-label', 'Show image ' + (i + 1));
+                seg.addEventListener('click', function() {
+                    goTo(i);
+                    restart();
+                });
+                nav.appendChild(seg);
+            });
+            var segs = nav.children;
+
+            function goTo(i) {
                 slides[index].classList.remove('is-active');
-                index = (index + 1) % slides.length;
+                segs[index].classList.remove('is-active');
+                index = i;
                 slides[index].classList.add('is-active');
-            }, 3500);
+                segs[index].classList.add('is-active');
+            }
+
+            function next() { goTo((index + 1) % slides.length); }
+
+            function restart() {
+                if (timer) clearInterval(timer);
+                timer = setInterval(next, 3500);
+            }
+
+            restart();
         })();
     </script>
 

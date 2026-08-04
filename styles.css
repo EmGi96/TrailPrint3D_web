@@ -421,8 +421,10 @@ nav {
 .hero-visual {
     flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 16px;
     position: relative;
 }
 
@@ -477,6 +479,28 @@ nav {
 .hero-carousel-slide.is-active {
     opacity: 1;
 }
+
+.hero-carousel-nav {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 6px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.hero-carousel-seg {
+    flex: 1;
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.12);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.25s;
+}
+.hero-carousel-seg:hover { background: rgba(255,255,255,0.28); }
+.hero-carousel-seg.is-active { background: var(--green); }
 
 /* ── Divider ────────────────────────────────── */
 .divider {
