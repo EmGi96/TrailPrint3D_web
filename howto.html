@@ -164,6 +164,27 @@ page_styles: changelog
             </div>
         </div>
 
+        <div class="cl-block" id="ht-slicing-result">
+            <div class="cl-header" onclick="toggleBlock('ht-slicing-result')">
+                <div class="cl-left">
+                    <span class="cl-video-badge">▶ VIDEO</span>
+                    <span class="cl-title">Improve Slicing Result</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Change the Wall Generator from <strong>Classic</strong> to <strong>Arachne</strong> and the Min Feature Size to <strong>1%</strong></li>
+                    <li>→ Improves quality of details and print fine details like rivers</li>
+                    <li style="list-style: none; padding: 10px 0;">
+                        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+                            <iframe src="https://www.youtube.com/embed/0WwN5vWQBQE" title="TrailPrint3D Improve Slicing Result" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px;"></iframe>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <div class="cl-block" id="ht-textshapes">
             <div class="cl-header" onclick="toggleBlock('ht-textshapes')">
                 <div class="cl-left">
@@ -221,7 +242,7 @@ page_styles: changelog
             </div>
             <div class="cl-body">
                 <ul>
-                    <li>TrailPrint3D can pull elevation data from several sources, switchable in <strong>Advanced → API</strong>: <strong>Terrain-Tiles</strong> (default, fastest, no setup), <strong>Mapterhorn</strong>, <strong>OpenTopoData</strong>, <strong>Open-Elevation</strong>, and <strong>OpenTopography</strong></li>
+                    <li>TrailPrint3D can pull elevation data from several sources, switchable in <strong>Advanced → API</strong>: <strong>Mapterhorn</strong> (default, no setup required), <strong>Terrain-Tiles</strong>, <strong>OpenTopoData</strong>, <strong>Open-Elevation</strong>, and <strong>OpenTopography</strong></li>
                     <li><strong>OpenTopography</strong> requires a free API key from <a href="https://portal.opentopography.org" target="_blank" rel="noopener">portal.opentopography.org</a> — without it, most datasets will fail to fetch. Set the key once in <strong>Edit → Preferences → Add-ons → TrailPrint3D → OpenTopography API Key</strong></li>
                     <li>If using <strong>OpenTopoData</strong>, pick the <strong>Dataset</strong> that best matches your region for more accurate elevation</li>
                     <li>Elevation and map data both require an internet connection — if generation fails, check your connection or try a different data source</li>
@@ -288,10 +309,11 @@ page_styles: changelog
                 <ul>
                     <li>Contour lines trace elevation bands across the terrain, similar to a traditional topographic map</li>
                     <li>Enable them in the Advanced Options -> Post-processing</li>
-                    <li><strong>Thickness</strong>:controls how thick each contour line ridge is on the surface</li>
-                    <li><strong>Distance</strong>:sets the elevation interval between lines (e.g. every 2 mm)</li>
-                    <li><strong>Offset</strong>:starting height of the Contour Lines</li>
-                    <li>Select your map and then click on "Add Contour Lines". After that manually export the Contour line object</li>>
+                    <li><strong>Contour Line Thickness</strong>: Controls the thickness of the line in mm</li>
+                    <li><strong>Distance</strong>: Distance between two lines, in real-world meters</li>
+                    <li><strong>Offset</strong>: Starting height of the lines, in real-world meters</li>
+                    <li><strong>Use Real-World Meters</strong>: Toggle between real-world meter inputs and local model mm values</li>
+                    <li>Select your map and then click on "Add Contour Lines". After that manually export the Contour line object</li>
                 </ul>
             </div>
         </div>
@@ -347,6 +369,22 @@ page_styles: changelog
             </div>
         </div>
 
+        <div class="cl-block" id="ht-presets">
+            <div class="cl-header" onclick="toggleBlock('ht-presets')">
+                <div class="cl-left">
+                    <span class="cl-title">Presets</span>
+                </div>
+                <span class="cl-chevron">▼</span>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Save your current settings as a named preset so you can reuse them for future maps</li>
+                    <li>Found in <strong>Advanced → Presets</strong></li>
+                    <li>Load, save, or delete presets from the dropdown</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="cl-block" id="ht-heightmap">
             <div class="cl-header" onclick="toggleBlock('ht-heightmap')">
                 <div class="cl-left">
@@ -360,22 +398,6 @@ page_styles: changelog
                     <li>Import a 2D grayscale image and use it directly as a heightmap for the terrain</li>
                     <li>Useful for custom or fictional terrain that isn't tied to real-world GPS data</li>
                     <li>Found in <strong>Advanced → Post-processing → Import 2D Heightmap</strong></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="cl-block" id="ht-presets">
-            <div class="cl-header" onclick="toggleBlock('ht-presets')">
-                <div class="cl-left">
-                    <span class="cl-title">Presets</span>
-                </div>
-                <span class="cl-chevron">▼</span>
-            </div>
-            <div class="cl-body">
-                <ul>
-                    <li>Save your current settings as a named preset so you can reuse them for future maps</li>
-                    <li>Found in <strong>Advanced → Presets</strong></li>
-                    <li>Load, save, or delete presets from the dropdown</li>
                 </ul>
             </div>
         </div>
