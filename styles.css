@@ -57,6 +57,29 @@ body {
 .release-banner a:hover { opacity: 0.75; }
 .has-banner nav { top: 36px; }
 
+/* ── Thangs Banner ───────────────────────────── */
+.thangs-banner {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 14px 24px;
+    background: var(--green-soft);
+    border-bottom: 1px solid var(--border-accent);
+    font-size: 0.9375rem;
+    color: var(--text-dim);
+}
+.thangs-banner a {
+    color: var(--green);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.15s;
+}
+.thangs-banner a:hover { opacity: 0.75; }
+
 /* ── Nav ────────────────────────────────────── */
 nav {
     position: fixed;
@@ -277,7 +300,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 60px;
-    padding: 110px 40px 80px;
+    padding: 56px 40px 80px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -922,7 +945,7 @@ nav {
 
     .hero {
         flex-direction: column;
-        padding: 96px 24px 64px;
+        padding: 40px 24px 64px;
         text-align: center;
     }
     .hero-sub { margin-left: auto; margin-right: auto; }
