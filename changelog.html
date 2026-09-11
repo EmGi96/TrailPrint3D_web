@@ -14,6 +14,47 @@ page_styles: changelog
     <div class="changelog-wrap">
         <h1>Changelog</h1>
 
+        <div class="cl-block" id="v3-3">
+            <div class="cl-header" onclick="toggleBlock('v3-3')">
+                <div class="cl-left">
+                    <span class="cl-version-badge">Version 3.3</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+                    <span class="cl-date">Upcoming</span>
+                    <span class="cl-chevron">▼</span>
+                </div>
+            </div>
+            <div class="cl-body">
+                <ul>
+                    <li>Added: Quick access button for all generators in the top bar</li>
+                    <li>Added: Single Tile Map Generator</li>
+                    <li><span class="cl-premium-tag">Premium</span>Added: GeoJSON import for the Multi Tile Generator to create multitile maps with custom shapes (e.g. country maps)</li>
+                    <li><span class="cl-premium-tag">Premium</span> Added: Sliding Puzzle Generator, with text and Terrain-on-Frame options</li>
+                    <li>Added: Quick toggle of elements inside the generator pages</li>
+                    <li>Added: Settings menu inside the element pages</li>
+                    <li>Added: Building and Road compatibility for puzzles <span class="cl-credit-tag">by Clonephaze</span></li>
+                    <li>Added: Single Color Mode compatibility for Roads <span class="cl-credit-tag">by Clonephaze</span></li>
+                    <li>Added: Trail height can be configured in Single Color Mode <span class="cl-credit-tag">by Clonephaze</span></li>
+                    <li>Added: 'ESA WorldCover' element source — colors the terrain from land-cover classification instead of individual OSM element toggles, with per-category color toggles</li>
+                    <li>Added: 'Create a texture' option — bakes element/road/trail colors into a paint texture (requires 3mf addon) <span class="cl-credit-tag">by Clonephaze</span></li>
+                    <li>Added: Pin socket cutting — carves a socket for the placed pin into the terrain and surrounding elements</li>
+                    <li>Added: GeoJSON boundary import to the Single Tile Map Generator</li>
+                    <li>Added: OSM buildings can now show roof shapes <span class="cl-credit-tag">by Clonephaze</span></li>
+                    <li>Added: OSM polygon smoothing control (Taubin smoothing) <span class="cl-credit-tag">by Clonephaze</span></li>
+                    <li>Added: Option to smooth terrain when elevation data hits the API's resolution limit</li>
+                    <li>Changed: Increased maximum River Width and Road Width Multiplier from 10 to 100</li>
+                    <li>Changed: Longitude now wraps at any magnitude in the map pickers, allowing continuous panning</li>
+                    <li>Changed: 3mf export now supports slicer profiles and custom filenames <span class="cl-credit-tag">by Clonephaze</span></li>
+                    <li>Fixed: Clicking a draw-mode toggle button no longer also starts drawing behind it, and switching mode after clicking Draw (before placing the shape) now actually uses the new mode</li>
+                    <li>Fixed: Puzzle Generator ignoring the configured map size</li>
+                    <li>Fixed: Buildings floating in the air or disappearing on steep faces</li>
+                    <li>Fixed: Imported GeoJSON/SVG shapes were stretched from a missing Mercator projection and rendered at half their intended size</li>
+                    <li>Fixed: Roads going completely through the map in Separate/Single Color mode</li>
+                    <li>Fixed: Map view restoration order causing state loss on reopen, and the wrong generator page opening in the premium version</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="cl-block" id="v3-2-1">
             <div class="cl-header" onclick="toggleBlock('v3-2-1')">
                 <div class="cl-left">
