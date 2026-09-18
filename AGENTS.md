@@ -90,6 +90,48 @@ If a page has no existing convention for marking Premium content, don't
 silently skip it — call it out to the user and propose one instead of
 guessing.
 
+## Image optimization
+
+Screen-recorded how-to clips get dropped into `images/howto/` as raw GIFs or
+PNGs and are often huge (50–300MB for a GIF, multi-MB for a PNG screenshot)
+because they're exported with naive per-frame palettes/no compression tuning.
+Optimize them before they're referenced anywhere:
+
+- **Tool**: ImageMagick (`magick`) — this environment has no gifsicle,
+  cwebp, pngquant, or ffmpeg, but `magick` ships with libwebp built in and
+  converts animated GIF → animated WebP directly in one pass.
+- **Animated GIFs** (screen recordings) → animated `.webp`, same base
+  filename, extension swapped only (e.g. `ShapeRotation.gif` →
+  `ShapeRotation.webp`):
+  ```
+  magick input.gif -coalesce [-resize 800x450] -quality 72 -define webp:method=6 -define webp:minimize-size=true -loop 0 output.webp
+  ```
+  `-coalesce` is required so per-frame disposal renders correctly. This
+  alone typically shrinks these files by 90%+ with no visible quality loss.
+- **Static screenshots** (non-animated PNGs) → `.webp` too, at a higher,
+  near-lossless quality since there's no motion to hide artifacts in:
+  ```
+  magick input.png -quality 90 -define webp:method=6 output.webp
+  ```
+- **Dimensions**: `images/howto/*` clips/screenshots use **800×450** (16:9)
+  as the established size (matches `ElevationScaleGif.webp`,
+  `PathThicknessGif.webp`, etc.). Resize larger sources down to that during
+  conversion (`-resize 800x450`) instead of shipping full 1080p — cuts both
+  file size and encode time further. Don't apply this size elsewhere without
+  checking what convention (if any) that folder already uses.
+- Encoding a full-HD, 100+ frame GIF can take 1–2 minutes; run it as a
+  background Bash command rather than blocking on it.
+- Keep the filename's base name — only the extension changes (spaces and
+  all, e.g. `SEM - Trail Height.gif` → `SEM - Trail Height.webp`). Renaming
+  beyond the extension is a separate decision, not part of optimizing.
+- Before deleting a source file, grep the repo for its filename to catch
+  every `<img src>`/`data-*` reference and update it to the new `.webp`
+  path. Only delete the source once nothing points to it.
+- Leave alone: `images/examples/_originals_backup/` and
+  `images/examples/_png_originals/` (intentional unoptimized source
+  backups), and small fixed-format assets that must stay PNG for platform
+  reasons (favicons, `apple-touch-icon.png`, `site.webmanifest` icons).
+
 ## Page structure
 
 Pages are `.html` files with Jekyll front matter at the top:
