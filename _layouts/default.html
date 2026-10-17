@@ -20,7 +20,7 @@
     {% if page.page_styles == 'download' %}{% include styles-download.html %}{% endif %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -105,9 +105,26 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Auto-reveal panels site-wide, staggered by position among their siblings
+            var AUTO_REVEAL = '.feat-card, .faq-item, .cl-block, .gallery-card, .filament-card, .attr-card, .compare-wrap, .page-hero > *';
+            document.querySelectorAll(AUTO_REVEAL).forEach(function(el) {
+                if (el.classList.contains('reveal') || (el.parentElement && el.parentElement.closest('.reveal'))) return;
+                var i = Array.prototype.indexOf.call(el.parentElement.children, el);
+                el.style.transitionDelay = ((i % 3) * 0.08) + 's';
+                el.classList.add('reveal');
+            });
+
             var obs = new IntersectionObserver(function(entries) {
                 entries.forEach(function(e) {
-                    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+                    if (!e.isIntersecting) return;
+                    var el = e.target;
+                    el.classList.add('visible');
+                    obs.unobserve(el);
+                    // Drop the reveal classes once done so hover transforms/transitions work again
+                    setTimeout(function() {
+                        el.classList.remove('reveal', 'visible', 'reveal-d1', 'reveal-d2', 'reveal-d3');
+                        el.style.transitionDelay = '';
+                    }, 1100);
                 });
             }, { threshold: 0.1 });
             document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });

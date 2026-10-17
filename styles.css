@@ -10,9 +10,22 @@
     --green: #22c55e;
     --green-soft: rgba(34,197,94,0.1);
     --green-glow: rgba(34,197,94,0.22);
+    /* Premium accent: sky blue, set apart from the brand green */
+    --premium: #38bdf8;
+    --premium-rgb: 56,189,248;
+    --premium-light-rgb: 125,211,252;
     --text: #e2e8f0;
     --text-dim: #94a3b8;
     --text-muted: #4b5563;
+    /* Raised look: top-edge highlight + close contact shadow + soft ambient shadow */
+    --shadow-raised: inset 0 1px 0 rgba(255,255,255,0.05), 0 2px 4px rgba(0,0,0,0.3), 0 10px 30px rgba(0,0,0,0.35);
+    --shadow-raised-sm: inset 0 1px 0 rgba(255,255,255,0.06), 0 1px 2px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.25);
+    --shadow-raised-hover: inset 0 1px 0 rgba(255,255,255,0.07), 0 4px 8px rgba(0,0,0,0.3), 0 18px 44px rgba(0,0,0,0.45);
+    /* Frosted glass panels: translucent fill + blur of the animated background */
+    --glass: rgba(17,29,23,0.55);
+    --glass-hover: rgba(22,38,31,0.68);
+    --glass-blur: blur(16px) saturate(140%);
+    --font-display: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -20,16 +33,127 @@ html { scroll-behavior: smooth; }
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background-color: var(--bg);
-    background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"),
-        radial-gradient(ellipse 90% 45% at 50% -5%, rgba(34,197,94,0.09) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 35% at 90% 95%, rgba(34,197,94,0.04) 0%, transparent 55%);
-    background-repeat: repeat, no-repeat, no-repeat;
-    background-size: 200px 200px, auto, auto;
-    background-attachment: fixed, fixed, fixed;
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+/* ── Animated Background ────────────────────── */
+/* Blurred green blobs drifting slowly over black, with a grain overlay */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    pointer-events: none;
+    z-index: -1;
+}
+body::before {
+    inset: -20%;
+    background:
+        radial-gradient(circle at 20% 25%, rgba(34,197,94,0.28) 0%, transparent 35%),
+        radial-gradient(circle at 80% 15%, rgba(22,163,74,0.20) 0%, transparent 30%),
+        radial-gradient(circle at 70% 75%, rgba(34,197,94,0.22) 0%, transparent 38%),
+        radial-gradient(circle at 15% 85%, rgba(21,128,61,0.25) 0%, transparent 32%),
+        radial-gradient(circle at 50% 50%, rgba(134,239,172,0.07) 0%, transparent 45%);
+    filter: blur(60px);
+    animation: bg-drift 40s ease-in-out infinite alternate;
+    will-change: transform;
+}
+body::after {
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+}
+/* Faint topographic contour lines (images/contours.svg); html::after paints
+   after body's pseudo-elements, so it sits above the glow but below content */
+html::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: url("/images/contours.svg") center / cover no-repeat;
+    opacity: 0.07;
+}
+@keyframes bg-drift {
+    0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+    33%  { transform: translate(6%, -4%) rotate(8deg) scale(1.08); }
+    66%  { transform: translate(-5%, 5%) rotate(-6deg) scale(0.95); }
+    100% { transform: translate(3%, 3%) rotate(4deg) scale(1.05); }
+}
+@media (prefers-reduced-motion: reduce) {
+    body::before { animation: none; }
+}
+
+/* ── Raised Surfaces ────────────────────────── */
+/* Lifts panels and buttons off the animated background.
+   Hover states override with --shadow-raised-hover. */
+.feat-card,
+.cta-box,
+.faq-item,
+.cl-block,
+.compare-wrap,
+.gallery-card,
+.filament-card,
+.filament-cta,
+.attr-card {
+    box-shadow: var(--shadow-raised);
+}
+.btn-secondary,
+.btn-outline,
+.nav-cta,
+.nav-cta-free,
+.filter-btn,
+.dl-btn-free,
+.cookie-btn {
+    box-shadow: var(--shadow-raised-sm);
+}
+
+/* ── Glass Panels ───────────────────────────── */
+/* Fills come from --glass in each component's own rule */
+.feat-card,
+.cta-box,
+.faq-item,
+.cl-block,
+.compare-wrap,
+.gallery-card,
+.filament-card,
+.attr-card {
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+}
+
+/* ── Gradient Edge ──────────────────────────── */
+/* 1px gradient border drawn by a masked ::after, so it follows border-radius */
+.cta-box,
+.feat-card-premium,
+.hero-img {
+    position: relative;
+}
+.cta-box::after,
+.feat-card-premium::after,
+.hero-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(134,239,172,0.75), rgba(34,197,94,0.25) 30%, transparent 55%, rgba(34,197,94,0.35));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    pointer-events: none;
+}
+.feat-card-premium::after {
+    background: linear-gradient(135deg, rgba(var(--premium-light-rgb),0.7), rgba(var(--premium-rgb),0.2) 30%, transparent 55%, rgba(var(--premium-rgb),0.3));
+}
+
+/* ── Display Font ───────────────────────────── */
+h1, h2, h3,
+.nav-logo,
+.footer-logo {
+    font-family: var(--font-display);
 }
 
 /* ── Release Banner ─────────────────────────── */
@@ -57,28 +181,6 @@ body {
 .release-banner a:hover { opacity: 0.75; }
 .has-banner nav { top: 36px; }
 
-/* ── Thangs Banner ───────────────────────────── */
-.thangs-banner {
-    margin-top: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    text-align: center;
-    padding: 14px 24px;
-    background: var(--green-soft);
-    border-bottom: 1px solid var(--border-accent);
-    font-size: 0.9375rem;
-    color: var(--text-dim);
-}
-.thangs-banner a {
-    color: var(--green);
-    text-decoration: none;
-    font-weight: 600;
-    transition: opacity 0.15s;
-}
-.thangs-banner a:hover { opacity: 0.75; }
 
 /* ── Nav ────────────────────────────────────── */
 nav {
@@ -224,7 +326,7 @@ nav {
 .btn-secondary:hover {
     background: rgba(255,255,255,0.16);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    box-shadow: var(--shadow-raised-hover);
 }
 
 .hero-dl-count {
@@ -300,7 +402,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 60px;
-    padding: 56px 40px 80px;
+    padding: 110px 40px 80px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -399,7 +501,7 @@ nav {
 
 .hero h1 {
     font-size: clamp(2.4em, 5vw, 3.6em);
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.03em;
     margin-bottom: 22px;
@@ -469,13 +571,30 @@ nav {
     aspect-ratio: 500 / 420;
     background: var(--surface);
     border-radius: 20px;
-    border: 1px solid rgba(34,197,94,0.2);
+    border: 1px solid transparent;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     filter: drop-shadow(0 0 48px rgba(34,197,94,0.12));
     box-shadow: 0 0 0 1px rgba(34,197,94,0.08), 0 32px 64px rgba(0,0,0,0.5), 0 0 80px rgba(34,197,94,0.07);
+}
+
+/* Mouse-follow tilt + glare; --tilt-x/--tilt-y/--glare-* are set from index.html */
+.hero-img {
+    transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+    transition: transform 0.5s cubic-bezier(.2,.8,.2,1);
+    will-change: transform;
+}
+.hero-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: radial-gradient(circle at var(--glare-x, 50%) var(--glare-y, 0%), rgba(255,255,255,0.14), transparent 55%);
+    opacity: var(--glare, 0);
+    transition: opacity 0.5s;
+    pointer-events: none;
 }
 
 .hero-img-placeholder {
@@ -533,7 +652,7 @@ nav {
 
 /* ── Section shared ─────────────────────────── */
 .section-wrap {
-    padding: 96px 40px;
+    padding: 136px 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -551,7 +670,7 @@ nav {
 .section-heading {
     text-align: center;
     font-size: clamp(1.7em, 3.5vw, 2.4em);
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: -0.03em;
     margin-bottom: 14px;
 }
@@ -561,7 +680,7 @@ nav {
     color: var(--text-dim);
     font-size: 1em;
     max-width: 440px;
-    margin: 0 auto 64px;
+    margin: 0 auto 72px;
     line-height: 1.75;
 }
 
@@ -573,15 +692,32 @@ nav {
     position: relative;
 }
 
-.steps-row::before {
-    content: '';
+/* Winding trail joining the step numbers; drawn as the section scrolls into view.
+   Spans from the centre of step 1's number (28px padding + 18px radius) to step 3's. */
+.trail-line {
     position: absolute;
-    top: 42px;
-    left: calc(100% / 6);
-    right: calc(100% / 6);
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(34,197,94,0.3) 25%, rgba(34,197,94,0.3) 75%, transparent);
+    top: 18px;
+    left: 46px;
+    width: calc(200% / 3);
+    height: 48px;
+    overflow: visible;
     pointer-events: none;
+}
+.trail-line path {
+    fill: none;
+    stroke-linecap: round;
+}
+.trail-line-planned {
+    stroke: rgba(34,197,94,0.22);
+    stroke-width: 1.5;
+    stroke-dasharray: 2 6;
+}
+.trail-line-drawn {
+    stroke: var(--green);
+    stroke-width: 2.5;
+    stroke-dasharray: 1;
+    stroke-dashoffset: var(--trail-progress, 1);
+    filter: drop-shadow(0 0 6px rgba(34,197,94,0.6));
 }
 
 .step {
@@ -635,16 +771,16 @@ nav {
 
 .feat-card {
     padding: 30px;
-    background: var(--card);
+    background: var(--glass);
     border: 1px solid var(--border);
     border-radius: 16px;
     transition: background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 .feat-card:hover {
-    background: var(--card-hover);
+    background: var(--glass-hover);
     border-color: var(--border-accent);
     transform: translateY(-4px);
-    box-shadow: 0 12px 36px rgba(0,0,0,0.28), 0 0 0 1px rgba(34,197,94,0.08);
+    box-shadow: var(--shadow-raised-hover), 0 0 0 1px rgba(34,197,94,0.08);
 }
 
 .feat-icon {
@@ -734,9 +870,9 @@ nav {
     color: var(--green);
 }
 .feat-tier-badge.premium {
-    background: rgba(234,179,8,0.1);
-    border: 1px solid rgba(234,179,8,0.22);
-    color: #eab308;
+    background: rgba(var(--premium-rgb),0.1);
+    border: 1px solid rgba(var(--premium-rgb),0.22);
+    color: var(--premium);
 }
 
 .features-group-title {
@@ -758,25 +894,25 @@ nav {
 }
 
 .feat-card-premium {
-    border-color: rgba(234,179,8,0.15);
+    border-color: transparent;
 }
 .feat-card-premium:hover {
-    border-color: rgba(234,179,8,0.35);
-    box-shadow: 0 12px 36px rgba(0,0,0,0.28), 0 0 0 1px rgba(234,179,8,0.1);
+    border-color: rgba(var(--premium-rgb),0.35);
+    box-shadow: var(--shadow-raised-hover), 0 0 0 1px rgba(var(--premium-rgb),0.1);
 }
-.feat-card-premium .feat-icon { background: rgba(234,179,8,0.1); }
-.feat-card-premium:hover .feat-icon { background: rgba(234,179,8,0.18); }
+.feat-card-premium .feat-icon { background: rgba(var(--premium-rgb),0.1); }
+.feat-card-premium:hover .feat-icon { background: rgba(var(--premium-rgb),0.18); }
 
 /* ── CTA ────────────────────────────────────── */
 .cta-wrap {
-    padding: 0 40px 96px;
+    padding: 0 40px 136px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .cta-box {
-    background: var(--surface);
-    border: 1px solid rgba(34,197,94,0.18);
+    background: var(--glass);
+    border: 1px solid transparent;
     border-radius: 24px;
     padding: 80px 60px;
     text-align: center;
@@ -796,7 +932,7 @@ nav {
 
 .cta-box h2 {
     font-size: clamp(1.7em, 3vw, 2.2em);
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: -0.03em;
     margin-bottom: 14px;
     position: relative;
@@ -830,7 +966,7 @@ nav {
 }
 
 .faq-item {
-    background: var(--card);
+    background: var(--glass);
     border: 1px solid var(--border);
     border-radius: 12px;
     overflow: hidden;
@@ -874,6 +1010,13 @@ nav {
     line-height: 1.7;
     font-size: 0.95em;
 }
+.faq-item p a {
+    color: var(--green);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.15s;
+}
+.faq-item p a:hover { opacity: 0.75; }
 
 /* ── Footer ─────────────────────────────────── */
 .footer-inner {
@@ -945,19 +1088,19 @@ nav {
 
     .hero {
         flex-direction: column;
-        padding: 40px 24px 64px;
+        padding: 96px 24px 64px;
         text-align: center;
     }
     .hero-sub { margin-left: auto; margin-right: auto; }
     .hero-actions { justify-content: center; }
     .hero-visual { display: none; }
 
-    .section-wrap { padding: 64px 24px; }
+    .section-wrap { padding: 88px 24px; }
     .steps-row { grid-template-columns: 1fr; gap: 8px; }
-    .steps-row::before { display: none; }
+    .trail-line { display: none; }
     .features-grid { grid-template-columns: repeat(2, 1fr); }
 
-    .cta-wrap { padding: 0 24px 64px; }
+    .cta-wrap { padding: 0 24px 88px; }
     .cta-box { padding: 60px 30px; }
 
     .footer-inner { flex-direction: column; gap: 12px; text-align: center; padding: 28px 20px; }
