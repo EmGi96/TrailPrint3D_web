@@ -8,16 +8,19 @@
     {% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
     {% if page.og_title %}<meta property="og:title" content="{{ page.og_title }}">{% endif %}
     {% if page.og_description %}<meta property="og:description" content="{{ page.og_description }}">{% endif %}
-    <meta property="og:image" content="{% if page.og_image %}{{ page.og_image }}{% else %}https://www.trailprint3d.com/images/mainImage.webp{% endif %}">
+    <meta property="og:image" content="{% if page.og_image %}{{ page.og_image }}{% else %}https://trailprint3d.com/images/mainImage.webp{% endif %}">
     {% if page.og_url %}<meta property="og:url" content="{{ page.og_url }}">{% endif %}
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TrailPrint3D">
     {% if page.canonical %}<link rel="canonical" href="{{ page.canonical }}">{% endif %}
     {% if page.schema_home %}{% include schema-home.html %}{% endif %}
+    {% if page.schema_howto %}{% include schema-howto.html %}{% endif %}
     {% if page.page_styles == 'filaments' %}{% include styles-filaments.html %}{% endif %}
     {% if page.page_styles == 'examples' %}{% include styles-examples.html %}{% endif %}
     {% if page.page_styles == 'legal' %}{% include styles-legal.html %}{% endif %}
     {% if page.page_styles == 'changelog' %}{% include styles-changelog.html %}{% endif %}
     {% if page.page_styles == 'download' %}{% include styles-download.html %}{% endif %}
+    {% if page.page_styles == 'notfound' %}{% include styles-notfound.html %}{% endif %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -25,7 +28,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css?v={{ site.time | date: '%s' }}">
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -50,13 +53,13 @@
 
     <!-- ── Nav ─────────────────────────────────────────── -->
     <nav>
-        <a href="{% if page.nav_home %}#{% else %}index.html{% endif %}" class="nav-logo">
+        <a href="{% if page.nav_home %}#{% else %}/{% endif %}" class="nav-logo">
             <img src="/images/TP3D_logo.png" alt="TrailPrint3D logo" class="nav-logo-mark">
             TrailPrint3D
         </a>
         {% unless page.minimal_nav %}
         <ul class="nav-links">
-            <li><a href="howto.html"{% if page.nav_active == 'howto' %} class="nav-active"{% endif %}>How To</a></li>
+            <li><a href="/howto.html"{% if page.nav_active == 'howto' %} class="nav-active"{% endif %}>How To</a></li>
             <li><a href="/examples.html"{% if page.nav_active == 'examples' %} class="nav-active"{% endif %}>Examples</a></li>
             <li><a href="/filaments.html"{% if page.nav_active == 'filaments' %} class="nav-active"{% endif %}>Filaments</a></li>
             <li><a href="/changelog.html" {% if page.nav_active == 'changelog' %}class="nav-active"{% endif %}>Changelog</a></li>
@@ -87,7 +90,7 @@
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                 </a>
             </div>
-            <p class="footer-copy">&copy; 2026 TrailPrint3D. All rights reserved. &mdash; <a href="impressum.html" class="footer-legal">Impressum</a> &mdash; <a href="privacy-policy.html" class="footer-legal">Privacy Policy</a> &mdash; <a href="attribution.html" class="footer-legal">Attribution</a></p>
+            <p class="footer-copy">&copy; 2026 TrailPrint3D. All rights reserved. &mdash; <a href="/impressum.html" class="footer-legal">Impressum</a> &mdash; <a href="/privacy-policy.html" class="footer-legal">Privacy Policy</a> &mdash; <a href="/attribution.html" class="footer-legal">Attribution</a></p>
         </div>
     </footer>
 

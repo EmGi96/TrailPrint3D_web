@@ -4,15 +4,19 @@
   "@type": "SoftwareApplication",
   "name": "TrailPrint3D",
   "applicationCategory": "DesignApplication",
+  "applicationSubCategory": "Blender add-on",
   "operatingSystem": "Windows, macOS, Linux",
+  "softwareRequirements": "Blender",
   "offers": {
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "USD"
   },
   "description": "Turn your GPX hiking and cycling tracks into 3D printable terrain maps. A free Blender add-on available on MakerWorld and Printables.",
-  "url": "https://www.trailprint3d.com/",
-  "image": "https://www.trailprint3d.com/images/mainImage.webp"
+  "url": "https://trailprint3d.com/",
+  "image": "https://trailprint3d.com/images/mainImage.webp",
+  "downloadUrl": "https://trailprint3d.com/download.html",
+  "publisher": { "@id": "https://trailprint3d.com/#organization" }
 }
 </script>
 <script type="application/ld+json">
@@ -22,34 +26,18 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How do i start turning my GPX tracks in 3D?",
+      "name": "How do I turn a GPX file into a 3D model?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Install blender from Blender.org for free, next download the TrailPrint3D Addon from Either Makerworld or Printables and install it in Blender. Then you can start generating 3D models from your GPX tracks"
+        "text": "Install TrailPrint3D in Blender, select your GPX file, and click \"Generate\". The add-on automatically downloads real elevation data for your route and builds a 3D terrain mesh you can export and 3D print."
       }
     },
     {
       "@type": "Question",
-      "name": "Are there any Tutorials?",
+      "name": "Can I 3D print my Strava or Komoot route?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes! In the Description of the Makerworld or Printables Page is a Video Tutorial Explaining everything from the Installation to the Generation Process. You can also join the TrailPrint3D Discord Community for more help and tips."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do i need to know anything about blender?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. TrailPrint3D is designed to be beginner-friendly and works with just a few clicks. You don't need any prior Blender experience to create your first 3D printed map but it helps if you want to further customize"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where do i get a GPX file from?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You can use Apps on your Phone like Strava or Komoot to record your trips. or you can use sites like GPX.studio to create custom GPX tours"
+        "text": "Yes. Export your activity as a GPX file from Strava, Komoot, Garmin, or any GPS app. TrailPrint3D supports any standard GPX file."
       }
     },
     {
@@ -57,7 +45,7 @@
       "name": "What file format does it export for 3D printing?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "TrailPrint3D exports STL and OBJ files, plus 3mf files thanks to the <a href='https://github.com/Clonephaze/3MF-Blender-Add-on---Maintained'>3mf Blender add-on by Clonephaze</a>. All formats are compatible with all major slicers like PrusaSlicer, Bambu Studio, and Cura."
+        "text": "TrailPrint3D exports STL and OBJ files, plus 3mf files thanks to the <a href=\"https://github.com/Clonephaze/3MF-Blender-Add-on---Maintained\">3mf Blender add-on by Clonephaze</a>. All formats are compatible with all major slicers like PrusaSlicer, Bambu Studio, and Cura."
       }
     },
     {
@@ -65,15 +53,7 @@
       "name": "Is TrailPrint3D free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — the core add-on is completely free to download on MakerWorld and Printables. A Premium version unlocks advanced features like multi-GPX maps, special shapes, and multi-tile printing and supports the further Development of the Tool"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where do i get the Premium version from",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "After Subscribing to my Patreon Account you have access to all posts. In the Collections tab are posts about new Version releases. From there you can download and install it like the Free version"
+        "text": "Yes! The core add-on is completely free to download on MakerWorld and Printables. A Premium version unlocks advanced features like multi-GPX maps and multi-tile printing."
       }
     },
     {
@@ -81,17 +61,43 @@
       "name": "Does it work on Windows and Mac?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "TrailPrint3D runs inside Blender, which is available on Windows, macOS, and Linux — so yes, it works on all platforms."
+        "text": "TrailPrint3D runs inside Blender, which is available on Windows, macOS, and Linux, so yes, it works on all platforms."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I sell the 3D prints I make?",
+      "name": "Can I use it commercially and sell the 3D prints I make?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. TrailPrint3D includes commercial use rights, so you can sell prints, use them for gifts, or include them in products. Note that data obtained through the add-on (such as OpenStreetMap or other providers) is subject to the respective provider's license and terms, which may include attribution or other requirements. Users are responsible for ensuring compliance with those terms."
+        "text": "Yes. TrailPrint3D includes commercial use rights, so you can sell prints, use them for gifts, or include them in products. Note that data obtained through the add-on (such as OpenStreetMap or other providers) is subject to the respective provider's license and terms, which may include attribution or other requirements. Users are responsible for ensuring compliance with those terms. See the <a href=\"https://trailprint3d.com/attribution.html\">Attribution</a> page for details."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I support the development?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can subscribe to my <a href=\"https://www.patreon.com/c/EmGi3D\">Patreon</a> or make a one-time donation <a href=\"https://buymeacoffee.com/emgi\">here</a>."
       }
     }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://trailprint3d.com/#organization",
+  "name": "TrailPrint3D",
+  "url": "https://trailprint3d.com/",
+  "logo": "https://trailprint3d.com/images/TP3D_logo.png",
+  "sameAs": [
+    "https://github.com/EmGi96/TrailPrint3D",
+    "https://www.printables.com/@EmGi",
+    "https://makerworld.com/de/@EmGi",
+    "https://www.patreon.com/c/EmGi3D",
+    "https://www.youtube.com/@EmGi_",
+    "https://www.instagram.com/emgi3d/"
   ]
 }
 </script>

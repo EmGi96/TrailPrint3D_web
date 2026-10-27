@@ -146,6 +146,7 @@ html::after {
     pointer-events: none;
 }
 .feat-card-premium::after {
+    padding: 2px;
     background: linear-gradient(135deg, rgba(var(--premium-light-rgb),0.7), rgba(var(--premium-rgb),0.2) 30%, transparent 55%, rgba(var(--premium-rgb),0.3));
 }
 
@@ -769,11 +770,17 @@ nav {
     gap: 16px;
 }
 
+/* Image "stage" flush to the top edge, text below. Photos fill the stage;
+   transparent renders (.feat-img-cutout) show the page background through it. */
 .feat-card {
-    padding: 30px;
+    --feat-glow: 34,197,94;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
     background: var(--glass);
-    border: 1px solid var(--border);
-    border-radius: 16px;
+    border: 2px solid var(--border);
+    border-radius: 18px;
     transition: background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 .feat-card:hover {
@@ -800,24 +807,11 @@ nav {
 .feat-img {
     position: relative;
     width: 100%;
-    height: 150px;
-    background: var(--surface);
-    border-radius: 10px;
-    margin-bottom: 20px;
+    aspect-ratio: 4 / 3;
+    max-height: 230px;
     overflow: hidden;
-    border: 1px dashed rgba(255,255,255,0.09);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.feat-img-placeholder {
-    font-size: 0.72em;
-    color: var(--text-muted);
-    text-align: center;
-    line-height: 1.6;
-    pointer-events: none;
-    user-select: none;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
 }
 
 .feat-img img {
@@ -827,18 +821,61 @@ nav {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
+}
+.feat-card:hover .feat-img img { transform: scale(1.04); }
+
+/* Transparent renders: no stage fill at all — the model floats over the
+   page background, and the card's glass fill moves down to .feat-body */
+.feat-img-cutout {
+    background: none;
+    border-bottom: none;
+}
+.feat-img-cutout img {
+    object-fit: contain;
+    padding: 6px 10px;
+    filter: drop-shadow(0 14px 18px rgba(0,0,0,0.45));
+}
+.feat-card:hover .feat-img-cutout img { transform: translateY(-6px) scale(1.06); }
+
+.feat-card:has(.feat-img-cutout),
+.feat-card:has(.feat-img-cutout):hover {
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+.feat-card:has(.feat-img-cutout) .feat-body {
+    background: var(--glass);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    transition: background 0.25s;
+}
+.feat-card:has(.feat-img-cutout):hover .feat-body { background: var(--glass-hover); }
+
+.feat-body {
+    flex: 1;
+    padding: 22px 24px 26px;
 }
 
 .feat-card h3 {
-    font-size: 1em;
+    font-size: 1.05em;
     font-weight: 700;
     margin-bottom: 8px;
+    padding-left: 12px;
+    border-left: 2px solid rgb(var(--feat-glow));
+    line-height: 1.3;
 }
 
 .feat-card p {
     font-size: 0.875em;
     color: var(--text-dim);
     line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .feat-img img,
+    .feat-card:hover .feat-img img,
+    .feat-card:hover .feat-img-cutout img { transition: none; transform: none; }
 }
 
 /* ── Features groups ────────────────────────── */
@@ -894,7 +931,9 @@ nav {
 }
 
 .feat-card-premium {
-    border-color: transparent;
+    --feat-glow: var(--premium-rgb);
+    /* The 2px gradient ::after edge is the frame here */
+    border: 0;
 }
 .feat-card-premium:hover {
     border-color: rgba(var(--premium-rgb),0.35);

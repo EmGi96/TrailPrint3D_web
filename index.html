@@ -4,9 +4,9 @@ title: "TrailPrint3D — Convert GPX Files to 3D Printable Terrain Maps"
 description: "Turn your GPX hiking and cycling tracks into 3D printable terrain maps. TrailPrint3D is a free Blender add-on — available on MakerWorld and Printables."
 og_title: "TrailPrint3D — Convert GPX Files to 3D Printable Terrain Maps"
 og_description: "Turn your GPX hiking and cycling tracks into 3D printable terrain maps. TrailPrint3D is a free Blender add-on — available on MakerWorld and Printables."
-og_image: "https://www.trailprint3d.com/images/mainImage.webp"
-og_url: "https://www.trailprint3d.com/"
-canonical: "https://www.trailprint3d.com/"
+og_image: "https://trailprint3d.com/images/mainImage.webp"
+og_url: "https://trailprint3d.com/"
+canonical: "https://trailprint3d.com/"
 schema_home: true
 nav_home: true
 ---
@@ -48,13 +48,13 @@ nav_home: true
 
         <div class="hero-visual">
             <div class="hero-img" id="hero-carousel">
-                <img class="hero-carousel-slide is-active" src="images/mainImage.webp" alt="3D printed terrain map of a hiking trail generated with TrailPrint3D in Blender">
-                <img class="hero-carousel-slide" src="images/examples/Hex-Puzzle Map.jpg" alt="Hex Puzzle Map printed with TrailPrint3D">
-                <img class="hero-carousel-slide" src="images/examples/MapShell.jpg" alt="Map Shell printed with TrailPrint3D">
-                <img class="hero-carousel-slide" src="images/examples/example_003.jpg" alt="Single-color mode map printed with TrailPrint3D">
-                <img class="hero-carousel-slide" src="images/examples/GermanyMap.jpg" alt="Germany multi-tile map printed with TrailPrint3D">
-                <img class="hero-carousel-slide" src="images/examples/example_005.jpg" alt="Three Peaks of Lavaredo map printed with TrailPrint3D">
-                <img class="hero-carousel-slide" src="images/examples/Citymap_02.jpg" alt="City map printed with TrailPrint3D">
+                <img class="hero-carousel-slide is-active" fetchpriority="high" src="images/mainImage.webp" alt="3D printed terrain map of a hiking trail generated with TrailPrint3D in Blender">
+                <img class="hero-carousel-slide" decoding="async" src="images/examples/Hex-Puzzle Map.webp" alt="Hex Puzzle Map printed with TrailPrint3D">
+                <img class="hero-carousel-slide" decoding="async" src="images/examples/MapShell.webp" alt="Map Shell printed with TrailPrint3D">
+                <img class="hero-carousel-slide" decoding="async" src="images/examples/example_003.webp" alt="Single-color mode map printed with TrailPrint3D">
+                <img class="hero-carousel-slide" decoding="async" src="images/examples/GermanyMap.webp" alt="Germany multi-tile map printed with TrailPrint3D">
+                <img class="hero-carousel-slide" decoding="async" src="images/examples/example_005.webp" alt="Three Peaks of Lavaredo map printed with TrailPrint3D">
+                <img class="hero-carousel-slide" decoding="async" src="images/examples/Citymap_02.webp" alt="City map printed with TrailPrint3D">
             </div>
             <div class="hero-carousel-nav" id="hero-carousel-nav"></div>
         </div>
@@ -114,100 +114,103 @@ nav_home: true
             <div class="features-grid">
                 <div class="feat-card">
                     <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/feature-terrain.png</span>
-                        <img src="images/worldComparison.jpg" alt="Real World Terrain">
+                        <img src="images/worldComparison.webp" alt="Satellite view of a mountain range next to the same terrain as a 3D printed map" loading="lazy">
                     </div>
-                    <h3>Real World Terrain</h3>
-                    <p>Terrain meshes built from real elevation data. every ridge, valley, and summit accurately represented.</p>
+                    <div class="feat-body">
+                        <h3>Real World Terrain</h3>
+                        <p>Turns any GPX track into a 3D terrain model built from real elevation data. Every ridge, valley, and summit is accurately represented.</p>
+                    </div>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-img feat-img-cutout">
+                        <img src="images/cards/AutomaticColoring.webp" alt="3D printed hexagon terrain map with automatically colored forest, lake and snow" width="800" height="600" loading="lazy">
+                    </div>
+                    <div class="feat-body">
+                        <h3>Automatic Coloring</h3>
+                        <p>OpenStreetMap data colors your map automatically. Lakes, rivers, forests, and cities are all included and ready for multi-color 3D printing.</p>
+                    </div>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-img feat-img-cutout">
+                        <img src="images/cards/ContourLines.webp" alt="3D printed terrain map with elevation contour lines" width="800" height="600" loading="lazy">
+                    </div>
+                    <div class="feat-body">
+                        <h3>Contour Lines</h3>
+                        <p>Add elevation contour lines scaled to real-world meters, just like on a topographic hiking map.</p>
+                    </div>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-img feat-img-cutout">
+                        <img src="images/cards/SingleColorMode.webp" alt="Terrain map prepared for printing on a single-color 3D printer" width="800" height="600" loading="lazy">
+                    </div>
+                    <div class="feat-body">
+                        <h3>Single-Color Mode</h3>
+                        <p>Print a detailed terrain map on any single-color 3D printer. It reduces filament waste and speeds up printing.</p>
+                    </div>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-img feat-img-cutout">
+                        <img src="images/cards/CustomizableFrames.webp" alt="Hexagon 3D printed map with a custom frame and engraved place names" width="800" height="600" loading="lazy">
+                    </div>
+                    <div class="feat-body">
+                        <h3>Customizable Frames</h3>
+                        <p>Add a frame with engraved text to give your 3D printed map a polished, display-ready finish.</p>
+                    </div>
                 </div>
                 <div class="feat-card">
                     <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/autoColoring.webp</span>
-                        <img src="images/automaticColoring.png" alt="Automatic Coloring">
+                        <img src="images/cards/Customization.webp" alt="Close-up of a 3D printed map with custom raised text and icons" loading="lazy">
                     </div>
-                    <h3>Automatic Coloring</h3>
-                    <p>Real-world data colors your map automatically. lakes, rivers, forests, and cities all included.</p>
+                    <div class="feat-body">
+                        <h3>Customization</h3>
+                        <p>Fine-tune map size, elevation scale, base thickness, and dozens of other settings, or add custom text and icons to your map.</p>
+                    </div>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-img feat-img-cutout">
+                        <img src="images/cards/DifferentShapes.webp" alt="3D printed terrain maps in circle, hexagon and star shapes" width="800" height="600" loading="lazy">
+                    </div>
+                    <div class="feat-body">
+                        <h3>Different Shapes</h3>
+                        <p>Print your trail map as a square, circle, hexagon, star, and more.</p>
+                    </div>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-img feat-img-cutout">
+                        <img src="images/cards/JigsawPuzzles.webp" alt="3D printed terrain map as a jigsaw puzzle with loose pieces" width="800" height="600" loading="lazy">
+                    </div>
+                    <div class="feat-body">
+                        <h3>Jigsaw Puzzles</h3>
+                        <p>Turn any hike or location into a 3D printed jigsaw puzzle you can piece together and display.</p>
+                    </div>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-img feat-img-cutout">
+                        <img src="images/cards/BuildingsRoads.webp" alt="3D printed city map with OpenStreetMap buildings, roads and coastline" width="800" height="600" loading="lazy">
+                    </div>
+                    <div class="feat-body">
+                        <h3>Buildings & Roads</h3>
+                        <p>Add real building footprints and road networks from OpenStreetMap to create detailed 3D printed city maps.</p>
+                    </div>
                 </div>
                 <div class="feat-card">
                     <div class="feat-img">
-                        <img src="images/examples/example_004.jpg" alt="Contour Lines">
+                        <img src="images/commercialUse.webp" alt="Illustration of commercial use rights for 3D printed maps" loading="lazy">
                     </div>
-
-                    <h3>Contour Lines</h3>
-                    <p>Add real-world-scaled elevation contour lines to your map, precise down to every meter of elevation gain.</p>
+                    <div class="feat-body">
+                        <h3>Commercial Use</h3>
+                        <p>Sell your 3D printed maps, give them as gifts, or include them in your products. Commercial use is allowed.</p>
+                        <p style="font-size:0.75em;color:var(--text-muted);margin-top:8px;">Data sources such as OpenStreetMap may have their own license requirements. Users are responsible for complying with them. <a href="/attribution.html" style="color:var(--green);text-decoration:none;">Learn more</a></p>
+                    </div>
                 </div>
                 <div class="feat-card">
                     <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/singleColorMode.webp</span>
-                        <img src="images/singleColorMode.jpg" alt="Single-Color Mode">
+                        <img src="images/privacy.webp" alt="Illustration of a privacy shield — no accounts or tracking" loading="lazy">
                     </div>
-
-                    <h3>Single-Color Mode</h3>
-                    <p>Reduces waste, speeds up printing, and works great with single-color printers. clean and efficient.</p>
-                </div>
-                <div class="feat-card">
-                    <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/customFrames.jpg</span>
-                        <img src="images/CustomFrames.jpg" alt="Customizable Frames">
+                    <div class="feat-body">
+                        <h3>Privacy First</h3>
+                        <p>No accounts, no tracking, no personal data collected. The add-on only downloads the map and elevation data needed for your model, and nothing else is sent or stored.</p>
                     </div>
-
-                    <h3>Customizable Frames</h3>
-                    <p>Choose and configure frames to finish your map with a polished, display-ready look.</p>
-                </div>
-                <div class="feat-card">
-                    <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/feature-customization.png</span>
-                        <img src="images/cards/Customization.jpg" alt="Customization">
-                    </div>
-
-                    <h3>Customization</h3>
-                    <p>Fine-tune scale, elevation exaggeration, base thickness, and dozens of other parameters to get exactly the map you want, or add Custom text and Icons to it</p>
-                </div>
-                <div class="feat-card">
-                    <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/diffrentShapes.webp</span>
-                        <img src="images/customShapes.jpg" alt="Different Shapes">
-                    </div>
-
-                    <h3>Different Shapes</h3>
-                    <p>Print your map as a square, circle, hexagon, and more</p>
-                </div>
-                <div class="feat-card">
-                    <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/feature-special-shapes.png</span>
-                        <img src="images/specialShapes.jpg" alt="Jigsaw Puzzles">
-                    </div>
-
-                    <h3>Jigsaw Puzzles</h3>
-                    <p>Turn any location into a jigsaw puzzle you can piece together and display.</p>
-                </div>
-                <div class="feat-card">
-                    <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/feature-buildings.png</span>
-                        <img src="images/roadsBuildings.jpg" alt="Buildings & Roads">
-                    </div>
-
-                    <h3>Buildings & Roads</h3>
-                    <p>Add real building footprints and road networks to your terrain for rich, detailed urban maps.</p>
-                </div>
-                <div class="feat-card">
-                    <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/feature-commercial.png</span>
-                        <img src="images/commercialUse.jpg" alt="Commercial Use">
-                    </div>
-
-                    <h3>Commercial Use</h3>
-                    <p>This add-on may be used commercially — sell prints, use them as gifts, or include them in products.</p>
-                    <p style="font-size:0.75em;color:var(--text-muted);margin-top:8px;">Data sources such as OpenStreetMap may have their own license requirements. Users are responsible for complying with them. <a href="/attribution.html" style="color:var(--green);text-decoration:none;">Learn more</a></p>
-                </div>
-                <div class="feat-card">
-                    <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/feature-privacy.png</span>
-                        <img src="images/privacy.jpg" alt="Privacy First">
-                    </div>
-
-                    <h3>Privacy First</h3>
-                    <p>No accounts, no tracking, no personal data collected. The add-on fetches only the map and elevation data needed to generate your model — nothing else is sent or stored.</p>
                 </div>
                 <div class="feat-card-more">✦ &nbsp;and much more</div>
             </div>
@@ -221,67 +224,67 @@ nav_home: true
             </div>
             <div class="features-grid">
                 <div class="feat-card feat-card-premium">
-                    <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/feature-multigen.png</span>
-                        <img src="images/MultiGeneration.png" alt="MultiGeneration">
+                    <div class="feat-img feat-img-cutout">
+                        <img src="images/cards/MultiGPXTrails.webp" alt="3D printed map with several GPX trails combined on one terrain" width="800" height="600" loading="lazy">
                     </div>
-
-                    <h3>MultiGeneration</h3>
-                    <p>Use Multiple GPX files to fit on one map. For Multi Day Trips or to map down a whole region</p>
+                    <div class="feat-body">
+                        <h3>MultiGeneration</h3>
+                        <p>Combine multiple GPX tracks on one map, perfect for multi-day trips or mapping every trail in a region.</p>
+                    </div>
                 </div>
                 <div class="feat-card feat-card-premium">
                     <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/feature-multi-tile.png</span>
-                        <img src="images/multiTileMaps.jpg" alt="Multi-tile Maps">
+                        <img src="images/multiTileMaps.webp" alt="Large 3D printed wall map made of hexagonal terrain tiles" loading="lazy">
                     </div>
-
-                    <h3>Multi-tile Maps</h3>
-                    <p>Split large areas across multiple print tiles that connect seamlessly for wall-scale terrain maps.</p>
+                    <div class="feat-body">
+                        <h3>Multi-tile Maps</h3>
+                        <p>Split large areas into multiple printable tiles that connect seamlessly into a large 3D printed wall map.</p>
+                    </div>
                 </div>
                 <div class="feat-card feat-card-premium">
                     <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/feature-hex-circle-puzzles.png</span>
-                        <img src="images/cards/roundPuzzle.jpg" alt="Hexagonal and Circle Puzzles">
+                        <img src="images/cards/roundPuzzle.webp" alt="Round 3D printed terrain puzzle with concentric-ring pieces and a trail" loading="lazy">
                     </div>
-
-                    <h3>Hexagonal and Circle Puzzles</h3>
-                    <p>Piece shapes beyond the classic grid — hexagonal and concentric-ring puzzle pieces for a completely different look.</p>
+                    <div class="feat-body">
+                        <h3>Hexagonal and Circle Puzzles</h3>
+                        <p>Go beyond the classic grid with hexagonal and concentric-ring puzzle pieces for a completely different look.</p>
+                    </div>
+                </div>
+                <div class="feat-card feat-card-premium">
+                    <div class="feat-img feat-img-cutout">
+                        <img src="images/cards/GeoJsonMaps.webp" alt="3D printed terrain map in the shape of Switzerland made from a GeoJSON boundary" width="800" height="600" loading="lazy">
+                    </div>
+                    <div class="feat-body">
+                        <h3>GeoJSON Shapes</h3>
+                        <p>Use a GeoJSON file as your map outline to print terrain maps in the shape of countries, regions, or islands.</p>
+                    </div>
                 </div>
                 <div class="feat-card feat-card-premium">
                     <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/feature-geojson-shapes.png</span>
-                        <img src="images/cards/GeoJsonShape.jpg" alt="GeoJSON Shapes">
+                        <img src="images/cards/TextIcon.webp" alt="3D printed map frame with raised distance text and arrow icon" loading="lazy">
                     </div>
-
-                    <h3>GeoJSON Shapes</h3>
-                    <p>Use GeoJSON files as your shape so you can create Maps with the Shape of Countries or other Shapes</p>
+                    <div class="feat-body">
+                        <h3>Text Icons</h3>
+                        <p>Add text-based icons and lettering to your map for personalized race medals, plaques, and displays.</p>
+                    </div>
                 </div>
                 <div class="feat-card feat-card-premium">
                     <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/feature-text-icons.png</span>
-                        <img src="images/cards/TextIcon.jpg" alt="Text Icons">
+                        <img src="images/cards/MultiTileConfigurator.webp" alt="Browser-based configurator splitting a satellite map into printable tiles" loading="lazy">
                     </div>
-
-                    <h3>Text Icons</h3>
-                    <p>Add text-based icons and lettering to your map for personalized medals, plaques, and displays.</p>
+                    <div class="feat-body">
+                        <h3>Browser based Multi-tile Configurator</h3>
+                        <p>Plan multi-tile maps interactively on a 2D map in your browser before generating them in Blender.</p>
+                    </div>
                 </div>
                 <div class="feat-card feat-card-premium">
                     <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/feature-browser-multitile.png</span>
-                        <img src="images/cards/MultiTileConfigurator.jpg" alt="Browser based Multi-tile Configurator">
+                        <img src="images/cards/ShellShape.webp" alt="Round 3D printed terrain map in a separately printed shell base" loading="lazy">
                     </div>
-
-                    <h3>Browser based Multi-tile Configurator</h3>
-                    <p>Create Multi-tile maps interactively in a Browser based 2D map</p>
-                </div>
-                <div class="feat-card feat-card-premium">
-                    <div class="feat-img">
-                        <span class="feat-img-placeholder">📷 images/feature-shell-extra.png</span>
-                        <img src="images/cards/ShellShape.jpg" alt="Exclusive Shape Extra: Shell">
+                    <div class="feat-body">
+                        <h3>Exclusive Shape Extra: Shell</h3>
+                        <p>A separately printed shell base that frames your map as a clean visual upgrade.</p>
                     </div>
-
-                    <h3>Exclusive Shape Extra: Shell</h3>
-                    <p>A Shell for your map that can be printed separately as a nice visual Upgrade</p>
                 </div>
             </div>
         </div>
@@ -320,19 +323,19 @@ nav_home: true
             </details>
             <details class="faq-item">
                 <summary>Is TrailPrint3D free?</summary>
-                <p>Yes!the core add-on is completely free to download on MakerWorld and Printables. A Premium version unlocks advanced features like multi-GPX maps and multi-tile printing.</p>
+                <p>Yes! The core add-on is completely free to download on MakerWorld and Printables. A Premium version unlocks advanced features like multi-GPX maps and multi-tile printing.</p>
             </details>
             <details class="faq-item">
                 <summary>Does it work on Windows and Mac?</summary>
                 <p>TrailPrint3D runs inside Blender, which is available on Windows, macOS, and Linux, so yes, it works on all platforms.</p>
             </details>
             <details class="faq-item">
-                <summary>Can I use it Commercially and sell the 3D prints I make?</summary>
+                <summary>Can I use it commercially and sell the 3D prints I make?</summary>
                 <p>Yes. TrailPrint3D includes commercial use rights, so you can sell prints, use them for gifts, or include them in products. Note that data obtained through the add-on (such as OpenStreetMap or other providers) is subject to the respective provider's license and terms, which may include attribution or other requirements. Users are responsible for ensuring compliance with those terms. See the <a href="/attribution.html">Attribution</a> page for details.</p>
             </details>
             <details class="faq-item">
-                <summary>How can I Support the Development?</summary>
-                <p>You can Subscribe to my <a href="https://www.patreon.com/c/EmGi3D?utm_source=trailprint3d&utm_medium=website&utm_campaign=premium&utm_content=faq" target="_blank" rel="noopener noreferrer">Patreon</a> or with a One-time Donation <a href="https://buymeacoffee.com/emgi" target="_blank" rel="noopener noreferrer">here</a>.</p>
+                <summary>How can I support the development?</summary>
+                <p>You can subscribe to my <a href="https://www.patreon.com/c/EmGi3D?utm_source=trailprint3d&utm_medium=website&utm_campaign=premium&utm_content=faq" target="_blank" rel="noopener noreferrer">Patreon</a> or make a one-time donation <a href="https://buymeacoffee.com/emgi" target="_blank" rel="noopener noreferrer">here</a>.</p>
             </details>
         </div>
     </section>
