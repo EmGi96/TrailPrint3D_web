@@ -19,6 +19,7 @@ A Premium tier (via Patreon subscription) adds: multi-GPX "MultiGeneration" maps
 - [Attribution](https://trailprint3d.com/attribution.html): third-party data sources and licensing terms (OpenStreetMap, elevation providers, etc.)
 - [GPX to STL & 3MF Converter](https://trailprint3d.com/gpx-to-stl.html): guide to converting a GPX track into a printable STL or 3MF file
 - [Strava to 3D Print](https://trailprint3d.com/strava-to-3d-print.html): guide to turning a Strava activity into a 3D printed terrain map
+- [Komoot to 3D Print](https://trailprint3d.com/komoot-to-3d-print.html): guide to turning a Komoot tour into a 3D printed terrain map
 
 ## Optional
 

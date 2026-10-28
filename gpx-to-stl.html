@@ -14,26 +14,36 @@ page_styles: guide
         <h1>GPX to STL &amp; 3MF Converter</h1>
         <p class="guide-intro">Turn a GPX hiking, running, or cycling track into a real, 3D-printable terrain model — not just the flat line of your route, but the actual mountains, valleys, and elevation it crosses.</p>
 
+        <img src="/images/mainImage.webp" alt="3D printed terrain map of a hiking trail generated with TrailPrint3D in Blender" width="1000" height="750" loading="lazy" style="width:100%;height:auto;border-radius:16px;margin-bottom:36px;">
+
         <div class="guide-answer">
-            <p><strong>Quick answer:</strong> TrailPrint3D is a free Blender add-on that converts a GPX file into a 3D terrain mesh built from real elevation data, then exports it as an <strong>STL</strong> or <strong>3MF</strong> file ready for any slicer. <a href="/download.html">Download it free</a> — no account, no upload, no watermark.</p>
+            <p><strong>Quick answer:</strong> TrailPrint3D is a free Blender add-on that converts a GPX file into a fully colored 3D terrain model built from real elevation data, then exports it as an <strong>STL</strong> or <strong>3MF</strong> file ready for any slicer. <a href="/download.html">Download TrailPrint3D for free</a> — no account, no upload, no watermark.</p>
         </div>
 
         <h2>STL vs. 3MF — which one should you export?</h2>
         <p><strong>STL</strong> is the simplest, most universal 3D printing format: a single mesh with no color or material info. It works in every slicer ever made, which makes it the safest choice if you just want one solid-color terrain print.</p>
         <p><strong>3MF</strong> is the modern alternative — it can hold several objects, colors, and materials in a single file. If your map has separate color regions (water, forest, buildings) or a multi-color trail, 3MF lets your slicer (Bambu Studio, PrusaSlicer/OrcaSlicer) keep those parts separate automatically instead of you re-assembling loose STL files by hand.</p>
-        <p>TrailPrint3D exports both: STL and OBJ natively, and 3MF through the free <a href="https://github.com/Clonephaze/3MF-Blender-Add-on---Maintained" target="_blank" rel="noopener">3mf Blender add-on by Clonephaze</a> (one extra free install, a couple of clicks).</p>
+        <p>TrailPrint3D exports both: STL and OBJ natively, and 3MF through the free <a href="https://github.com/Clonephaze/3MF-Blender-Add-on---Maintained" target="_blank" rel="noopener">3mf Blender add-on by Clonephaze</a> (free, and installable with one click from inside the TrailPrint3D add-on).</p>
 
         <h2>How to convert a GPX file to STL or 3MF</h2>
         <ol class="guide-steps">
             <li><strong>Install Blender.</strong> Blender is free and open-source — get it from <a href="https://www.blender.org/download/" target="_blank" rel="noopener">blender.org</a> (version 5.1 or higher).</li>
-            <li><strong>Install the TrailPrint3D add-on.</strong> Grab it free from <a href="/download.html">the download page</a>, or from <a href="https://makerworld.com/de/models/1264871-hiking-and-cycling-map-generator-trailprint3d#profileId-1291737" target="_blank" rel="noopener">MakerWorld</a> / <a href="https://www.printables.com/model/1242540-trail-map-generator-trailprint3d-blender-addon" target="_blank" rel="noopener">Printables</a>.</li>
-            <li><strong>Load your GPX file.</strong> Open the add-on's sidebar in Blender and select your GPX track — exported from Strava, Komoot, Garmin, or any GPS app.</li>
+            <li><strong>Install the TrailPrint3D add-on.</strong> Grab it free from <a href="/download.html">the download page</a> or from <a href="https://github.com/EmGi96/TrailPrint3D" target="_blank" rel="noopener">GitHub</a>.</li>
+            <li><strong>Load your GPX file.</strong> Open the Map Generator, import your GPX file and set a few parameters.</li>
             <li><strong>Generate the terrain.</strong> TrailPrint3D fetches real elevation data for the area and builds a 3D terrain mesh following your actual route, with options for shape, scale, and coloring.</li>
-            <li><strong>Export.</strong> Export directly as STL or OBJ, or use the Clonephaze add-on to export a multi-color 3MF ready for your slicer.</li>
+            <li><strong>Export.</strong> Export directly as STL or OBJ, or use the <a href="https://clonecore.net" target="_blank" rel="noopener">Clonephaze</a> add-on to export a multi-color 3MF ready for your slicer.</li>
         </ol>
 
-        <h2>Why not just use a simple online GPX converter?</h2>
-        <p>Plenty of web tools will trace a GPX line into a flat, extruded shape. TrailPrint3D does something different: it builds the surrounding terrain from real elevation data, so the print shows the actual ridges, valleys, and summits your route crosses — not just a raised outline on a flat base. On top of that you get real building and road data from OpenStreetMap, automatic landscape coloring, and a choice of shapes (square, circle, hexagon, jigsaw puzzle, and more) — all inside Blender, where you keep full control before exporting.</p>
+        <h2>Why a Blender add-on?</h2>
+        <p>TrailPrint3D runs entirely on your own computer, inside Blender. That brings a few things you won't give up once you're used to them:</p>
+        <ul>
+            <li><strong>No tracking.</strong> Your GPX files never leave your machine — where you hike, ride, or run stays your business.</li>
+            <li><strong>No account.</strong> Install it and start generating. No sign-up, no login, no email address.</li>
+            <li><strong>No limits.</strong> No daily quotas, no credits, no queue. Generate as many maps as you like, as large as your hardware can handle.</li>
+            <li><strong>Can't be shut down.</strong> Once it's installed, it's yours. No server that can go offline, no service that can disappear or change its terms.</li>
+            <li><strong>Open source.</strong> The code is public on <a href="https://github.com/EmGi96/TrailPrint3D" target="_blank" rel="noopener">GitHub</a> — anyone can read it, learn from it, or improve it.</li>
+            <li><strong>Full control.</strong> Every model is a regular Blender scene. Tweak the terrain, colors, text, and shape, or edit the mesh by hand before you export.</li>
+        </ul>
 
         <div class="guide-cta">
             <p>Ready to turn your own GPX track into a 3D print?</p>

@@ -1,0 +1,67 @@
+---
+layout: default
+title: "Komoot to 3D Print — Turn Your Komoot Tour into a 3D Printed Map"
+description: "Turn a Komoot tour into a 3D printed terrain map. Export your route as GPX and use TrailPrint3D, a free Blender add-on, to generate a real-elevation 3D model ready to print."
+og_title: "Komoot to 3D Print — Turn Your Komoot Tour into a 3D Printed Map"
+og_description: "Turn a Komoot tour into a 3D printed terrain map. Export your route as GPX and use TrailPrint3D, a free Blender add-on, to generate a real-elevation 3D model ready to print."
+og_image: "https://trailprint3d.com/images/mainImage.webp"
+og_url: "https://trailprint3d.com/komoot-to-3d-print.html"
+canonical: "https://trailprint3d.com/komoot-to-3d-print.html"
+page_styles: guide
+---
+
+    <main class="guide-wrap">
+        <h1>Komoot to 3D Print: Turn Your Tour into a Terrain Model</h1>
+        <p class="guide-intro">Planned a hike, bikepacking trip, or cycling tour with Komoot? You can turn that exact route into a physical, 3D-printed terrain map built from real elevation data — here's how.</p>
+
+        <img src="/images/examples/example_002.webp" alt="3D printed terrain map with a red trail loop around a coastal peninsula, built from real elevation data" width="1600" height="1200" loading="lazy" style="width:100%;height:auto;border-radius:16px;margin-bottom:36px;">
+
+        <div class="guide-answer">
+            <p><strong>Quick answer:</strong> Download your Komoot tour as a GPX file, then load it into <a href="/download.html">TrailPrint3D</a> — a free Blender add-on that builds a real terrain model around your route and exports it as STL or 3MF for printing.</p>
+        </div>
+
+        <h2>Step 1 — Export your Komoot tour as a GPX file</h2>
+        <p>You'll need a free Komoot account for this step.</p>
+        <ol class="guide-steps">
+            <li><strong>Open the tour</strong> on komoot.com (or in the app), under your Profile's <strong>Saved routes</strong> or <strong>Completed activities</strong>.</li>
+            <li><strong>Select the tour</strong> and choose <strong>Download GPX file</strong> from its options. The file downloads straight to your device.</li>
+            <li>Komoot unlocks GPX export for the region your tour starts in. If you're outside your unlocked region(s), it'll tell you which region needs unlocking before you can export that tour.</li>
+        </ol>
+
+        <h2>Step 2 — Generate the 3D terrain with TrailPrint3D</h2>
+        <ol class="guide-steps">
+            <li><strong>Install Blender</strong> (free) from <a href="https://www.blender.org/download/" target="_blank" rel="noopener">blender.org</a>, then install the free <a href="/download.html">TrailPrint3D add-on</a>.</li>
+            <li><strong>Load the GPX file</strong> you exported from Komoot into TrailPrint3D's sidebar panel.</li>
+            <li><strong>Generate.</strong> The add-on downloads real elevation data for the surrounding area and builds a 3D terrain mesh that follows your exact Komoot route — climbs, descents, and all.</li>
+            <li><strong>Customize</strong> the shape (square, circle, hexagon, jigsaw puzzle), add automatic landscape coloring, buildings, and roads, or keep it simple for single-color printing.</li>
+        </ol>
+
+        <h2>Step 3 — Export and print</h2>
+        <p>Export your finished model as STL, OBJ, or — using the free <a href="https://github.com/Clonephaze/3MF-Blender-Add-on---Maintained" target="_blank" rel="noopener">3mf Blender add-on</a> — a multi-color 3MF ready for Bambu Studio, PrusaSlicer, or OrcaSlicer. From there it's a normal 3D print: pick a filament (see our <a href="/filaments.html">filament recommendations</a>) and slice as usual.</p>
+
+        <div class="guide-cta">
+            <p>Ready to print your Komoot tour?</p>
+            <a href="/download.html" class="btn-primary">⬇ Download TrailPrint3D</a>
+            <a href="/examples.html" class="btn-secondary">See Examples</a>
+        </div>
+
+        <h2>FAQ</h2>
+        <div class="faq-list guide-faq">
+            <details class="faq-item">
+                <summary>Can I 3D print my Komoot tour without Blender?</summary>
+                <p>TrailPrint3D runs as a Blender add-on, so Blender (free) is required. In exchange, you get full control over elevation scale, shape, colors, and export settings — not just a fixed online template.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Do I need to pay to export a GPX file from Komoot?</summary>
+                <p>Exporting GPX itself is free, but Komoot ties it to its region-unlock system: you get one region free, and tours outside it need that region unlocked (one-time purchase or a Komoot subscription) before you can download their GPX file.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Can I use a Strava, Garmin, or other GPS app route instead of Komoot?</summary>
+                <p>Yes. TrailPrint3D works with any standard GPX file, regardless of which app or device recorded it. See our <a href="/strava-to-3d-print.html">Strava to 3D print guide</a> if that's where your route lives.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Will the print show real mountains and elevation, or just my route line?</summary>
+                <p>Real elevation. TrailPrint3D builds an actual terrain mesh from elevation data around your route, so climbs and descents are physically represented in the print, not just marked on a flat surface.</p>
+            </details>
+        </div>
+    </main>

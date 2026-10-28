@@ -54,4 +54,10 @@
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://trailprint3d.com/komoot-to-3d-print.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
