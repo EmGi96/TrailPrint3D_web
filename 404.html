@@ -1,0 +1,69 @@
+---
+layout: default
+title: "Page Not Found — TrailPrint3D"
+description: "This page doesn't exist. Head back to TrailPrint3D to turn your GPX tracks into 3D printable terrain maps."
+permalink: /404.html
+noindex: true
+page_styles: notfound
+---
+
+    <main class="nf-wrap">
+        <div class="nf-map" aria-hidden="true">
+            <svg viewBox="0 0 480 320" role="presentation">
+                <defs>
+                    <path id="nf-contour" d="M0,-60 C34,-62 66,-36 64,-4 C62,30 40,58 4,60 C-30,62 -66,40 -64,4 C-62,-28 -36,-58 0,-60 Z"/>
+                    <clipPath id="nf-tile-clip"><rect x="24" y="24" width="352" height="272" rx="18"/></clipPath>
+                    <radialGradient id="nf-peak" cx="0.62" cy="0.42" r="0.6">
+                        <stop offset="0" stop-color="#22c55e" stop-opacity="0.22"/>
+                        <stop offset="1" stop-color="#22c55e" stop-opacity="0"/>
+                    </radialGradient>
+                </defs>
+
+                <!-- Map tile -->
+                <rect class="nf-tile" x="24" y="24" width="352" height="272" rx="18"/>
+                <g clip-path="url(#nf-tile-clip)">
+                    <rect x="24" y="24" width="352" height="272" fill="url(#nf-peak)"/>
+                    <g class="nf-contours">
+                        <use href="#nf-contour" transform="translate(250 130) scale(3.4 2.9)"/>
+                        <use href="#nf-contour" transform="translate(250 130) scale(2.7 2.3)"/>
+                        <use href="#nf-contour" transform="translate(252 128) scale(2.05 1.75)"/>
+                        <use href="#nf-contour" transform="translate(254 126) scale(1.45 1.25)"/>
+                        <use href="#nf-contour" class="nf-contour-top" transform="translate(256 124) scale(0.85 0.72)"/>
+                        <use href="#nf-contour" transform="translate(96 236) scale(1.5 1.1)"/>
+                        <use href="#nf-contour" transform="translate(98 236) scale(0.9 0.65)"/>
+                    </g>
+                    <!-- Lake -->
+                    <path class="nf-lake" d="M44,92 C60,70 104,72 118,92 C130,110 108,128 80,126 C56,124 34,112 44,92 Z"/>
+                </g>
+                <rect class="nf-tile-edge" x="24" y="24" width="352" height="272" rx="18"/>
+
+                <!-- Elevation label on the summit -->
+                <g class="nf-summit" transform="translate(256 124)">
+                    <path d="M-6,4 L0,-7 L6,4 Z"/>
+                    <text x="0" y="22" text-anchor="middle">404 m</text>
+                </g>
+
+                <!-- Trail: on the map, then off the edge -->
+                <path class="nf-trail" d="M60,268 C110,262 128,226 170,218 C214,210 214,176 236,166 C262,154 300,170 326,140 C346,116 352,84 376,66"/>
+                <path class="nf-trail nf-trail-off" d="M376,66 C392,54 410,52 428,44"/>
+                <circle class="nf-start" cx="60" cy="268" r="6"/>
+
+                <!-- Lost pin outside the map -->
+                <g class="nf-pin" transform="translate(440 40)">
+                    <path d="M0,0 C-11,-14 -15,-20 -15,-28 C-15,-37 -8,-44 0,-44 C8,-44 15,-37 15,-28 C15,-20 11,-14 0,0 Z"/>
+                    <text x="0" y="-22" text-anchor="middle">?</text>
+                </g>
+            </svg>
+        </div>
+
+        <p class="section-eyebrow">Error 404 · Off the map</p>
+        <h1 class="section-heading">You've wandered <em>off the map</em></h1>
+        <p class="nf-desc">The page you're looking for doesn't exist or has moved. No elevation data out here, so let's get you back on the trail.</p>
+        <p class="nf-gps"><span>GPS</span> N 40.4° · E 404.0° — no terrain found</p>
+
+        <div class="nf-actions">
+            <a href="/" class="btn-primary">← Back to the trailhead</a>
+            <a href="/howto.html" class="btn-secondary">How-to guide</a>
+            <a href="/examples.html" class="btn-secondary">Browse examples</a>
+        </div>
+    </main>

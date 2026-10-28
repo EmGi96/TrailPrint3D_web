@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+# Plain-text version files polled by the add-on's update checker
+Disallow: /normal_version.html
+Disallow: /premium_version.html
 
-Sitemap: https://www.trailprint3d.com/sitemap.xml
+Sitemap: https://trailprint3d.com/sitemap.xml

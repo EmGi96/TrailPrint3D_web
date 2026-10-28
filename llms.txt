@@ -10,13 +10,13 @@ A Premium tier (via Patreon subscription) adds: multi-GPX "MultiGeneration" maps
 
 ## Docs
 
-- [Homepage](https://www.trailprint3d.com/): overview, feature list, and FAQ
-- [Download](https://www.trailprint3d.com/download.html): free download link, Premium/Patreon link, installation steps, full Free vs Premium feature comparison table
-- [How To](https://www.trailprint3d.com/howto.html): step-by-step installation and usage guide covering every setting
-- [Examples](https://www.trailprint3d.com/examples.html): gallery of maps made with TrailPrint3D
-- [Filaments](https://www.trailprint3d.com/filaments.html): recommended filaments for printing terrain maps
-- [Changelog](https://www.trailprint3d.com/changelog.html): full version history
-- [Attribution](https://www.trailprint3d.com/attribution.html): third-party data sources and licensing terms (OpenStreetMap, elevation providers, etc.)
+- [Homepage](https://trailprint3d.com/): overview, feature list, and FAQ
+- [Download](https://trailprint3d.com/download.html): free download link, Premium/Patreon link, installation steps, full Free vs Premium feature comparison table
+- [How To](https://trailprint3d.com/howto.html): step-by-step installation and usage guide covering every setting
+- [Examples](https://trailprint3d.com/examples.html): gallery of maps made with TrailPrint3D
+- [Filaments](https://trailprint3d.com/filaments.html): recommended filaments for printing terrain maps
+- [Changelog](https://trailprint3d.com/changelog.html): full version history
+- [Attribution](https://trailprint3d.com/attribution.html): third-party data sources and licensing terms (OpenStreetMap, elevation providers, etc.)
 
 ## Optional
 

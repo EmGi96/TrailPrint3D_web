@@ -143,9 +143,9 @@ title: "Page Title — TrailPrint3D"
 description: "..."
 og_title: "Page Title — TrailPrint3D"
 og_description: "..."
-og_image: "https://www.trailprint3d.com/images/mainImage.webp"
-og_url: "https://www.trailprint3d.com/page.html"
-canonical: "https://www.trailprint3d.com/page.html"
+og_image: "https://trailprint3d.com/images/mainImage.webp"
+og_url: "https://trailprint3d.com/page.html"
+canonical: "https://trailprint3d.com/page.html"
 nav_active: <matches a nav link in _layouts/default.html, e.g. changelog>
 page_styles: <optional — see below>
 ---

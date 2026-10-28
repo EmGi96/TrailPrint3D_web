@@ -1,0 +1,25 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to turn a GPX track into a 3D printable terrain map with TrailPrint3D",
+  "description": "Install the TrailPrint3D add-on in Blender, load a GPX file from Strava, Komoot or Garmin, generate a 3D terrain model and print it.",
+  "image": "https://trailprint3d.com/images/mainImage.webp",
+  "tool": [
+    { "@type": "HowToTool", "name": "Blender 5.1 or higher" },
+    { "@type": "HowToTool", "name": "TrailPrint3D add-on" },
+    { "@type": "HowToTool", "name": "3D printer and slicer" }
+  ],
+  "supply": [
+    { "@type": "HowToSupply", "name": "GPX file of your route" },
+    { "@type": "HowToSupply", "name": "PLA filament" }
+  ],
+  "step": [
+    { "@type": "HowToStep", "name": "Install the add-on", "text": "Download Blender from blender.org, download the latest TrailPrint3D add-on, then in Blender go to Edit → Preferences → Add-ons → Install from disk and select the downloaded file.", "url": "https://trailprint3d.com/howto.html" },
+    { "@type": "HowToStep", "name": "Export your GPX file", "text": "Open the app where your route is saved (Strava, Komoot, Garmin Connect, AllTrails), open the activity or route and choose Export GPX.", "url": "https://trailprint3d.com/howto.html" },
+    { "@type": "HowToStep", "name": "Generate the map", "text": "Press N in Blender's 3D Viewport, open the TrailPrint3D tab, select your GPX file and an export path, adjust the settings and click Generate.", "url": "https://trailprint3d.com/howto.html" },
+    { "@type": "HowToStep", "name": "Export the model", "text": "The finished map is exported automatically to your export folder as STL, OBJ or 3MF.", "url": "https://trailprint3d.com/howto.html" },
+    { "@type": "HowToStep", "name": "Slice and print", "text": "Import the exported files into your slicer, assign filament colors and print. Use the Arachne wall generator for cleaner multi-color results.", "url": "https://trailprint3d.com/howto.html" }
+  ]
+}
+</script>
