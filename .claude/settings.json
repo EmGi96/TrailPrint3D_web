@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "WebSearch",
-      "Bash(magick \"images/howto/ColorPalettes.png\" -resize 800x450 -quality 90 -define webp:method=6 \"images/howto/ColorPalettes.webp\")"
-    ]
-  }
-}
