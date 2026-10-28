@@ -13,28 +13,54 @@ nav_home: true
 
     <!-- ── Hero ────────────────────────────────────────── -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badges">
-                <a href="https://github.com/EmGi96/TrailPrint3D" target="_blank" class="hero-badge hero-badge-platform hero-badge-blender">
-                    <img src="images/logo-github.png" alt="GitHub" width="13" height="13" style="border-radius:2px;">
-                    GitHub
-                    <span class="hero-badge-count" id="gh-dl-count"></span>
-                </a>
-                <a href="https://makerworld.com/de/models/1264871-hiking-and-cycling-map-generator-trailprint3d#profileId-1291737" target="_blank" class="hero-badge hero-badge-platform">
-                    <img src="images/logo-makerworld.png" alt="MakerWorld" width="13" height="13" style="border-radius:2px;">
-                    MakerWorld
-                    <span class="hero-badge-count" title="8,000+ total downloads"><svg class="hero-badge-count-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 20h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>8,000+</span>
-                </a>
-                <a href="https://www.printables.com/model/1242540-trail-map-generator-trailprint3d-blender-addon" target="_blank" class="hero-badge hero-badge-platform hero-badge-printables">
-                    <img src="images/logo-printables.webp" alt="Printables" width="13" height="13" style="border-radius:2px;">
-                    Printables
-                    <span class="hero-badge-count" title="3,700+ total downloads"><svg class="hero-badge-count-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 20h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>3,700+</span>
-                </a>
+        <div class="hero-badges">
+            <a href="https://github.com/EmGi96/TrailPrint3D" target="_blank" class="hero-badge hero-badge-platform hero-badge-blender">
+                <img src="images/logo-github.png" alt="GitHub" width="13" height="13" style="border-radius:2px;">
+                GitHub
+                <span class="hero-badge-count" id="gh-dl-count"></span>
+            </a>
+            <a href="https://makerworld.com/de/models/1264871-hiking-and-cycling-map-generator-trailprint3d#profileId-1291737" target="_blank" class="hero-badge hero-badge-platform">
+                <img src="images/logo-makerworld.png" alt="MakerWorld" width="13" height="13" style="border-radius:2px;">
+                MakerWorld
+                <span class="hero-badge-count" title="8,000+ total downloads"><svg class="hero-badge-count-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 20h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>8,000+</span>
+            </a>
+            <a href="https://www.printables.com/model/1242540-trail-map-generator-trailprint3d-blender-addon" target="_blank" class="hero-badge hero-badge-platform hero-badge-printables">
+                <img src="images/logo-printables.webp" alt="Printables" width="13" height="13" style="border-radius:2px;">
+                Printables
+                <span class="hero-badge-count" title="3,700+ total downloads"><svg class="hero-badge-count-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 20h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>3,700+</span>
+            </a>
+        </div>
+
+        <div class="hero-cols">
+            <div class="hero-content">
+                <h1>Convert Your GPX Files Into <em>3D Printed Maps</em></h1>
+                <p class="hero-sub">
+                    Free Addon for the open-source modeling software <strong>Blender</strong> &nbsp;·&nbsp; No Accounts &nbsp;·&nbsp; No Tracking &nbsp;·&nbsp; <strong>Full Control</strong>
+                </p>
             </div>
-            <h1>Convert Your GPX Files Into <em>3D Printed Maps</em></h1>
-            <p class="hero-sub">
-                Free Addon for the open-source modeling software <strong>Blender</strong> &nbsp;·&nbsp; No Accounts &nbsp;·&nbsp; No Tracking &nbsp;·&nbsp; <strong>Full Control</strong>
-            </p>
+
+            <div class="hero-visual">
+                <div class="hero-img" id="hero-carousel">
+                    <img class="hero-carousel-slide is-active" fetchpriority="high" src="images/mainImage.webp" alt="3D printed terrain map of a hiking trail generated with TrailPrint3D in Blender">
+                    <img class="hero-carousel-slide" decoding="async" src="images/examples/Hex-Puzzle Map.webp" alt="Hex Puzzle Map printed with TrailPrint3D">
+                    <img class="hero-carousel-slide" decoding="async" src="images/examples/MapShell.webp" alt="Map Shell printed with TrailPrint3D">
+                    <img class="hero-carousel-slide" decoding="async" src="images/examples/example_003.webp" alt="Single-color mode map printed with TrailPrint3D">
+                    <img class="hero-carousel-slide" decoding="async" src="images/examples/GermanyMap.webp" alt="Germany multi-tile map printed with TrailPrint3D">
+                    <img class="hero-carousel-slide" decoding="async" src="images/examples/example_005.webp" alt="Three Peaks of Lavaredo map printed with TrailPrint3D">
+                    <img class="hero-carousel-slide" decoding="async" src="images/examples/Citymap_02.webp" alt="City map printed with TrailPrint3D">
+                </div>
+                <div class="hero-carousel-nav" id="hero-carousel-nav"></div>
+            </div>
+
+            <div class="hero-side">
+                <h2 class="hero-side-title">Or Map <em>Any Place</em> on Earth</h2>
+                <p class="hero-sub">
+                    No GPX file needed. Pick your hometown, a mountain range, an island, or a whole country &nbsp;·&nbsp; <strong>Real Elevation Data</strong> &nbsp;·&nbsp; Buildings, Roads &amp; Water
+                </p>
+            </div>
+        </div>
+
+        <div class="hero-cta">
             <div class="hero-actions">
                 <a href="download.html" class="btn-primary">
                     ⬇ Download
@@ -42,33 +68,11 @@ nav_home: true
                 <a href="howto.html" class="btn-secondary">
                     How To
                 </a>
-            </div>
-            <p class="hero-dl-count" id="hero-dl-count"></p>
-        </div>
-
-        <div class="hero-visual">
-            <div class="hero-img" id="hero-carousel">
-                <img class="hero-carousel-slide is-active" fetchpriority="high" src="images/mainImage.webp" alt="3D printed terrain map of a hiking trail generated with TrailPrint3D in Blender">
-                <img class="hero-carousel-slide" decoding="async" src="images/examples/Hex-Puzzle Map.webp" alt="Hex Puzzle Map printed with TrailPrint3D">
-                <img class="hero-carousel-slide" decoding="async" src="images/examples/MapShell.webp" alt="Map Shell printed with TrailPrint3D">
-                <img class="hero-carousel-slide" decoding="async" src="images/examples/example_003.webp" alt="Single-color mode map printed with TrailPrint3D">
-                <img class="hero-carousel-slide" decoding="async" src="images/examples/GermanyMap.webp" alt="Germany multi-tile map printed with TrailPrint3D">
-                <img class="hero-carousel-slide" decoding="async" src="images/examples/example_005.webp" alt="Three Peaks of Lavaredo map printed with TrailPrint3D">
-                <img class="hero-carousel-slide" decoding="async" src="images/examples/Citymap_02.webp" alt="City map printed with TrailPrint3D">
-            </div>
-            <div class="hero-carousel-nav" id="hero-carousel-nav"></div>
-        </div>
-
-        <div class="hero-side">
-            <h2 class="hero-side-title">Or Map <em>Any Place</em> on Earth</h2>
-            <p class="hero-sub">
-                No GPX file needed. Pick your hometown, a mountain range, an island, or a whole country &nbsp;·&nbsp; <strong>Real Elevation Data</strong> &nbsp;·&nbsp; Buildings, Roads &amp; Water
-            </p>
-            <div class="hero-actions">
                 <a href="examples.html" class="btn-secondary">
                     See Examples
                 </a>
             </div>
+            <p class="hero-dl-count" id="hero-dl-count"></p>
         </div>
     </section>
 

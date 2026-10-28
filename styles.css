@@ -330,6 +330,8 @@ nav {
     box-shadow: var(--shadow-raised-hover);
 }
 
+.hero-cta { text-align: center; }
+
 .hero-dl-count {
     margin-top: 14px;
     font-size: 0.8em;
@@ -401,11 +403,21 @@ nav {
 .hero {
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 48px;
+    gap: 40px;
     padding: 110px 40px 80px;
     max-width: 1400px;
     margin: 0 auto;
+}
+
+.hero-cols {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    width: 100%;
 }
 
 .hero-content,
@@ -414,9 +426,9 @@ nav {
 .hero-badges {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
-    margin-bottom: 28px;
 }
 
 .hero-badge {
@@ -544,6 +556,7 @@ nav {
     gap: 14px;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
 }
 
 /* ── Hero Visual ────────────────────────────── */
@@ -1135,7 +1148,7 @@ nav {
         text-align: center;
     }
     .hero-sub { margin-left: auto; margin-right: auto; }
-    .hero-actions { justify-content: center; }
+    .hero-cols { flex-direction: column; }
     .hero-visual { display: none; }
     .hero-content, .hero-side { max-width: 540px; }
 
