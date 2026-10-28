@@ -17,7 +17,7 @@ page_styles: download
 
         <!-- ── Buttons ─────────────────────────────── -->
         <div class="dl-buttons">
-            <a id="dl-free-btn" href="https://github.com/EmGi96/TrailPrint3D/releases/latest/download/TrailPrint3D.zip" class="dl-btn dl-btn-free" onclick="gtag('event', 'file_download', {event_category: 'engagement', event_label: 'TrailPrint3D_main.zip'}); openInstall()">
+            <a id="dl-free-btn" href="https://github.com/EmGi96/TrailPrint3D/releases/latest/download/TrailPrint3D.zip" class="dl-btn dl-btn-free" onclick="gtag('event', 'file_download', {event_category: 'engagement', event_label: this.href.split('/').pop()}); openInstall()">
                 <span class="dl-btn-icon-row">
                     <span class="dl-btn-icon">⬇</span><span class="dl-btn-count" id="dl-btn-count"></span>
                 </span>
