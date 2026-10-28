@@ -1,0 +1,64 @@
+---
+layout: default
+title: "Strava to 3D Print — Turn Your Strava Route into a 3D Printed Map"
+description: "Turn a Strava activity into a 3D printed terrain map. Export your route as GPX and use TrailPrint3D, a free Blender add-on, to generate a real-elevation 3D model ready to print."
+og_title: "Strava to 3D Print — Turn Your Strava Route into a 3D Printed Map"
+og_description: "Turn a Strava activity into a 3D printed terrain map. Export your route as GPX and use TrailPrint3D, a free Blender add-on, to generate a real-elevation 3D model ready to print."
+og_image: "https://trailprint3d.com/images/mainImage.webp"
+og_url: "https://trailprint3d.com/strava-to-3d-print.html"
+canonical: "https://trailprint3d.com/strava-to-3d-print.html"
+page_styles: guide
+---
+
+    <main class="guide-wrap">
+        <h1>Strava to 3D Print: Turn Your Route into a Terrain Model</h1>
+        <p class="guide-intro">Printed your first marathon, a big mountain hike, or a cycling tour on Strava? You can turn that exact route into a physical, 3D-printed terrain map built from real elevation data — here's how.</p>
+
+        <div class="guide-answer">
+            <p><strong>Quick answer:</strong> Export your Strava activity as a GPX file, then load it into <a href="/download.html">TrailPrint3D</a> — a free Blender add-on that builds a real terrain model around your route and exports it as STL or 3MF for printing.</p>
+        </div>
+
+        <h2>Step 1 — Export your Strava activity as a GPX file</h2>
+        <ol class="guide-steps">
+            <li><strong>Open the activity on strava.com</strong> in a desktop browser (GPX export is a web-only option, not in the mobile app).</li>
+            <li><strong>Click the ••• menu</strong> on the activity page and choose <strong>Export GPX</strong>. The file downloads straight to your computer.</li>
+            <li>Don't see the option on a specific activity? You can also request your full data archive under <strong>Settings → My Account → Download your account</strong>, which includes a GPX or FIT file for every activity.</li>
+        </ol>
+
+        <h2>Step 2 — Generate the 3D terrain with TrailPrint3D</h2>
+        <ol class="guide-steps">
+            <li><strong>Install Blender</strong> (free) from <a href="https://www.blender.org/download/" target="_blank" rel="noopener">blender.org</a>, then install the free <a href="/download.html">TrailPrint3D add-on</a>.</li>
+            <li><strong>Load the GPX file</strong> you exported from Strava into TrailPrint3D's sidebar panel.</li>
+            <li><strong>Generate.</strong> The add-on downloads real elevation data for the surrounding area and builds a 3D terrain mesh that follows your exact Strava route — ridges, climbs, and all.</li>
+            <li><strong>Customize</strong> the shape (square, circle, hexagon, jigsaw puzzle), add automatic landscape coloring, buildings, and roads, or keep it simple for single-color printing.</li>
+        </ol>
+
+        <h2>Step 3 — Export and print</h2>
+        <p>Export your finished model as STL, OBJ, or — using the free <a href="https://github.com/Clonephaze/3MF-Blender-Add-on---Maintained" target="_blank" rel="noopener">3mf Blender add-on</a> — a multi-color 3MF ready for Bambu Studio, PrusaSlicer, or OrcaSlicer. From there it's a normal 3D print: pick a filament (see our <a href="/filaments.html">filament recommendations</a>) and slice as usual.</p>
+
+        <div class="guide-cta">
+            <p>Ready to print your Strava route?</p>
+            <a href="/download.html" class="btn-primary">⬇ Download TrailPrint3D</a>
+            <a href="/examples.html" class="btn-secondary">See Examples</a>
+        </div>
+
+        <h2>FAQ</h2>
+        <div class="faq-list guide-faq">
+            <details class="faq-item">
+                <summary>Can I 3D print my Strava route without Blender?</summary>
+                <p>TrailPrint3D runs as a Blender add-on, so Blender (free) is required. In exchange, you get full control over elevation scale, shape, colors, and export settings — not just a fixed online template.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Does exporting a GPX from Strava require Premium?</summary>
+                <p>Exporting an individual activity as GPX from strava.com has historically been available without a Premium subscription, though Strava's policies can change — if an activity doesn't show the option, the full account data export under Settings is a reliable fallback.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Can I use a Garmin, Komoot, or other GPS app route instead of Strava?</summary>
+                <p>Yes. TrailPrint3D works with any standard GPX file, regardless of which app or device recorded it.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Will the print show real mountains and elevation, or just my route line?</summary>
+                <p>Real elevation. TrailPrint3D builds an actual terrain mesh from elevation data around your route, so climbs and descents are physically represented in the print, not just marked on a flat surface.</p>
+            </details>
+        </div>
+    </main>

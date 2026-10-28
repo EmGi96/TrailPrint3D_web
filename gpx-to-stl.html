@@ -1,0 +1,63 @@
+---
+layout: default
+title: "GPX to STL & 3MF Converter — Turn GPX Tracks into 3D Printable Files"
+description: "Convert a GPX file to STL or 3MF for 3D printing. TrailPrint3D is a free Blender add-on that turns any GPX track into a real-elevation terrain model, ready to export and print."
+og_title: "GPX to STL & 3MF Converter — Turn GPX Tracks into 3D Printable Files"
+og_description: "Convert a GPX file to STL or 3MF for 3D printing. TrailPrint3D is a free Blender add-on that turns any GPX track into a real-elevation terrain model, ready to export and print."
+og_image: "https://trailprint3d.com/images/mainImage.webp"
+og_url: "https://trailprint3d.com/gpx-to-stl.html"
+canonical: "https://trailprint3d.com/gpx-to-stl.html"
+page_styles: guide
+---
+
+    <main class="guide-wrap">
+        <h1>GPX to STL &amp; 3MF Converter</h1>
+        <p class="guide-intro">Turn a GPX hiking, running, or cycling track into a real, 3D-printable terrain model — not just the flat line of your route, but the actual mountains, valleys, and elevation it crosses.</p>
+
+        <div class="guide-answer">
+            <p><strong>Quick answer:</strong> TrailPrint3D is a free Blender add-on that converts a GPX file into a 3D terrain mesh built from real elevation data, then exports it as an <strong>STL</strong> or <strong>3MF</strong> file ready for any slicer. <a href="/download.html">Download it free</a> — no account, no upload, no watermark.</p>
+        </div>
+
+        <h2>STL vs. 3MF — which one should you export?</h2>
+        <p><strong>STL</strong> is the simplest, most universal 3D printing format: a single mesh with no color or material info. It works in every slicer ever made, which makes it the safest choice if you just want one solid-color terrain print.</p>
+        <p><strong>3MF</strong> is the modern alternative — it can hold several objects, colors, and materials in a single file. If your map has separate color regions (water, forest, buildings) or a multi-color trail, 3MF lets your slicer (Bambu Studio, PrusaSlicer/OrcaSlicer) keep those parts separate automatically instead of you re-assembling loose STL files by hand.</p>
+        <p>TrailPrint3D exports both: STL and OBJ natively, and 3MF through the free <a href="https://github.com/Clonephaze/3MF-Blender-Add-on---Maintained" target="_blank" rel="noopener">3mf Blender add-on by Clonephaze</a> (one extra free install, a couple of clicks).</p>
+
+        <h2>How to convert a GPX file to STL or 3MF</h2>
+        <ol class="guide-steps">
+            <li><strong>Install Blender.</strong> Blender is free and open-source — get it from <a href="https://www.blender.org/download/" target="_blank" rel="noopener">blender.org</a> (version 5.1 or higher).</li>
+            <li><strong>Install the TrailPrint3D add-on.</strong> Grab it free from <a href="/download.html">the download page</a>, or from <a href="https://makerworld.com/de/models/1264871-hiking-and-cycling-map-generator-trailprint3d#profileId-1291737" target="_blank" rel="noopener">MakerWorld</a> / <a href="https://www.printables.com/model/1242540-trail-map-generator-trailprint3d-blender-addon" target="_blank" rel="noopener">Printables</a>.</li>
+            <li><strong>Load your GPX file.</strong> Open the add-on's sidebar in Blender and select your GPX track — exported from Strava, Komoot, Garmin, or any GPS app.</li>
+            <li><strong>Generate the terrain.</strong> TrailPrint3D fetches real elevation data for the area and builds a 3D terrain mesh following your actual route, with options for shape, scale, and coloring.</li>
+            <li><strong>Export.</strong> Export directly as STL or OBJ, or use the Clonephaze add-on to export a multi-color 3MF ready for your slicer.</li>
+        </ol>
+
+        <h2>Why not just use a simple online GPX converter?</h2>
+        <p>Plenty of web tools will trace a GPX line into a flat, extruded shape. TrailPrint3D does something different: it builds the surrounding terrain from real elevation data, so the print shows the actual ridges, valleys, and summits your route crosses — not just a raised outline on a flat base. On top of that you get real building and road data from OpenStreetMap, automatic landscape coloring, and a choice of shapes (square, circle, hexagon, jigsaw puzzle, and more) — all inside Blender, where you keep full control before exporting.</p>
+
+        <div class="guide-cta">
+            <p>Ready to turn your own GPX track into a 3D print?</p>
+            <a href="/download.html" class="btn-primary">⬇ Download TrailPrint3D</a>
+            <a href="/howto.html" class="btn-secondary">How To</a>
+        </div>
+
+        <h2>FAQ</h2>
+        <div class="faq-list guide-faq">
+            <details class="faq-item">
+                <summary>Is there a free way to convert GPX to STL?</summary>
+                <p>Yes. TrailPrint3D's core add-on is completely free and exports STL (and OBJ) directly — no account, no file uploads, no watermark. It runs locally inside Blender.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Can I convert a GPX file directly to 3MF?</summary>
+                <p>Yes, via the free <a href="https://github.com/Clonephaze/3MF-Blender-Add-on---Maintained" target="_blank" rel="noopener">3mf Blender add-on by Clonephaze</a>, which TrailPrint3D integrates with for multi-color/multi-object 3MF export.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Do I need Blender experience to do this?</summary>
+                <p>No. TrailPrint3D handles the terrain generation and export for you through its own sidebar panel — you don't need prior Blender modeling skills, just the free software installed.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Will the STL include real elevation, or just a flat extruded line?</summary>
+                <p>Real elevation. TrailPrint3D downloads actual terrain height data for the area around your GPX track and builds a true 3D terrain mesh, not a flat shape with the route stamped on top.</p>
+            </details>
+        </div>
+    </main>
