@@ -170,9 +170,9 @@
     }
 
     .gallery-info p {
-        font-size: 0.82em;
-        color: var(--text-dim);
-        line-height: 1.6;
+        /* Real content for crawlers/screen readers, but shown only in the
+           lightbox (openLightbox reads this text) to keep the grid clean. */
+        display: none;
     }
 
     /* ── Lightbox ────────────────────────────── */
