@@ -179,6 +179,14 @@ page_styles: download
                 <p style="margin-top:14px;font-size:0.78em;color:var(--text-muted);line-height:1.6;">* TrailPrint3D itself may be used commercially. Data obtained through the add-on (such as OpenStreetMap or other providers) is subject to the respective provider's license and terms, which may include attribution or other requirements. Users are responsible for ensuring compliance with those terms. See the <a href="/attribution.html" style="color:var(--green);text-decoration:none;">Attribution</a> page for details.</p>
             </div>
         </div>
+
+        <!-- ── Release history ──────────────────────── -->
+        <div class="dl-releases">
+            <h2>All Releases</h2>
+            <div class="dl-releases-list" id="dl-releases-list">
+                <p class="dl-releases-loading">Loading releases from GitHub…</p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -226,40 +234,90 @@ page_styles: download
         })();
     </script>
 
-    <!-- ── GitHub download count ─────────────────── -->
+    <!-- ── GitHub download count + release history ── -->
     <script>
         (function() {
-            var el = document.getElementById('dl-btn-count');
-            if (!el) return;
+            var countEl = document.getElementById('dl-btn-count');
+            var listEl = document.getElementById('dl-releases-list');
+            if (!countEl && !listEl) return;
 
-            var CACHE_KEY = 'tp3d_gh_downloads';
+            var CACHE_KEY = 'tp3d_gh_releases';
             var CACHE_TTL = 60 * 60 * 1000; // 1 hour
 
-            function render(count) {
-                el.textContent = count.toLocaleString() + ' downloads';
+            function renderCount(total) {
+                if (countEl) countEl.textContent = total.toLocaleString() + ' downloads';
+            }
+
+            function escapeHtml(s) {
+                return String(s).replace(/[&<>"']/g, function(c) {
+                    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+                });
+            }
+
+            function renderList(releases) {
+                if (!listEl) return;
+                if (!releases.length) {
+                    listEl.innerHTML = '<p class="dl-releases-error">No releases found.</p>';
+                    return;
+                }
+                listEl.innerHTML = releases.map(function(r) {
+                    var dateStr = r.date ? new Date(r.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+                    var versionClass = 'dl-release-version' + (r.prerelease ? ' premium' : '');
+                    var preBadge = r.prerelease ? '<span class="dl-release-prerelease">Pre-release</span>' : '';
+                    return '<a class="dl-release-row" href="' + r.url + '" target="_blank" rel="noopener">' +
+                        '<span class="dl-release-left">' +
+                            '<span class="' + versionClass + '">' + escapeHtml(r.name) + '</span>' +
+                            '<span class="dl-release-date">' + dateStr + '</span>' +
+                            preBadge +
+                        '</span>' +
+                        '<span class="dl-release-right">' +
+                            '<span class="dl-release-downloads">' + r.downloads.toLocaleString() + ' downloads</span>' +
+                            '<span class="dl-release-arrow">↗</span>' +
+                        '</span>' +
+                    '</a>';
+                }).join('');
+            }
+
+            function render(data) {
+                renderCount(data.total);
+                renderList(data.releases);
             }
 
             var cached = null;
             try { cached = JSON.parse(localStorage.getItem(CACHE_KEY)); } catch (e) {}
             if (cached && (Date.now() - cached.time) < CACHE_TTL) {
-                render(cached.count);
+                render(cached);
                 return;
             }
 
             fetch('https://api.github.com/repos/EmGi96/TrailPrint3D/releases?per_page=100')
                 .then(function(res) { if (!res.ok) throw new Error('bad response'); return res.json(); })
-                .then(function(releases) {
+                .then(function(apiReleases) {
                     var total = 0;
-                    releases.forEach(function(release) {
+                    var releases = apiReleases.map(function(release) {
+                        var downloads = 0;
                         (release.assets || []).forEach(function(asset) {
-                            total += asset.download_count || 0;
+                            downloads += asset.download_count || 0;
                         });
+                        total += downloads;
+                        return {
+                            name: release.name || release.tag_name,
+                            date: release.published_at,
+                            url: release.html_url,
+                            prerelease: !!release.prerelease,
+                            downloads: downloads
+                        };
                     });
-                    render(total);
-                    try { localStorage.setItem(CACHE_KEY, JSON.stringify({ count: total, time: Date.now() })); } catch (e) {}
+                    var data = { total: total, releases: releases, time: Date.now() };
+                    render(data);
+                    try { localStorage.setItem(CACHE_KEY, JSON.stringify(data)); } catch (e) {}
                 })
                 .catch(function() {
-                    if (cached) render(cached.count);
+                    if (cached) {
+                        render(cached);
+                    } else if (listEl) {
+                        listEl.innerHTML = '<p class="dl-releases-error">Could not load releases from GitHub.</p>';
+                    }
                 });
         })();
     </script>

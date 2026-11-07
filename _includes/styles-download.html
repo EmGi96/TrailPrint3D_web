@@ -173,11 +173,80 @@
         border-bottom: 1px solid var(--border);
     }
 
+    /* ── Release history ──────────────────────── */
+    .dl-releases { margin-top: 48px; }
+    .dl-releases h2 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 20px;
+    }
+    .dl-releases-list {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--glass);
+    }
+    .dl-releases-loading,
+    .dl-releases-error {
+        padding: 20px;
+        color: var(--text-muted);
+        font-size: 0.88em;
+        text-align: center;
+    }
+    .dl-release-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--border);
+        text-decoration: none;
+        transition: background 0.15s;
+    }
+    .dl-release-row:last-child { border-bottom: none; }
+    .dl-release-row:hover { background: rgba(255,255,255,0.03); }
+    .dl-release-left { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+    .dl-release-version {
+        font-weight: 700;
+        color: var(--text);
+        font-size: 0.92em;
+        white-space: nowrap;
+    }
+    .dl-release-version.premium { color: var(--premium); }
+    .dl-release-date {
+        color: var(--text-muted);
+        font-size: 0.82em;
+        white-space: nowrap;
+    }
+    .dl-release-prerelease {
+        font-size: 0.68em;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        padding: 2px 8px;
+        flex-shrink: 0;
+    }
+    .dl-release-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+    .dl-release-downloads {
+        color: var(--text-dim);
+        font-size: 0.85em;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+    .dl-release-arrow { color: var(--text-muted); font-size: 0.85em; }
+
     @media (max-width: 560px) {
         .dl-wrap { padding: 100px 20px 60px; }
         .dl-buttons { grid-template-columns: 1fr; }
         .compare-table th:nth-child(2),
         .compare-table th:nth-child(3) { width: 72px; }
         .dl-btn { padding: 22px 16px; }
+        .dl-release-row { flex-wrap: wrap; }
+        .dl-release-left { flex-wrap: wrap; }
     }
 </style>
