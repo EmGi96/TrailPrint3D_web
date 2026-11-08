@@ -66,17 +66,41 @@ page_styles: changelog
             </div>
             <div class="cl-body">
                 <ul>
-                    <li>Inside blender, the TrailPrint3D panel is located in the <strong>3D Viewport sidebar</strong></li>
-                    <li>Press <strong>N</strong> to toggle the sidebar open, then click the <strong>TrailPrint3D</strong> tab</li>
-                    <li>Click the folder icon next to <strong>File Path</strong> and select your <code>.gpx</code> file</li>
-                    <li>Set an <strong>Export Path</strong>. this is the folder where your files will be saved after generation</li>
-                    <li>Adjust the settings to your liking (see the sections below for details on each setting)</li>
-                    <li>Click <strong>Generate</strong> and wait for the process to complete. generation time depends on resolution and map complexity</li>
+                    <li>Inside Blender, click the <strong>TrailPrint3D</strong> menu in the 3D Viewport's top bar</li>
+                    <li style="list-style: none; padding: 10px 0;">
+                        <img src="images/howto/GeneratorsLocation.webp" alt="TrailPrint3D menu in the 3D Viewport top bar listing all generators" width="800" height="298" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
+                    </li>
+                    <li>Select the <strong>Map Generator</strong> to get started. It opens as an interactive map in your browser</li>
+                    <li>On first use, click <strong>Select Export Folder</strong>. This is where your files get saved. Once it's set, the button turns into <strong>Send to Blender</strong></li>
+                    <li>Set the <strong>Size (mm)</strong> of the finished map and pick a shape (see <a href="#ht-shape">Map Shape &amp; Size</a>)</li>
+                    <li><strong>With a trail</strong>: click <strong>Import GPX</strong> and select your <code>.gpx</code> file. The trail is drawn onto the map and the area snaps around it automatically</li>
+                    <li><strong>Without a trail</strong>: search for a city or enter Lat/Lon to jump to a place, then click the <strong>pencil</strong> and drag on the map to draw your area</li>
+                    <li>Drag a corner of the orange box to resize it, or the handle in the middle to move it</li>
+                    <li>Switch to <strong>Draw from a center point</strong> to keep the middle of your shape fixed while resizing, so an imported trail stays centered</li>
+                    <li>Use the layer button to switch the map background (e.g. <strong>Satellite</strong> or <strong>Topographic</strong>) to see your area better</li>
+                    <li>Set the <a href="#ht-resolution">Resolution</a> and pick your <a href="#ht-elements">Map Elements</a>, then click <strong>Send to Blender</strong></li>
                     <li>Once done, your files will appear in the export folder, ready to open in your slicer</li>
+                    <li>Your area and settings are saved, so reopening the generator brings you right back to where you left off</li>
+                    <li>Stuck? Click <strong>Tutorials</strong> in the generator for interactive step-by-step guides</li>
+                    <li>The same menu also has the <a href="#ht-advanced">Jigsaw Puzzle Generator</a>, the <strong>Medal Holder</strong> and <strong>Backplate</strong> generators (experimental), and the Premium <a href="#ht-terrain">Multi Tile</a> and Sliding Puzzle generators</li>
                     <li style="list-style: none; padding: 10px 0;">
                         <div class="ht-video-facade" data-video-id="T_UxYqrETr0" data-title="TrailPrint3D Generate your first map" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; cursor: pointer; background: #000;">
                             <span aria-hidden="true" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:68px; height:48px; background:rgba(0,0,0,0.65); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; color:#fff; pointer-events:none;">▶</span>
                         </div>
+                    </li>
+                    <li style="list-style: none; padding: 10px 0 0;">
+                        <details class="faq-item">
+                            <summary>Prefer the old sidebar panel instead?</summary>
+                            <ul>
+                                <li>Inside blender, the TrailPrint3D panel is located in the <strong>3D Viewport sidebar</strong></li>
+                                <li>Press <strong>N</strong> to toggle the sidebar open, then click the <strong>TrailPrint3D</strong> tab</li>
+                                <li>Click the folder icon next to <strong>File Path</strong> and select your <code>.gpx</code> file</li>
+                                <li>Set an <strong>Export Path</strong>. this is the folder where your files will be saved after generation</li>
+                                <li>Adjust the settings to your liking (see the sections below for details on each setting)</li>
+                                <li>Click <strong>Generate</strong> and wait for the process to complete. generation time depends on resolution and map complexity</li>
+                                <li>Once done, your files will appear in the export folder, ready to open in your slicer</li>
+                            </ul>
+                        </details>
                     </li>
                 </ul>
             </div>
@@ -92,12 +116,20 @@ page_styles: changelog
             </div>
             <div class="cl-body">
                 <ul>
-                    <li>Use the <strong>Shape</strong> dropdown to choose the outline of your map. options include hexagon, square, circle, and more</li>
-                    <li>Set the <strong>Object Size</strong> in millimeters. this is the physical size of the final printed map (e.g. 100 = 100 mm)</li>
+                    <li>Pick the outline of your map with the shape buttons in the Map Generator: <strong>Rectangle</strong>, <strong>Hexagon</strong>, <strong>Square</strong>, <strong>Circle</strong> or <strong>Octagon</strong></li>
+                    <li>Hexagon, square, circle and octagon keep a 1:1 aspect ratio. Only the rectangle can be stretched freely</li>
+                    <li>Set the <strong>Size (mm)</strong>. This is the physical size of the final printed map (e.g. 100 = 100 mm)</li>
                     <li style="list-style: none; padding: 10px 0;">
                         <img src="images/howto/ObjSizeGif.webp" alt="Object Size setting demonstration" width="800" height="450" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
                     </li>
-                    <li>The map is automatically scaled and centered around your route regardless of the shape chosen</li>
+                    <li>Rotate the shape with the rotation handle on the map</li>
+                    <li style="list-style: none; padding: 10px 0;">
+                        <img src="images/howto/ShapeRotation.webp" alt="Shape rotation demonstration" width="800" height="450" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
+                    </li>
+                    <li><strong>Custom outlines</strong>: click <strong>GeoJSON</strong> to use a real boundary (country, region, park) as the map shape, or <strong>SVG</strong> to use any outline like a logo or an animal</li>
+                    <li>A GeoJSON boundary always sits exactly where the file puts it and can't be moved. An SVG shape can be moved and resized like any other shape</li>
+                    <li>Click <strong>Clear GeoJSON</strong> / <strong>Clear SVG Shape</strong>, or pick another shape, to go back to a normal shape</li>
+                    <li><strong>Premium</strong>: import multiple GeoJSON files and merge them into one map</li>
                 </ul>
             </div>
         </div>
@@ -112,7 +144,7 @@ page_styles: changelog
             </div>
             <div class="cl-body">
                 <ul>
-                    <li>The <strong>Resolution</strong> setting controls the detail level of the terrain mesh. higher values produce more precise elevation detail</li>
+                    <li>The <strong>Resolution</strong> slider in the Map Generator sidebar controls the detail level of the terrain mesh. Higher values produce more precise elevation detail</li>
                     <li style="list-style: none; padding: 10px 0;">
                         <img src="images/howto/Resolution.webp" alt="Resolution setting demonstration" width="800" height="450" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
                     </li>
@@ -134,15 +166,16 @@ page_styles: changelog
             </div>
             <div class="cl-body">
                 <ul>
-                    <li>After Generating a Map, Files are exported automatically to your Export folder</li>
-                    <li><strong>INFO</strong>: in the Addon preferences you can set a Default export path so you don't have to specify it each time</li>
-                    <li>If you do any mannual changes or post-processing features you have to export it manually in the Advanced -> Export tab</li>
-                    <li>There are 3 Diffrent File export options available</li>
+                    <li>After generating a map, files are exported automatically to your export folder</li>
+                    <li>The generators use the <strong>Default Export Folder</strong> from the add-on preferences. Set it with <strong>Select Export Folder</strong> on first use; afterwards you can change or open it right below <strong>Send to Blender</strong></li>
+                    <li>If you make any manual changes or use post-processing features, you have to export manually in the Advanced → Export tab</li>
+                    <li>There are 3 different file export options available</li>
                     <li><code>STL</code>: Exports each object as a STL file. You have to color them manually in your slicer as STL files dont contain Color information</li>
                     <li><code>.OBJ</code>: Exports each object as a .OBJ file. This format contains color information and is needed if you painted the elements onto the map</li>
                     <li>It also comes with a .MTL file. dont separate these two files. the .MTL file holds the color data</li>
                     <li><code>.3mf</code> Exports all objects as a single .3mf file. It contains color data, relative position and it automatically grouped</li>
-                    <li>It requires the <a href="https://github.com/Clonephaze/3MF-Blender-Add-on---Maintained" target="_blank" rel="noopener">3mf Addon by Clonephaze</a>. you can install it directly from the Export tab and once installed its the Default export option</li>
+                    <li>It requires the <a href="https://github.com/Clonephaze/3MF-Blender-Add-on---Maintained" target="_blank" rel="noopener">3mf Addon by Clonephaze</a>. You can install it directly from the Export tab and once installed it's the default export option</li>
+                    <li><strong>3MF Print Profile</strong>: in the generator's <strong>Settings → Other</strong> tab, import a project <code>.3mf</code> saved in Bambu Studio, OrcaSlicer or PrusaSlicer. Your exported maps then open with your printer and filament already set up</li>
                 </ul>
             </div>
         </div>
@@ -195,11 +228,14 @@ page_styles: changelog
             </div>
             <div class="cl-body">
                 <ul>
-                    <li>Some shapes double as backplates for engraved text: <strong>Hexagon</strong> (inner, outer, or front text) and <strong>Octagon</strong> (outer text)</li>
-                    <li>Add a title plus up to 5 icon + text rows. handy for a route name, distance, elevation gain, or date</li>
-                    <li>Choose a <strong>Font</strong> and set the title and body <strong>Text Size</strong> independently</li>
-                    <li>Fine-tune the plate with <strong>Thickness</strong>, <strong>Outer Border Size</strong>, <strong>Insert Value</strong>, <strong>Bevel</strong>, and a <strong>Text Angle</strong> preset</li>
-                    <li>Found in the <strong>Additional Shape Settings</strong> panel, only shown when a text-based shape is selected</li>
+                    <li>Every map shape can get a <strong>Solid Plate</strong> around it with text, handy for a route name, distance, elevation gain or date</li>
+                    <li>In the Map Generator, click <strong>Backplate</strong> in the sidebar. A popup shows the settings and a top view of the result</li>
+                    <li>Choose a <strong>Font</strong>, the text layout (available layouts depend on the shape), and whether the text is <strong>Inset</strong> into the plate</li>
+                    <li>Not available for imported GeoJSON or SVG outlines</li>
+                    <li style="list-style: none; padding: 10px 0;">
+                        <img src="images/howto/PR_Plate.webp" alt="Backplate with text icons and a medal handle next to a map shell" width="800" height="450" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
+                    </li>
+                    <li><strong>Premium</strong>: <strong>Icons</strong> next to the text, a <strong>Medal Handle</strong>, and <strong>Shell</strong> mode (a base that follows the map's outline instead of a plate)</li>
                 </ul>
             </div>
         </div>
@@ -214,6 +250,7 @@ page_styles: changelog
             </div>
             <div class="cl-body">
                 <ul>
+                    <li>In the generators, these are found under <strong>Settings → Map</strong></li>
                     <li><strong>Elevation Scale</strong> is a multiplier applied to the real-world elevation data:</li>
                     <li>Increase it for flat routes (e.g. coastal or city rides) to make the terrain more visually interesting</li>
                     <li>Decrease it for very steep or alpine routes to prevent extreme height differences that are hard to print</li>
@@ -221,11 +258,12 @@ page_styles: changelog
                     <li style="list-style: none; padding: 10px 0;">
                         <img src="images/howto/ElevationScaleGif.webp" alt="Elevation Scale setting demonstration" width="800" height="450" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
                     </li>
-                    <li><strong>Path Thickness</strong> controls the thickness of the route line on the map surface</li>
+                    <li><strong>Extra Map Height</strong> adds extra height below the terrain, and <strong>Smooth Terrain</strong> helps if the terrain looks blocky or shows grid lines</li>
+                    <li><strong>Trail Thickness</strong> controls the thickness of the route line on the map surface</li>
                     <li style="list-style: none; padding: 10px 0;">
                         <img src="images/howto/PathThicknessGif.webp" alt="Path Thickness setting demonstration" width="800" height="450" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
                     </li>
-                    <li><strong>Path Scale</strong> sets the scale of the path relative to the object size.)/li>
+                    <li><strong>Path Scale</strong> <em>(sidebar only)</em> sets the scale of the path relative to the object size. In the Map Generator you set this directly by resizing the area around your trail</li>
                     <li style="list-style: none; padding: 10px 0;">
                         <img src="images/howto/PathScaleGif.webp" alt="Path Scale setting demonstration" width="800" height="450" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
                     </li>
@@ -243,11 +281,12 @@ page_styles: changelog
             </div>
             <div class="cl-body">
                 <ul>
-                    <li>TrailPrint3D can pull elevation data from several sources, switchable in <strong>Advanced → API</strong>: <strong>Mapterhorn</strong> (default, no setup required), <strong>Terrain-Tiles</strong>, <strong>OpenTopoData</strong>, <strong>Open-Elevation</strong>, and <strong>OpenTopography</strong></li>
+                    <li>TrailPrint3D can pull elevation data from several sources, switchable in the generator's <strong>Settings → Other → Elevation Data</strong> (or <strong>Advanced → API</strong> in the sidebar): <strong>Mapterhorn</strong> (default, no setup required), <strong>Terrain-Tiles</strong>, <strong>OpenTopoData</strong>, <strong>Open-Elevation</strong>, and <strong>OpenTopography</strong></li>
                     <li><strong>OpenTopography</strong> requires a free API key from <a href="https://portal.opentopography.org" target="_blank" rel="noopener">portal.opentopography.org</a> — without it, most datasets will fail to fetch. Set the key once in <strong>Edit → Preferences → Add-ons → TrailPrint3D → OpenTopography API Key</strong></li>
                     <li>If using <strong>OpenTopoData</strong>, pick the <strong>Dataset</strong> that best matches your region for more accurate elevation</li>
                     <li>Elevation and map data both require an internet connection — if generation fails, check your connection or try a different data source</li>
-                    <li>If you see random holes in your terrain mesh, try enabling <strong>disableCache</strong> or clearing the cache with <strong>Clear Cache</strong></li>
+                    <li>You can also use your own <strong>GeoTIFF</strong> elevation file (DEM) as the terrain source</li>
+                    <li>If you see random holes in your terrain mesh, try enabling <strong>Disable Cache</strong> or clearing the cache with <strong>Clear Cache</strong></li>
                 </ul>
             </div>
         </div>
@@ -261,19 +300,31 @@ page_styles: changelog
             </div>
             <div class="cl-body">
                 <ul>
-                    <li>TrailPrint3D automatically fetches map data from <strong>OpenStreetMap</strong> to generate environmental elements around your route</li>
-                    <li><strong>Water</strong>: lakes, rivers, and other bodies of water are generated as raised or recessed areas on the map</li>
-                    <li><strong>Forests</strong>: wooded areas are included as a distinct surface layer</li>
-                    <li><strong>Cities &amp; Settlements</strong>: urban areas are represented on the map</li>
-                    <li><strong>Scree, Glaciers, Farmland &amp; Greenspaces</strong>: also generated automatically, each toggleable individually with its own area/size setting</li>
-                    <li><strong>Buildings</strong> <em>(3D, Experimental)</em>: extrudes building footprints to a configurable height</li>
-                    <li><strong>Roads</strong>: choose which tiers to include (major, medium, small streets) and control their width and height</li>
-                    <li>Element generation works best in well-mapped regions.remote or rural areas may have less OSM data available</li>
-                    <li>You can select from 3 ways to handle the Elements:</li>
-                    <li><strong>PaintOnMap</strong>: Paints the elements directly onto the map surface. Quality is depending on the Map resolution</li>
-                    <li><strong>SeparateObjects</strong>: Exports each element as a separate file</li>
-                    <li><strong>SingleColorMode</strong>: Generates each element as a separate file with cutouts in the map so you can print each object separately and assemble them afterwards</li>
-                    <li><strong>INFO!</strong>: If the map gets too big some elements may no longer work. for a map that covers 100km its too much for the API and for blender to fetch every single forest structure</li>
+                    <li>Map elements are the parts of your map that get their own color, like water, forest or roads</li>
+                    <li>In the generators, the elements sit in the bar at the top of the map. Click an element to switch it on or off (green means on)</li>
+                    <li>Hover over <strong>Water</strong> or <strong>Roads</strong> to choose which kinds to include (e.g. Ponds &amp; Lakes, Small/Big Rivers, Ocean, or Residential Roads)</li>
+                    <li>Click <strong>Settings</strong> to see every option for each element. Changes are saved right away</li>
+                    <li><strong>Element Source</strong>: choose where the elements come from:</li>
+                    <li><strong>OSM</strong> (OpenStreetMap): sharp shapes and includes roads and buildings. Best for smaller maps; gets slower the larger the map</li>
+                    <li><strong>ESA</strong> (ESA WorldCover): made from satellite images. Softer shapes, no roads or buildings, but no map size limit</li>
+                    <li><strong>Water</strong>: lakes, rivers and ocean. <strong>Flatten Water Surface</strong> keeps the water flat instead of following the terrain</li>
+                    <li style="list-style: none; padding: 10px 0;">
+                        <img src="images/howto/FlatttenWater.webp" alt="Flatten Water Surface demonstration" width="800" height="450" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
+                    </li>
+                    <li><strong>Insert (mm)</strong> sinks the water a bit lower than the surrounding terrain</li>
+                    <li style="list-style: none; padding: 10px 0;">
+                        <img src="images/howto/WaterInsert.webp" alt="Water Insert demonstration" width="800" height="450" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
+                    </li>
+                    <li><strong>Forest, Mountain, Scree, City Boundaries, Greenspace, Farmland &amp; Glacier</strong>: each toggleable individually, with an <strong>Area Threshold</strong> to filter out small patches</li>
+                    <li><strong>Buildings</strong>: extrudes building footprints to a configurable height, now with roof shapes</li>
+                    <li><strong>Roads</strong>: choose which road types to include and control their <strong>Width Multiplier</strong> and <strong>Height</strong></li>
+                    <li><strong>Prefetch Elements</strong> (OSM only): loads the elements onto the map before you generate. Click an element on the map to leave it out, or <strong>Shift + drag</strong> a box to switch every element inside it off. <strong>Alt + click</strong> a road to remove the whole road</li>
+                    <li><strong>Print Mode</strong> (in <strong>Settings → Elements</strong>): choose how the elements are printed:</li>
+                    <li><strong>Paint</strong>: paints the elements directly onto the map surface, for multi-color printers. Quality depends on the map resolution</li>
+                    <li><strong>Single Extruder</strong>: makes each element its own printable object with a matching cutout in the map, so you can print each color separately and assemble them afterwards (see <a href="#ht-singlecolor">Single Extruder Mode</a>)</li>
+                    <li><strong>Color Style</strong> (in <strong>Settings → Other</strong>): switch between preset color palettes for terrain, water, forests and the trail</li>
+                    <li>Element generation works best in well-mapped regions. Remote or rural areas may have less OSM data available</li>
+                    <li><strong>INFO!</strong>: With OSM, very large maps can fail to fetch every element. For maps that cover ~100 km or more, switch to <strong>ESA</strong></li>
                 </ul>
             </div>
         </div>
@@ -282,19 +333,26 @@ page_styles: changelog
             <div class="cl-header" onclick="toggleBlock('ht-singlecolor')">
                 <div class="cl-left">
                     <span class="cl-gif-badge">GIF</span>
-                    <span class="cl-title">Single Color Mode</span>
+                    <span class="cl-title">Single Extruder Mode (no multi-color printer)</span>
                 </div>
                 <span class="cl-chevron">▼</span>
             </div>
             <div class="cl-body">
                 <ul>
-                    <li>There are 2 diffrent options for the SingleColorMode. one for the Trail and one for the Elements</li>
-                    <li>You can enable the SingleColorMode for the Trail and still choose to paint the elements onto the map</li>
+                    <li>Single Extruder Mode (formerly Single Color Mode) splits the map into separate pieces you print one color at a time and assemble afterwards</li>
+                    <li>There are 2 different options: one for the Trail and one for the Elements</li>
+                    <li><strong>Trail</strong>: in the generator's <strong>Settings → Map</strong>, set <strong>Trail Appearance</strong> to <strong>Single Extruder Mode</strong>. The other options are <strong>Normal</strong> (trail is its own object) and <strong>Paint Trail</strong> (painted into the map texture)</li>
+                    <li>You can use Single Extruder Mode for the Trail and still choose to paint the elements onto the map</li>
                     <li style="list-style: none; padding: 10px 0;">
-                        <img src="images/howto/SingleColorTrail.webp" alt="Single Color Mode for the Trail demonstration" width="800" height="450" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
+                        <img src="images/howto/SingleColorTrail.webp" alt="Single Extruder Mode for the Trail demonstration" width="800" height="450" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
                     </li>
-                    <li>You can set the Tolerance for the SingleColorMode in the advanced options -> Map. (Default for Trail: 0.2, Default for Elements: 0.4)</li>
-                    <lif><strong>INFO!</strong>: Buildings and Roads are not compatible with SingleColorMode currenlty</lif>
+                    <li><strong>Trail Height</strong> sets how far the trail strip rises above the terrain, and <strong>Tolerance</strong> sets the gap so the trail fits into its cutout</li>
+                    <li style="list-style: none; padding: 10px 0;">
+                        <img src="images/howto/SEM - Trail Height.webp" alt="Single Extruder Mode Trail Height demonstration" width="800" height="450" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
+                    </li>
+                    <li><strong>Elements</strong>: in <strong>Settings → Elements → Print Mode</strong>, select <strong>Single Extruder</strong> and set the <strong>Element Tolerance</strong></li>
+                    <li>Buildings and Roads are supported too. Roads have their own <strong>Cut Tolerance</strong> so the pieces fit</li>
+                    <li>Only available with OSM as the element source</li>
                 </ul>
             </div>
         </div>
@@ -329,7 +387,7 @@ page_styles: changelog
             <div class="cl-body">
                 <ul>
                     <li>All of these are found in <strong>Advanced → Post-processing</strong> and must be exported manually afterward. they're not part of the automatic export</li>
-                    <li><strong>Color Mountains</strong>: automatically colors the terrain by elevation threshold, useful before exporting for multi-color prints</li>
+                    <li><strong>Color by Height</strong>: colors the terrain in stacked height bands, useful for multi-color prints. Works with Single Extruder Mode and textured maps</li>
                     <li><strong>Magnet Holes</strong>: drills holes sized for your own magnets (set <strong>Height</strong> and <strong>Diameter</strong>), handy for multi-tile maps or removable pieces</li>
                     <li><strong>Dovetail Cutouts</strong>: adds interlocking dovetail joints along tile edges, useful when printing a map across multiple tiles</li>
                     <li><strong>Bottom Mark</strong>: engraves a small mark into the bottom face of the map, useful for labeling tiles</li>
@@ -414,9 +472,12 @@ page_styles: changelog
             <div class="cl-body">
                 <ul>
                     <li>Multi-Generation allows you to load <strong>multiple GPX files</strong> and combine them into a single map</li>
-                    <li>Click the folder icon and then select a Folder that contains all the .GPX files you want to put onto the map</li>
+                    <li>In the Map Generator, click <strong>Import GPX</strong> and select several files at once. The area snaps around all trails</li>
+                    <li style="list-style: none; padding: 10px 0;">
+                        <img src="images/howto/PR_MultipleGPX.webp" alt="Map with one GPX trail compared to a map with multiple GPX trails" width="800" height="450" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
+                    </li>
                     <li>Perfect for multi-day hikes, a season of rides, or any collection of routes in the same area</li>
-                    <li>Compatible with the SingleColorMode</li>
+                    <li>Compatible with Single Extruder Mode</li>
                 </ul>
             </div>
         </div>
@@ -425,16 +486,20 @@ page_styles: changelog
             <div class="cl-header" onclick="toggleBlock('ht-terrain')">
                 <div class="cl-left">
                     <span class="cl-version-badge premium">PREMIUM</span>
-                    <span class="cl-title">Terrain Mode &amp; Custom Maps</span>
+                    <span class="cl-title">Multi Tile Generator &amp; Terrain Mode</span>
                 </div>
                 <span class="cl-chevron">▼</span>
             </div>
             <div class="cl-body">
                 <ul>
-                    <li><strong>Terrain</strong> mode generates a map that isn't tied to a GPX trail. useful for custom regional maps</li>
-                    <li>Switch to it with the mode toggle at the top of the <strong>Create</strong> panel</li>
-                    <li>Three ways to define the area: <strong>Center + Radius</strong> (pick a coordinate and radius), <strong>2 Corner Points</strong> (two lat/lon corners), or <strong>From Blank</strong> (create an empty tile, then <strong>Extend Selected Tile</strong> to grow it)</li>
-                    <li>Use the <strong>Multi Tile Configurator</strong> to lay out and generate several tiles at once</li>
+                    <li>Open <strong>TrailPrint3D → Multi Tile Generator</strong> to split a large area into several tiles that fit together</li>
+                    <li>Draw your area, set the <strong>Size</strong>, the number of segments and the spacing, then click <strong>Send to Blender</strong></li>
+                    <li style="list-style: none; padding: 10px 0;">
+                        <img src="images/howto/PR_Multitile.webp" alt="Multi tile map example" width="800" height="450" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
+                    </li>
+                    <li>Import a <strong>GeoJSON</strong> boundary to create multi tile maps in custom shapes, e.g. a whole country</li>
+                    <li>GPX trails can be imported here as well</li>
+                    <li>In the sidebar, <strong>Terrain</strong> mode (mode toggle at the top of the <strong>Create</strong> panel) still offers <strong>Center + Radius</strong>, <strong>2 Corner Points</strong> and <strong>From Blank</strong> (create an empty tile, then <strong>Extend Selected Tile</strong> to grow it)</li>
                     <li>Use <strong>Merge with Map</strong> to combine a GPX trail into an existing custom map, or <strong>Generate Just Trail</strong> to add only the path</li>
                     <li>Great for building city, region, or country-scale maps piece by piece</li>
                 </ul>
@@ -451,10 +516,18 @@ page_styles: changelog
             </div>
             <div class="cl-body">
                 <ul>
-                    <li>Create Jigsaw puzzles of every Location</li>
-                    <li>User Friendly Interactive 2D Map Selection</li>
-                    <li>Found here: Advanced -&gt; Special -&gt; Puzzle Generator</li>
-                    <li>Click the little Pencil icon and draw your selection, Set a few parameters and click <strong>"Send to Blender"</strong></li>
+                    <li>Create jigsaw puzzles of any location</li>
+                    <li>Open <strong>TrailPrint3D → Jigsaw Puzzle Generator</strong></li>
+                    <li>Click the pencil and draw your area, then set the <strong>Size</strong> of the whole puzzle and the <strong>Grid</strong> (columns × rows)</li>
+                    <li style="list-style: none; padding: 10px 0;">
+                        <img src="images/howto/PR_Jigzaw.webp" alt="Jigsaw puzzle map example" width="800" height="450" loading="lazy" decoding="async" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
+                    </li>
+                    <li>Turn on elements to color the puzzle (Buildings and Roads are supported too)</li>
+                    <li>Tick <strong>Generate Holder</strong> to also get a tray for the finished puzzle. Its frame, corners and text are in <strong>Settings → Puzzle</strong></li>
+                    <li>Click <strong>Send to Blender</strong> to generate the pieces</li>
+                    <li>Click <strong>Tutorials</strong> in the generator for a step-by-step guide to a 4 × 4 puzzle</li>
+                    <li><strong>Premium</strong>: <strong>Hexagonal</strong> and <strong>Concentric-Ring</strong> piece shapes</li>
+                    <li><strong>Premium</strong>: <strong>Sliding Puzzle Generator</strong> turns your area into a sliding tile puzzle, with text and Terrain-on-Frame options</li>
                 </ul>
             </div>
         </div>
