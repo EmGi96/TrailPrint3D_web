@@ -99,6 +99,41 @@
         margin-top: 8px;
     }
 
+    .guide-figure {
+        margin: 6px 0 30px;
+    }
+    .guide-figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        border: 1px solid var(--border-accent);
+    }
+    .guide-figure.narrow img {
+        width: auto;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .guide-figure figcaption {
+        font-size: 0.88em;
+        color: var(--text-dim);
+        text-align: center;
+        margin-top: 10px;
+        line-height: 1.5;
+    }
+    .guide-premium {
+        display: inline-block;
+        font-size: 0.75em;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        padding: 1px 8px;
+        border-radius: 999px;
+        background: rgba(var(--premium-rgb),0.1);
+        border: 1px solid rgba(var(--premium-rgb),0.3);
+        color: var(--premium);
+        vertical-align: middle;
+    }
+
     @media (max-width: 560px) {
         .guide-wrap { padding: 100px 20px 60px; }
         .guide-wrap h1 { font-size: 1.6rem; }

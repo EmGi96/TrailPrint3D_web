@@ -1,0 +1,145 @@
+---
+layout: default
+title: "Make a 3D Printed Jigsaw Puzzle Map — TrailPrint3D Tutorial"
+description: "Step-by-step tutorial: turn any place into a 3D printed terrain jigsaw puzzle with real elevation, colored landscape and a matching holder, using the free TrailPrint3D Blender add-on."
+og_title: "Make a 3D Printed Jigsaw Puzzle Map — TrailPrint3D Tutorial"
+og_description: "Turn any place into a 3D printed terrain jigsaw puzzle with real elevation, colored landscape and a matching holder — free with TrailPrint3D."
+og_image: "https://trailprint3d.com/images/jigsaw/jigsaw-puzzle-finished.webp"
+og_url: "https://trailprint3d.com/jigsaw-puzzle.html"
+canonical: "https://trailprint3d.com/jigsaw-puzzle.html"
+page_styles: guide
+---
+
+    <main class="guide-wrap">
+        <h1>How to Make a 3D Printed Jigsaw Puzzle Map</h1>
+        <p class="guide-intro">Turn your favorite mountain, home town or hiking area into a jigsaw puzzle you can actually print: real terrain, colored landscape, interlocking pieces and a holder to keep them in. In this tutorial we build a 4 × 4 puzzle of Mount Fuji.</p>
+
+        <figure class="guide-figure">
+            <img src="/images/jigsaw/jigsaw-puzzle-finished.webp" alt="3D terrain jigsaw puzzle of Mount Fuji with 16 pieces in a black holder" width="1200" height="675" loading="lazy" decoding="async">
+            <figcaption>The finished 4 × 4 Mount Fuji puzzle in its holder, generated with the steps below.</figcaption>
+        </figure>
+
+        <div class="guide-answer">
+            <p><strong>Quick answer:</strong> In Blender, open <strong>TrailPrint3D → Jigsaw Puzzle Generator</strong>, draw your area on the map, set the size and the grid (e.g. 4 × 4), switch on the map elements you want, then click <strong>Generate</strong>. You get one printable file per piece plus a holder. The Jigsaw Puzzle Generator is part of the free version.</p>
+        </div>
+
+        <h2>Before you start</h2>
+        <ul>
+            <li><strong>Blender 5.1 or higher</strong> and the <a href="/download.html">TrailPrint3D add-on</a> installed (see the <a href="/howto.html#ht-install">installation guide</a>).</li>
+            <li>An <strong>export folder</strong>. If you haven't set one yet, the generator asks you for it with a <strong>Select Export Folder</strong> button the first time you open it.</li>
+            <li>Optional: a GPX file, if you want a trail on your puzzle.</li>
+        </ul>
+        <p><em>Note: in version 4.0 the <strong>Generate</strong> button is still called <strong>Send to Blender</strong>. It does the same thing.</em></p>
+
+        <h2>Step 1 — Open the Jigsaw Puzzle Generator</h2>
+        <p>Click the <strong>TrailPrint3D</strong> menu in the top bar of Blender's 3D Viewport and choose <strong>Jigsaw Puzzle Generator</strong>. The generator opens as an interactive map in your browser.</p>
+        <figure class="guide-figure">
+            <img src="/images/howto/GeneratorsLocation.webp" alt="TrailPrint3D menu in the Blender 3D Viewport top bar listing all generators" width="800" height="298" loading="lazy" decoding="async">
+        </figure>
+        <p>The first time you open it, the generator offers an interactive tutorial that walks you through this exact Mount Fuji puzzle on the page itself. You can start it any time with the <strong>Tutorials</strong> button at the top of the map.</p>
+
+        <h2>Step 2 — Draw your area</h2>
+        <ol class="guide-steps">
+            <li><strong>Find your place.</strong> Search for a city or enter coordinates with the location button in the top-right corner, or simply drag and zoom the map. We went to Mount Fuji in Japan, whose big cone makes for great terrain.</li>
+            <li><strong>Click the pencil</strong> on the left and drag a box over the area you want to print.</li>
+            <li><strong>Adjust it.</strong> Drag a corner of the orange box to resize it, or the handle in the middle to move it. Keep the most interesting spot (here the summit) in the middle of the puzzle.</li>
+            <li><strong>Switch to the Topographic layer</strong> (layer button at the bottom left) to see mountains and valleys while you frame your area.</li>
+        </ol>
+        <figure class="guide-figure">
+            <img src="/images/jigsaw/jigsaw-generator-area.webp" alt="Jigsaw Puzzle Generator in the browser showing a 4 by 4 grid of puzzle pieces over Mount Fuji on a topographic map" width="1200" height="675" loading="lazy" decoding="async">
+            <figcaption>The area around Mount Fuji with a 4 × 4 grid. The blue lines are the puzzle cuts, the dashed outline is the holder.</figcaption>
+        </figure>
+
+        <h2>Step 3 — Size, grid and piece shape</h2>
+        <p>All main puzzle settings are in the sidebar on the left. The pieces on the map update live as you change them.</p>
+        <figure class="guide-figure narrow">
+            <img src="/images/jigsaw/jigsaw-generator-sidebar.webp" alt="Jigsaw Puzzle Generator sidebar with Resolution, Size, Grid, Import GPX, Piece Shape and Generate Holder" width="272" height="520" loading="lazy" decoding="async">
+        </figure>
+        <ul>
+            <li><strong>Size (mm)</strong>: the size of the <em>whole</em> puzzle, length × width. We kept <strong>100 × 100</strong>.</li>
+            <li><strong>Grid (cols × rows)</strong>: how many pieces your puzzle has. We set <strong>4 × 4</strong>, which gives 16 pieces of about 25 mm each.</li>
+            <li><strong>Resolution</strong>: how much terrain detail the pieces get. Higher looks sharper but takes longer to generate. The default of <strong>8</strong> gives crisp ridges.</li>
+            <li><strong>Piece Shape</strong>: <strong>Square</strong> pieces make a classic jigsaw puzzle with tabs on every inner edge.</li>
+            <li><span class="guide-premium">Premium</span> <strong>Hexagonal</strong> and <strong>Concentric-Ring</strong> piece shapes.</li>
+            <li><strong>Import GPX</strong>: adds your trail to the puzzle, if you want one.</li>
+        </ul>
+
+        <h2>Step 4 — Color the terrain</h2>
+        <p>Map elements give your puzzle its colors. They are switched on and off in the bar at the top of the map (green means on).</p>
+        <figure class="guide-figure">
+            <img src="/images/jigsaw/jigsaw-elements-bar.webp" alt="Element bar with ESA selected and Forest and Mountain switched on" width="1328" height="56" loading="lazy" decoding="async">
+        </figure>
+        <ul>
+            <li><strong>ESA</strong> colors the terrain from satellite land-cover data. It works for areas of any size and is great for natural landscapes like this one. We used ESA with <strong>Forest</strong> (the lower slopes) and <strong>Mountain</strong> (the bare rock on top).</li>
+            <li><strong>OSM</strong> (OpenStreetMap) has sharper shapes and also includes <strong>roads</strong> and <strong>buildings</strong>, which work on puzzles too. Best for smaller areas like a town.</li>
+        </ul>
+        <p>Puzzles always use the <strong>Paint</strong> print mode: the colors are painted onto each piece, so you'll need a multi-color printer (or to repaint by hand) to print them in color.</p>
+
+        <h2>Step 5 — The holder and fine-tuning</h2>
+        <p><strong>Generate Holder</strong> (in the sidebar) also creates a tray that holds the finished puzzle. Its settings, and the fine-tuning of the pieces themselves, are under <strong>Settings → Puzzle</strong>. Every setting has a <strong>?</strong> with a short explanation and a preview image.</p>
+        <figure class="guide-figure narrow">
+            <img src="/images/jigsaw/jigsaw-settings-puzzle.webp" alt="Advanced Settings, Puzzle tab with Puzzle Pieces and Holder settings" width="830" height="720" loading="lazy" decoding="async">
+        </figure>
+        <h3>Puzzle pieces</h3>
+        <ul>
+            <li><strong>Tab Size</strong>: size of the tabs that interlock the pieces.</li>
+            <li><strong>Jitter</strong>: random variation of the cut lines, so every piece gets its own shape.</li>
+            <li><strong>Seed</strong>: change it to get a different set of piece shapes. The same seed always gives the same pieces.</li>
+            <li><strong>Corner Radius</strong>: rounds the outer corners of the puzzle.</li>
+            <li><strong>Tolerance (mm)</strong>: gap between neighboring pieces (each piece shrinks by half of it). <strong>0.2–0.3 mm</strong> works for most printers.</li>
+        </ul>
+        <h3>Holder</h3>
+        <ul>
+            <li><strong>Frame Thickness</strong> and <strong>Corner Radius</strong>: width and rounding of the frame around the puzzle.</li>
+            <li><strong>Engrave Puzzle Pattern</strong>: engraves the cut pattern into the floor of the holder, so you can see where each piece goes.</li>
+            <li><strong>Terrain on Frame</strong>: continues the terrain onto the frame instead of a flat rim.</li>
+            <li><strong>Text</strong>, <strong>Font</strong> and <strong>Text Size</strong>: a label embossed on the flat rim, like the name of the place.</li>
+        </ul>
+        <figure class="guide-figure">
+            <img src="/images/howto/JigsawTerrainOnFrame.webp" alt="Puzzle holder with Terrain on Frame off (flat black rim) and on (terrain continues onto the frame)" width="800" height="450" loading="lazy" decoding="async">
+            <figcaption>Terrain on Frame off (left) and on (right).</figcaption>
+        </figure>
+        <p>Changes are saved right away. Close the settings when you're done.</p>
+
+        <h2>Step 6 — Generate</h2>
+        <p>Click <strong>Generate</strong>. Blender fetches the elevation and landscape data, builds the terrain and cuts it into pieces. Our 16-piece Fuji puzzle took under a minute. Each piece becomes its own object (<code>A1</code> to <code>D4</code>, row by row) next to the holder, and everything is exported to your export folder automatically.</p>
+        <figure class="guide-figure">
+            <img src="/images/jigsaw/jigsaw-puzzle-piece.webp" alt="Rendered terrain jigsaw puzzle with one corner piece lifted out of the holder" width="1200" height="675" loading="lazy" decoding="async">
+            <figcaption>The generated puzzle in Blender, with one corner piece taken out.</figcaption>
+        </figure>
+
+        <h2>Step 7 — Print it</h2>
+        <ul>
+            <li>Import the exported files into your slicer. With the <a href="https://github.com/Clonephaze/3MF-Blender-Add-on---Maintained" target="_blank" rel="noopener">3mf add-on</a>, everything comes in as one <code>.3mf</code> file with colors already assigned. See <a href="/howto.html#ht-slicer">Import to Slicer</a> for STL and OBJ.</li>
+            <li>Print the pieces flat on the bed. They don't need supports.</li>
+            <li>Print the holder separately, in any color you like.</li>
+            <li>For cleaner color borders and fine details, set the wall generator to <strong>Arachne</strong> (see <a href="/howto.html#ht-slicing-result">Improve Slicing Result</a>).</li>
+            <li>If the pieces are too tight or too loose, adjust <strong>Tolerance</strong> and generate again.</li>
+        </ul>
+
+        <div class="guide-cta">
+            <p>Ready to puzzle your own favorite place?</p>
+            <a href="/download.html" class="btn-primary">⬇ Download TrailPrint3D</a>
+            <a href="/howto.html" class="btn-secondary">How To</a>
+        </div>
+
+        <h2>FAQ</h2>
+        <div class="faq-list guide-faq">
+            <details class="faq-item">
+                <summary>Is the Jigsaw Puzzle Generator free?</summary>
+                <p>Yes. The Jigsaw Puzzle Generator with square pieces, colored terrain and the holder is part of the free version. Hexagonal and concentric-ring pieces, and the Sliding Puzzle Generator, come with <a href="/download.html">Premium</a>.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How many pieces can a puzzle have?</summary>
+                <p>Up to 50 columns and 50 rows. Keep in mind that pieces get small quickly: on a 100 mm puzzle, 4 × 4 gives roughly 25 mm pieces. For more pieces, increase the size too.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Can I put my hiking or cycling route on the puzzle?</summary>
+                <p>Yes. Click <strong>Import GPX</strong> in the generator's sidebar and your trail is printed on the pieces along with the terrain.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Can I print the puzzle with a single-color printer?</summary>
+                <p>Yes, the pieces print fine in one color and still show the terrain in 3D. The landscape colors are painted onto the pieces, so for a colored puzzle you need a multi-color printer. Single Extruder Mode is not available for puzzles.</p>
+            </details>
+        </div>
+    </main>
