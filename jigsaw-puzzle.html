@@ -12,12 +12,35 @@ page_styles: guide
 
     <main class="guide-wrap">
         <h1>How to Make a 3D Printed Jigsaw Puzzle Map</h1>
-        <p class="guide-intro">Turn your favorite mountain, home town or hiking area into a jigsaw puzzle you can print: real terrain, colored landscape, interlocking pieces and a holder to keep them in. This tutorial starts from zero. No Blender or 3D modeling experience needed.</p>
+        <p class="guide-intro">Turn your favorite mountain, home town or hiking area into a jigsaw puzzle you can print: real terrain, colored landscape, interlocking pieces and a holder to keep them in. It's a great weekend project and the perfect personalized gift. This tutorial starts from zero. No Blender or 3D modeling experience needed.</p>
 
-        <figure class="guide-figure">
-            <img src="/images/examples/Canyon%20Puzzle.webp" alt="3D printed Grand Canyon terrain jigsaw puzzle in a black holder with the title Grand Canyon, a few pieces lying beside it" width="1600" height="1067" decoding="async">
-            <figcaption>A printed Grand Canyon puzzle made with the Jigsaw Puzzle Generator.</figcaption>
+        <figure class="guide-carousel" aria-roledescription="carousel" aria-label="Printed puzzle map examples">
+            <div class="guide-carousel-viewport">
+                <div class="guide-carousel-track" tabindex="0" aria-label="Use the arrow keys to switch images">
+                    <div class="guide-carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 4" data-caption="Grand Canyon: a classic square puzzle with the Colorado River and a labeled holder.">
+                        <img src="/images/examples/Canyon%20Puzzle.webp" alt="3D printed Grand Canyon terrain jigsaw puzzle in a black holder with the title Grand Canyon, a few pieces lying beside it" width="1600" height="1067" decoding="async">
+                    </div>
+                    <div class="guide-carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 4" data-caption="Round puzzle with a hiking trail and a lake, in a round holder (Premium piece shape).">
+                        <img src="/images/examples/Round%20Puzzle%20Map.webp" alt="Round 3D printed terrain puzzle with a red hiking trail in a black circular holder, two pieces lying beside it" width="1600" height="1200" loading="lazy" decoding="async">
+                    </div>
+                    <div class="guide-carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 4" data-caption="Hexagonal pieces around a lake, in a white round holder (Premium).">
+                        <img src="/images/examples/Hex-Puzzle%20Map.webp" alt="Close-up of a 3D printed puzzle map with hexagonal pieces showing a blue lake, partly assembled in a white holder with an engraved piece pattern" width="1600" height="1200" loading="lazy" decoding="async">
+                    </div>
+                    <div class="guide-carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 4" data-caption="Coastline puzzle with sea, mountains and a trail, standing in its holder.">
+                        <img src="/images/examples/CoastlinePuzzle.webp" alt="3D printed coastline jigsaw puzzle with blue sea, green and grey terrain and a red trail, standing upright in a black holder with loose pieces in front" width="1600" height="1067" loading="lazy" decoding="async">
+                    </div>
+                </div>
+                <button type="button" class="guide-carousel-btn prev" aria-label="Previous image">‹</button>
+                <button type="button" class="guide-carousel-btn next" aria-label="Next image">›</button>
+            </div>
+            <div class="guide-carousel-dots" role="group" aria-label="Choose image"></div>
+            <figcaption aria-live="polite"></figcaption>
         </figure>
+
+        <div class="guide-gift">
+            <h2>The perfect personalized gift</h2>
+            <p>A puzzle of the place where you met, got engaged, grew up or hiked your first summit makes a gift nobody else can buy. Add the trail of a shared adventure, the name of the place or a date on the holder, and you have a one-of-a-kind present for birthdays, anniversaries, Christmas or anyone who loves the outdoors. And it doubles as a beautiful map on the shelf once it's solved.</p>
+        </div>
 
         <div class="guide-answer">
             <p><strong>Quick answer:</strong> Install the free 3D program <strong>Blender</strong> and the free <strong>TrailPrint3D</strong> add-on. Then open <strong>TrailPrint3D → Jigsaw Puzzle Generator</strong>, draw your area on the map, choose the size and number of pieces, and click <strong>Generate</strong>. You get print-ready files for every piece plus a holder. Total time for your first puzzle: about 15 minutes.</p>
@@ -39,7 +62,7 @@ page_styles: guide
             <li><strong>Open Blender.</strong> If a splash screen appears, click anywhere outside it to close it. You now see Blender's 3D Viewport with a cube in the middle. Don't worry about it, you can leave it there.</li>
             <li><strong>Open the add-on settings.</strong> In the top menu, go to <strong>Edit → Preferences</strong>, then click <strong>Add-ons</strong> in the list on the left.
                 <figure class="guide-figure narrow">
-                    <img src="/images/howto/EditPreferences.webp" alt="Blender Edit menu open with Preferences highlighted" width="363" height="306" loading="lazy" decoding="async">
+                    <img src="/images/howto/editPreferences.webp" alt="Blender Edit menu open with Preferences highlighted" width="363" height="306" loading="lazy" decoding="async">
                 </figure>
             </li>
             <li><strong>Install the add-on.</strong> Click the small <strong>arrow</strong> in the top-right corner of the Add-ons panel, choose <strong>Install from Disk…</strong> and select the TrailPrint3D <code>.zip</code> file you downloaded.
@@ -192,5 +215,61 @@ page_styles: guide
                 <summary>Generation failed or parts of the terrain are missing. What now?</summary>
                 <p>Check your internet connection, since the elevation and landscape data are downloaded during generation. Very large areas with OSM elements can also be too much to fetch; switch to <strong>ESA</strong> or choose a smaller area. More troubleshooting tips are on the <a href="/howto.html">How To</a> page.</p>
             </details>
+            <details class="faq-item">
+                <summary>Is a puzzle map a good gift?</summary>
+                <p>It's one of the most personal gifts you can make: a place that means something to the person, printed in 3D, with their trail, the place name or a date on the holder. Plan a few days ahead, since printing a 16-piece puzzle and its holder takes several hours.</p>
+            </details>
         </div>
     </main>
+
+    <script>
+        (function() {
+            var root = document.querySelector('.guide-carousel');
+            if (!root) return;
+            var track = root.querySelector('.guide-carousel-track');
+            var slides = Array.prototype.slice.call(root.querySelectorAll('.guide-carousel-slide'));
+            var dotsWrap = root.querySelector('.guide-carousel-dots');
+            var caption = root.querySelector('figcaption');
+            var current = 0;
+
+            var dots = slides.map(function(slide, i) {
+                var dot = document.createElement('button');
+                dot.type = 'button';
+                dot.setAttribute('aria-label', 'Show image ' + (i + 1) + ' of ' + slides.length);
+                dot.addEventListener('click', function() { goTo(i); });
+                dotsWrap.appendChild(dot);
+                return dot;
+            });
+
+            function render(i) {
+                current = i;
+                dots.forEach(function(d, j) { d.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+                caption.textContent = slides[i].getAttribute('data-caption') || '';
+            }
+
+            function goTo(i) {
+                i = (i + slides.length) % slides.length;
+                track.scrollTo({ left: slides[i].offsetLeft, behavior: 'smooth' });
+                render(i);
+            }
+
+            root.querySelector('.guide-carousel-btn.prev').addEventListener('click', function() { goTo(current - 1); });
+            root.querySelector('.guide-carousel-btn.next').addEventListener('click', function() { goTo(current + 1); });
+            track.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+                else if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+            });
+
+            // Keep dots/caption in sync when the user swipes or scrolls the track directly.
+            var scrollTimer;
+            track.addEventListener('scroll', function() {
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(function() {
+                    var i = Math.round(track.scrollLeft / track.clientWidth);
+                    if (i !== current && i >= 0 && i < slides.length) render(i);
+                }, 80);
+            });
+
+            render(0);
+        })();
+    </script>

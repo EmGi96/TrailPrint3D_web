@@ -121,6 +121,94 @@
         margin-top: 10px;
         line-height: 1.5;
     }
+    .guide-carousel {
+        margin: 6px 0 30px;
+    }
+    .guide-carousel-viewport {
+        position: relative;
+    }
+    .guide-carousel-track {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        border-radius: 12px;
+        border: 1px solid var(--border-accent);
+        background: #000;
+    }
+    .guide-carousel-track::-webkit-scrollbar { display: none; }
+    .guide-carousel-slide {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+        aspect-ratio: 3 / 2;
+    }
+    .guide-carousel-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .guide-carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.25);
+        background: rgba(0,0,0,0.55);
+        color: #fff;
+        font-size: 1.4rem;
+        line-height: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+    }
+    .guide-carousel-btn:hover { background: rgba(0,0,0,0.8); }
+    .guide-carousel-btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .guide-carousel-btn.prev { left: 12px; }
+    .guide-carousel-btn.next { right: 12px; }
+    .guide-carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 12px;
+    }
+    .guide-carousel-dots button {
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        border-radius: 50%;
+        border: none;
+        background: var(--text-dim);
+        opacity: 0.4;
+        cursor: pointer;
+        transition: opacity 0.2s, background 0.2s;
+    }
+    .guide-carousel-dots button[aria-current="true"] { background: var(--green); opacity: 1; }
+    .guide-carousel-dots button:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .guide-carousel figcaption {
+        font-size: 0.88em;
+        color: var(--text-dim);
+        text-align: center;
+        margin-top: 8px;
+        line-height: 1.5;
+        min-height: 1.5em;
+    }
+
+    .guide-gift {
+        background: var(--glass);
+        border: 1px solid var(--border-accent);
+        border-radius: 12px;
+        padding: 20px 24px;
+        margin: 8px 0 36px;
+    }
+    .guide-gift h2 { margin-top: 0; }
+    .guide-gift p:last-child { margin-bottom: 0; }
+
     .guide-premium {
         display: inline-block;
         font-size: 0.75em;
@@ -138,5 +226,9 @@
         .guide-wrap { padding: 100px 20px 60px; }
         .guide-wrap h1 { font-size: 1.6rem; }
         .guide-cta .btn-primary, .guide-cta .btn-secondary { display: block; margin: 10px auto; width: fit-content; }
+        .guide-carousel-btn { width: 36px; height: 36px; font-size: 1.15rem; }
+        .guide-carousel-btn.prev { left: 8px; }
+        .guide-carousel-btn.next { right: 8px; }
+        .guide-gift { padding: 16px 18px; }
     }
 </style>
